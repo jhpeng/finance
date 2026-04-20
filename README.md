@@ -71,3 +71,62 @@ This repo now includes Codex skills under `skills/`.
   Reads today's `*-focus-log.md` files, builds multi-horizon scenario forecasts for each domain, and saves forecast logs through `daily-report-logger`.
 - `skills/daily-report-logger`
   Saves a final result into `history/daily/mm-dd-yyyy/{report}-log.md` using a uniform markdown format and overwrites the same report for the same date.
+
+## Skill Correlation Figure
+
+The diagram below shows how the skills connect through orchestration and shared daily logs.
+
+```mermaid
+flowchart LR
+  subgraph DomainSkills["Domain Focus Skills"]
+    M["market-focus-topics"]
+    T["tech-focus-topics"]
+    P["political-focus-topics"]
+    S["science-focus-topics"]
+  end
+
+  I["investigate-topics"]
+  F["focus-events-forecast"]
+  L["daily-report-logger"]
+
+  subgraph FocusLogs["Daily Focus Logs"]
+    ML["market-focus-log.md"]
+    TL["tech-focus-log.md"]
+    PL["political-focus-log.md"]
+    SL["science-focus-log.md"]
+  end
+
+  subgraph ForecastLogs["Daily Forecast Logs"]
+    MFL["market-focus-forecast-log.md"]
+    TFL["tech-focus-forecast-log.md"]
+    PFL["political-focus-forecast-log.md"]
+    SFL["science-focus-forecast-log.md"]
+  end
+
+  I --> M
+  I --> T
+  I --> P
+  I --> S
+
+  M --> L
+  T --> L
+  P --> L
+  S --> L
+
+  L --> ML
+  L --> TL
+  L --> PL
+  L --> SL
+
+  ML --> F
+  TL --> F
+  PL --> F
+  SL --> F
+
+  F --> L
+
+  L --> MFL
+  L --> TFL
+  L --> PFL
+  L --> SFL
+```
