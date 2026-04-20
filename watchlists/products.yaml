@@ -1,0 +1,16 @@
+# User-managed list of products to track for price behavior.
+# Keep one item per product under `products`.
+#
+# Suggested fields:
+# - symbol: short identifier or ticker
+# - label: human-readable name
+# - asset_class: stock, etf, index, bond, commodity, crypto, currency, or other
+# - enabled: whether to include the product in future workflows
+#
+# Example:
+# - symbol: SPY
+#   label: SPDR S&P 500 ETF Trust
+#   asset_class: etf
+#   enabled: true
+
+products: []
