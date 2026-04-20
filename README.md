@@ -61,9 +61,13 @@ This repo now includes Codex skills under `skills/`.
   Identifies the market themes getting current attention, ranks them, and ties them to evidence and asset reaction.
 - `skills/tech-focus-topics`
   Identifies the technology themes getting current attention, ranks them, and ties them to evidence and business impact.
-- `skills/politic-focus-topics`
+- `skills/political-focus-topics`
   Identifies the political themes getting current attention, ranks them, and ties them to evidence and policy impact.
 - `skills/science-focus-topics`
   Identifies the science themes getting current attention, ranks them, and ties them to evidence and scientific or downstream impact.
+- `skills/investigate-topics`
+  Orchestrates multiple installed `*-focus-topics` skills, runs them in parallel by domain, and synthesizes the results into one cross-domain brief.
+- `skills/focus-events-forecast`
+  Reads today's `*-focus-log.md` files, builds multi-horizon scenario forecasts for each domain, and saves forecast logs through `daily-report-logger`.
 - `skills/daily-report-logger`
   Saves a final result into `history/daily/mm-dd-yyyy/{report}-log.md` using a uniform markdown format and overwrites the same report for the same date.
