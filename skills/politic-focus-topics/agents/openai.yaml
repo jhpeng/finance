@@ -1,4 +1,0 @@
-interface:
-  display_name: "Political Focus Topics"
-  short_description: "Identify the political themes getting current attention"
-  default_prompt: "Use $politic-focus-topics to identify the political themes driving current attention, explain why they matter, and save the brief with $daily-report-logger."

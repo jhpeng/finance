@@ -1,5 +1,5 @@
 ---
-name: politic-focus-topics
+name: political-focus-topics
 description: Analyze recent political attention and identify the topics, elections, legislative fights, executive actions, court rulings, geopolitical developments, and governing narratives currently driving discussion or policy impact. Use when Codex needs to answer what politics is focused on today or this week, which themes dominate current political news flow, why they matter, or how to summarize live political narratives with up-to-date evidence and source links.
 ---
 
@@ -32,15 +32,15 @@ Explain what politics seems to care about, why now, who is affected, how the foc
 7. Persist the brief with `$daily-report-logger`.
 After the final brief is ready, save it unless the user explicitly says not to persist the result. Use these defaults:
 
-- `report`: `politic-focus`
+- `report`: `political-focus`
 - `title`: `Political Focus`
-- `source_skill`: `politic-focus-topics`
+- `source_skill`: `political-focus-topics`
 - `summary`: 1 to 2 sentences capturing the main political takeaway
 - `request`: the user's original request
-- `output`: the final politic-focus brief
+- `output`: the final political-focus brief
 - `notes`: scope assumptions, date coverage, or `(none)`
 
-Write to `history/daily/mm-dd-yyyy/politic-focus-log.md`. If a log already exists for the same date, overwrite it by calling `$daily-report-logger` again with the updated brief.
+Write to `history/daily/mm-dd-yyyy/political-focus-log.md`. If a log already exists for the same date, overwrite it by calling `$daily-report-logger` again with the updated brief.
 
 When you need a deterministic file write, use:
 
@@ -54,9 +54,9 @@ printf '%s' "$FINAL_BRIEF" > "$tmp_output"
 printf '%s' "$NOTES" > "$tmp_notes"
 
 "/workspaces/finance/skills/daily-report-logger/scripts/write_daily_log.sh" \
-  --report "politic-focus" \
+  --report "political-focus" \
   --title "Political Focus" \
-  --source-skill "politic-focus-topics" \
+  --source-skill "political-focus-topics" \
   --summary "$SUMMARY" \
   --request-file "$tmp_request" \
   --output-file "$tmp_output" \
@@ -75,7 +75,7 @@ printf '%s' "$NOTES" > "$tmp_notes"
 
 ## Output Shape
 
-Return a compact politic-focus brief with these sections:
+Return a compact political-focus brief with these sections:
 
 - `Focus Now`: 3 to 5 ranked themes.
 - `Why It Matters`: one short paragraph per theme covering catalyst, affected actors or institutions, and policy, electoral, or geopolitical implications.
@@ -83,7 +83,7 @@ Return a compact politic-focus brief with these sections:
 - `What Could Change Next`: upcoming votes, hearings, rulings, debates, filing deadlines, summits, speeches, or implementation milestones that could rotate attention.
 - `Confidence`: high, medium, or low based on breadth and recency of evidence.
 
-After returning the brief, save the same final content with `$daily-report-logger` using the default `politic-focus` report key unless the user asks you not to create a log.
+After returning the brief, save the same final content with `$daily-report-logger` using the default `political-focus` report key unless the user asks you not to create a log.
 
 ## Guardrails
 
