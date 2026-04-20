@@ -2,7 +2,7 @@
 report: "market-focus"
 title: "Market Focus"
 log_date: "04-20-2026"
-generated_at_utc: "2026-04-20T14:03:43Z"
+generated_at_utc: "2026-04-20T16:36:32Z"
 source_skill: "market-focus-topics"
 ---
 
@@ -10,58 +10,46 @@ source_skill: "market-focus-topics"
 
 - Report: `market-focus`
 - Date: `04-20-2026`
-- Generated At: `2026-04-20T14:03:43Z`
+- Generated At: `2026-04-20T16:36:32Z`
 - Source Skill: `market-focus-topics`
 
 ## Summary
-Iran/Hormuz headlines remain the top macro driver, but strong early earnings are keeping US equities near records while rates ease off last week’s worst inflation scare. Gold’s resilience alongside high equities suggests investors still want macro hedges rather than a fully clean risk-on regime.
+Markets are still primarily trading the Strait of Hormuz through oil, inflation, and rate expectations, while early earnings and AI-capex signals keep the equity backdrop constructive. The current balance of attention is geopolitics first, Fed repricing second, earnings third, and semis as the key underlying support.
 
 ## Request
-[$market-focus-topics](/workspaces/finance/skills/market-focus-topics/SKILL.md)
+Run a broad investigate-topics scan with no domain or timeframe specified.
 
 ## Output
-Assumptions: default US multi-asset scope because the request did not narrow it; coverage is the last 5 trading days plus the current session, specifically April 13-17, 2026 and the April 20, 2026 US session. Current cross-asset prices below use quotes around 13:42 UTC on April 20, 2026.
+Coverage: April 13, 2026 through April 20, 2026. Default skill scope used: US multi-asset view across major equity indexes, Treasury yields, the US dollar, crude oil, and gold.
 
-## Focus Now
+Focus Now
+1. Strait of Hormuz headline risk is still the market’s top macro driver.
+2. The Fed/rates narrative is being repriced through energy-led inflation risk, not a clean growth scare.
+3. Q1 earnings season is validating the equity rebound, especially through the banks.
+4. AI and semiconductor demand still looks intact underneath the macro noise.
 
-1. Iran/Hormuz headlines are still the main macro tape-driver.
-2. Earnings strength is keeping US equities near record highs even as oil swings around.
-3. The rates market has moved back toward a softer-Fed view, but only as long as the oil shock keeps fading.
-4. Gold is still acting like a hedge, which says investors have not fully bought a clean risk-on story.
+Why It Matters
+1. Oil is still the fastest transmission channel into everything else. When Iran said on April 17, 2026 that the Strait of Hormuz was open to commercial traffic, U.S. crude fell 9.4%, Brent fell 9.1%, the 10-year Treasury yield dropped to 4.24%, and the S&P 500 hit a record. By April 20, 2026, renewed disruption fears had pushed Brent back up 5.1% to $94.98 and the S&P 500 was down 0.4% intraday. That is the market’s clearest live signal: oil drives inflation expectations, rate-cut odds, and leadership between cyclicals and defensives.
+2. The inflation backdrop is still hot enough that higher oil matters immediately. The March CPI release published on April 10, 2026, just before this default coverage window, showed 3.3% year-over-year inflation and a 0.9% monthly increase. Then March PPI on April 14, 2026 rose 0.5% month over month and 4.0% year over year, with energy-heavy goods doing much of the work. Treasury data show yields fell during April 13-17 as ceasefire optimism pulled oil lower, but that move already started to reverse on April 20 as oil rebounded. Inference: with the April 28-29, 2026 FOMC approaching and the Fed’s blackout convention now limiting fresh Fed signaling, each oil and macro headline carries more weight than usual.
+3. Earnings are giving investors permission to stay constructive. JPMorgan reported first-quarter 2026 net income of $16.5 billion, with markets revenue up 20% and investment-banking fees up 28%. Morgan Stanley posted record net revenue of $20.6 billion, and Bank of America highlighted stronger first-quarter results as well. Secondary market coverage repeatedly tied these prints to last week’s record highs, which matters because it says investors are not only trading geopolitics; they are also seeing enough earnings resilience to keep buying risk when oil backs off.
+4. The AI capex story has not broken. TSMC said first-quarter 2026 U.S.-dollar revenue rose 40.6% year over year, and ASML raised its 2026 sales outlook to €36 billion-€40 billion while explicitly pointing to ongoing AI infrastructure demand. That matters because semis remain central to index leadership and help explain why tech stayed supportive through much of last week even while oil and rates dominated the macro tape. The short-term caveat is that semiconductor leadership softens quickly when yields and energy jump together.
 
-## Why It Matters
+Evidence
+- Geopolitics and oil: [AP on April 14, 2026](https://apnews.com/article/9690717f561076a0909f7a5e820f02d6), [AP on April 17, 2026](https://apnews.com/article/50e10bf2aa9b0b658c51e17db3eb3b13), [AP on April 20, 2026](https://apnews.com/article/6786cc283bc5b7cb78a3a9b7b5c2b1ac), [Saxo market quick take on April 20, 2026](https://www.home.saxo/en-sg/content/articles/macro/market-quick-take---20-april-2026-20042026).
+- Inflation and rates: [BLS CPI for March 2026](https://www.bls.gov/news.release/cpi.htm), [BLS PPI for March 2026](https://www.bls.gov/news.release/ppi.nr0.htm), [Fed Beige Book published April 15, 2026](https://www.federalreserve.gov/monetarypolicy/beigebook202604-summary.htm), [U.S. Treasury daily yield curve rates](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve), [Fed April 2026 calendar](https://www.federalreserve.gov/newsevents/2026-04.htm), [FOMC blackout calendar](https://www.federalreserve.gov/monetarypolicy/files/fomc-blackout-period-calendar.pdf).
+- Earnings and financials: [JPMorgan first-quarter 2026 results](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/quarterly-earnings/2026/1st-quarter/a5fd2d13-877b-43b2-8b58-81bad4399c87.pdf), [Bank of America first-quarter 2026 results](https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/04/bank-of-america-reports-first-quarter-2026-financial-results.html), [Morgan Stanley first-quarter 2026 results](https://www.morganstanley.com/about-us-ir/shareholder/1q2026.pdf), [LPL weekly market performance on April 17, 2026](https://www.lpl.com/research/blog/weekly-market-performance-april-17-2026.html), [ATB weekly market update on April 20, 2026](https://www.atb.com/wealth/good-advice/markets/weekly-market-update-april-20-2026/).
+- AI and semis: [TSMC first-quarter 2026 earnings release](https://investor.tsmc.com/english/encrypt/files/encrypt_file/qr/phase4_reports/2026-04/bd8eb0403902fdea59a2f5e390e48d010b50edc9/1Q26%20EarningsRelease_WoG.pdf), [ASML first-quarter 2026 results](https://www.asml.com/en/news/press-releases/2026/q1-2026-financial-results).
 
-**1. Iran/Hormuz and oil**
-The strongest cross-asset signal is still energy and shipping risk tied to the US-Iran conflict. On April 17, 2026, the reopening of the Strait of Hormuz sent oil sharply lower and pushed the S&P 500 to another record; by April 20, 2026, renewed friction around tanker traffic pushed crude back up more than 5% in early trading. Inference from the price action: the market is still using oil as the fastest shorthand for whether the conflict is easing or re-escalating, and that feeds directly into inflation expectations, consumer sentiment, transport costs, and Fed pricing.
+What Could Change Next
+- April 21, 2026: [U.S. Census March 2026 retail sales release](https://www.census.gov/economic-indicators/calendar-listview.html) can decide whether the market reads higher oil as a growth hit or just an inflation problem.
+- April 22, 2026: [Tesla Q1 2026 earnings](https://ir.tesla.com/press-release/tesla-first-quarter-2026-production-deliveries-and-deployments) can move broader growth and EV sentiment.
+- April 28-29, 2026: [FOMC meeting](https://www.federalreserve.gov/newsevents/2026-04.htm) is the next policy pivot point if oil stays elevated or incoming data weaken.
 
-**2. Earnings are cushioning equities**
-US equities are not behaving like a market that sees an immediate growth break. AP’s April 17 coverage said the S&P 500 had risen more than 12% from its late-March low, helped by falling oil and a strong start to earnings season. Big-bank results reinforced that message: JPMorgan reported first-quarter 2026 net income of $16.5 billion on $50.5 billion of revenue, and Bank of America reported first-quarter net income of $8.6 billion. Inference from those results plus current index levels: investors are willing to absorb geopolitical noise as long as guidance does not roll over.
+Confidence
+Medium. Evidence is broad and fresh across primary releases, official market data, and current market reporting, but April 20, 2026 is still an in-progress session and Hormuz headlines are producing unusually fast reversals in oil, yields, and equity leadership.
 
-**3. Rates/Fed pricing has softened, but it is fragile**
-Treasury yields eased as the immediate oil shock faded last week. The Fed’s H.15 release on April 16, 2026 showed the 10-year Treasury yield moving from 4.31% on April 10 to 4.26% on April 14 before ticking back to 4.29% on April 15; the 2-year moved from 3.81% to 3.76% over the same window. The April 16 industrial production report was soft in March (-0.5% month over month for total IP, -0.1% for manufacturing), but first-quarter output still grew. Inference: the market has shifted away from the worst inflation scare from early April, but this is not a durable dovish regime unless oil stays contained and incoming activity data cools without breaking.
-
-**4. Gold remains elevated because macro hedging demand is still alive**
-Gold has not fully given back its safe-haven bid even while stocks sit near highs. That coexistence matters: it suggests investors are participating in the equity rally without abandoning protection against renewed geopolitical stress, policy uncertainty, or another inflation leg. On April 20, 2026 around 13:42 UTC, GLD was down 0.75% intraday while USO was up 3.57%, which fits a market rotating risk appetite headline by headline rather than settling into a stable reflation or disinflation view.
-
-## Evidence
-
-- **April 15, 2026 Fed Beige Book:** overall activity increased at a slight to modest pace in 8 of 12 districts, but the Middle East conflict was cited as a major source of uncertainty; energy and fuel costs rose sharply in all districts. Source: [Federal Reserve Beige Book, April 15, 2026](https://www.federalreserve.gov/monetarypolicy/beigebook202604.htm).
-- **April 16, 2026 industrial production:** total industrial production fell 0.5% in March, manufacturing slipped 0.1%, and capacity utilization fell to 75.7%. Source: [Federal Reserve G.17, April 16, 2026](https://www.federalreserve.gov/releases/g17/20260416/g17.pdf).
-- **April 16, 2026 H.15 rates:** 10-year Treasury yield was 4.31% on April 10, 4.26% on April 14, and 4.29% on April 15; 2-year moved from 3.81% to 3.76%. Source: [Federal Reserve H.15, released April 16, 2026](https://www.federalreserve.gov/releases/h15/).
-- **April 14-17, 2026 market narrative:** hopes for renewed US-Iran talks helped oil ease and stocks rally on April 14; the Strait reopening on April 17 helped oil drop 9% and pushed US stocks to another record. Sources: [AP, April 14](https://apnews.com/article/9690717f561076a0909f7a5e820f02d6), [AP, April 17](https://apnews.com/article/50e10bf2aa9b0b658c51e17db3eb3b13).
-- **April 14-15, 2026 earnings support:** AP said the biggest US banks posted strong profits despite warning about energy-price and geopolitical risks; JPMorgan’s investor materials showed $16.5 billion of net income and $50.5 billion of revenue; Bank of America filed first-quarter net income of $8.6 billion. Sources: [AP, April 14](https://apnews.com/article/20e472331deb22afb58c31d93d0ab497), [JPMorgan 1Q26 results](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/quarterly-earnings/2026/1st-quarter/ba305358-f754-4f76-a59d-5278b3bcf99a.pdf), [Bank of America 8-K, April 15, 2026](https://investor.bankofamerica.com/regulatory-and-other-filings/select-sec-filings/content/0000070858-26-000222/0000070858-26-000222.pdf).
-- **April 20, 2026 current session:** AP reported crude up about 5.3% after renewed Hormuz tension while Wall Street stayed near records; around 13:42 UTC, SPY was 708.80 (-0.19%), QQQ 646.97 (-0.29%), TLT 87.03 (-0.05%), GLD 442.59 (-0.75%), USO 120.18 (+3.57%), UUP 27.34 (-0.07%), and BTC $75,079 (-1.14%). Sources: [AP, April 20](https://apnews.com/article/6786cc283bc5b7cb78a3a9b7b5c2b1ac), [AP, April 20 oil/talks update](https://apnews.com/article/9df061160b3b8f377996564fdc5baf05).
-
-## What Could Change Next
-
-- **April 21, 2026 at 8:30 a.m. EDT:** March retail sales release. If consumer spending is hot, the softer-yields/rate-cut story likely weakens. Source: [US Census retail release schedule](https://www.census.gov/retail/release_schedule.html).
-- **April 21, 2026 at 10:00 a.m. ET:** Senate Banking hearing for Kevin Warsh’s nomination to chair the Fed. This is a live policy-credibility event for rates markets even if no immediate policy change follows. Source: [Senate Banking Committee hearing notice](https://www.banking.senate.gov/hearings/04/14/2026/nomination-hearing).
-- **April 22, 2026:** Treasury’s 20-year bond auction and Tesla’s first-quarter 2026 earnings after the close. That combination matters for duration sentiment and for whether growth/AI/cyclical leadership stays intact. Sources: [Treasury auction schedule](https://home.treasury.gov/system/files/221/TentativeAuctionScheduleQ42025.pdf), [Tesla IR](https://ir.tesla.com/press-release/tesla-first-quarter-2026-production-deliveries-and-deployments).
-- **April 28-29, 2026:** next FOMC meeting. Even before the decision, the market will keep trading every oil, data, and Fed-leadership headline through that lens. Source: [Federal Reserve April 2026 calendar](https://www.federalreserve.gov/newsevents/2026-04.htm).
-
-## Confidence
-
-**Medium.** The evidence breadth is good across official releases, market data, and repeated news coverage, but the top theme is a geopolitics-driven oil narrative that can reverse intraday on headlines.
+Caveat
+The inflation/Fed theme partly relies on the March CPI release from April 10, 2026, which sits just outside the default April 13-20, 2026 coverage window, but it is still materially shaping how markets are interpreting this week’s oil and rates moves.
 
 ## Notes
-Defaulted to a US multi-asset brief. Date coverage: April 13-20, 2026, with current cross-asset snapshot around 13:42 UTC on April 20, 2026.
+Default market-focus scope used. Coverage dates: April 13, 2026 through April 20, 2026. Market domain only. Caveat: April 20, 2026 session is still in progress; one supporting inflation source (CPI on April 10, 2026) falls just outside the default window.
