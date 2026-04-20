@@ -2,7 +2,7 @@
 report: "market-focus-forecast"
 title: "Market Focus Forecast"
 log_date: "04-20-2026"
-generated_at_utc: "2026-04-20T17:12:08Z"
+generated_at_utc: "2026-04-20T20:42:37Z"
 source_skill: "focus-events-forecast"
 ---
 
@@ -10,56 +10,118 @@ source_skill: "focus-events-forecast"
 
 - Report: `market-focus-forecast`
 - Date: `04-20-2026`
-- Generated At: `2026-04-20T17:12:08Z`
+- Generated At: `2026-04-20T20:42:37Z`
 - Source Skill: `focus-events-forecast`
 
 ## Summary
-Lead path is messy containment: Hormuz risk keeps oil elevated and the Fed cautious through late April and early May, but earnings resilience and AI capex prevent a full risk-off unwind. The main uncertainty is whether the April 21-22, 2026 ceasefire deadline produces enough shipping normalization to collapse the oil premium again.
+Lead case: Hormuz stays contested but not closed, keeping crude elevated into the late-April FOMC while earnings limit equity downside. Main uncertainty: whether shipping normalizes quickly or a fresh disruption pushes oil above $100 and forces a harder stagflation repricing.
 
 ## Request
-Run focus-events-forecast for today's available focus logs.
+Run the daily research pipeline for the exact UTC date 2026-04-20. This is the focus-events-forecast step only.
+
+Source log:
+- Report key: market-focus
+- Path: /workspaces/finance/history/daily/04-20-2026/market-focus-log.md
+- Requested date: 2026-04-20
+
+Forecast requirements:
+1. Read the source log and extract the current situation, major drivers, catalysts, evidence window, and caveats.
+2. Use the source log as the baseline state unless it is stale or the user explicitly wants a live refresh.
+3. Produce four horizon sections: 1 week, 1 month, 3 months, and 1 year.
+4. For each horizon, create 2 to 4 mutually exclusive scenarios with probabilities that sum to 100% for that horizon.
+5. Keep scenario labels event-driven and specific. Explain why each path is plausible and what signals would confirm or weaken it.
+6. Open /workspaces/finance/skills/focus-events-forecast/references/scenario-forecast-framework.md if you want a reusable scenario and probability rubric.
+7. Save the final forecast with $daily-report-logger at /workspaces/finance/skills/daily-report-logger using report key market-focus-forecast.
 
 ## Output
-Current Situation
-Sourced baseline from the April 20, 2026 market focus log: market attention is centered on Strait of Hormuz headline risk, energy-led inflation and Fed repricing, strong early bank earnings, and still-intact AI and semiconductor demand. Because that log explicitly said the April 20, 2026 session was still in progress and fast-moving, I did a light refresh on the unstable facts only. [AP on April 20, 2026](https://apnews.com/article/stocks-markets-oil-iran-trump-6786cc283bc5b7cb78a3a9b7b5c2b1ac) reported that by 11:00 a.m. Eastern Time the S&P 500 was down 0.4% from its record high and Brent crude was up 5.1% to $94.98 after the United States seized an Iranian-flagged cargo vessel. [Reuters via Yahoo on April 20, 2026](https://finance.yahoo.com/economy/policy/articles/treasuries-slip-renewed-ceasefire-tensions-095951527.html) said the 10-year Treasury yield had risen to about 4.27% and highlighted the ceasefire deadline due on April 21, 2026 at 8:00 p.m. Eastern Time. Inference: markets still see oil as the fastest transmission channel into inflation, rates, and sector leadership, but earnings resilience and AI capex are preventing a full demand-scare regime. Evidence window: April 13, 2026 through April 20, 2026, plus the limited April 20, 2026 refresh. Caveats: the session was still live on April 20, 2026, and part of the inflation framing still depends on the March CPI release published on April 10, 2026.
+## Current Situation
+Baseline facts are taken from the same-day source log for 2026-04-20, with no live refresh. Market attention is centered on whether renewed Strait of Hormuz disruption keeps Brent near the mid-$90s and feeds a longer Fed hold into the 2026-04-28 to 2026-04-29 FOMC, while strong bank and semiconductor earnings keep U.S. equities close to records. The major drivers are Hormuz shipping status, crude and inflation expectations, Fed communication, and whether earnings strength broadens beyond banks and AI semiconductors. The named near-term catalysts are the 2026-04-22 20-year Treasury auction, the 2026-04-23 5-year TIPS auction, Tesla earnings on 2026-04-22, Intel earnings on 2026-04-23, April flash PMIs, and any change in U.S.-Iran or shipping arrangements. The evidence window is 2026-04-13 through 2026-04-20 UTC. The main caveat is that the source log itself rates confidence as medium because theme ranking is highly sensitive to intraday Hormuz headlines.
 
-Forecast Horizons
-1 week (through April 27, 2026)
-- `Ceasefire extended and tanker traffic normalizes before April 22` (`40%`): Reasoning: the source log already showed investors willing to chase risk back to record highs once shipping looked passable, and the refreshed April 20 move was relatively contained versus earlier war swings. This path implies oil gives back most of Monday's rebound, rate-cut hopes partly recover, and semis plus banks resume leadership. Signposts: confirm if Brent falls back below $90, the 10-year yield moves back toward the 4.22% to 4.25% area, tanker flow headlines improve, and Tesla or other large earnings do not inject a new growth shock; weaken if vessel seizures or retaliation continue.
-- `Deadline passes without a full deal, but conflict stays contained` (`35%`): Reasoning: this is the messy-middle path where both sides avoid the worst economic outcome, yet neither offers enough trust or implementation detail to collapse the oil premium. Equities would likely chop below highs, with energy and defensives outperforming while mega-cap tech and banks keep the index from breaking decisively lower. Signposts: confirm if Brent stays roughly in the $90 to $100 range, the S&P 500 holds up better than airlines and transports, and headlines mention talks or backchannels without a durable shipping framework; weaken if there is either a clear extension deal or an obvious military escalation.
-- `Ceasefire breaks and Hormuz disruption re-accelerates` (`25%`): Reasoning: the April 20 refresh shows the market still reacts immediately to shipping or seizure news, so another breakdown could quickly bring back the inflation shock and broader risk-off pricing seen earlier in the war. This path would pressure margins, hurt cyclicals, and likely broaden the equity drawdown beyond the current giveback. Signposts: confirm if Brent breaks above $100, tanker transits stall again, the dollar and gold catch a fresh safety bid, and the S&P 500 loses support rather than stabilizing; weaken if Pakistan talks resume quickly or both sides issue de-escalatory shipping guidance.
+## Forecast Horizons
 
-1 month (through May 20, 2026)
-- `April 28-29 FOMC stays patient as oil eases and earnings carry the tape` (`35%`): Reasoning: if late-April geopolitics cool and earnings keep beating, the Fed can stay cautious without sounding more hawkish, allowing equities to treat the energy shock as a temporary interruption rather than a regime shift. This would favor semis, cyclicals, and rate-sensitive growth. Signposts: confirm if retail sales and PMIs are decent, late-April earnings guidance stays constructive, oil trends down through the second half of April, and Treasury yields stop backing up; weaken if crude re-accelerates or the FOMC stresses inflation persistence more forcefully.
-- `Oil stays elevated into May and Fed repricing hardens` (`40%`): Reasoning: this is the highest-probability one-month path because it only requires partial de-escalation, not a clean settlement. The market would keep discounting a stickier inflation pulse from energy, pushing the Fed toward a more patient stance on cuts while equity leadership narrows to energy, quality tech, and strong-balance-sheet financials. Signposts: confirm if Brent holds above the low-$90s, the 10-year yield remains elevated versus April 17 levels, the FOMC emphasizes uncertainty around energy and inflation, and analyst revisions turn more selective by sector; weaken if shipping normalizes enough to crush the oil premium.
-- `Late-April data and earnings reveal a growth hit before oil fully normalizes` (`25%`): Reasoning: higher energy can morph from an inflation problem into a demand problem if retail sales, PMIs, or bellwether earnings show weaker consumption and margin stress. In that case yields could fall for the wrong reason, and the market would shift from simple sector rotation into a broader earnings-risk conversation. Signposts: confirm if consumer or transport names cut guidance, airlines and discretionary stocks underperform sharply, and yields fall even while oil stays high; weaken if household spending and corporate commentary remain resilient.
+### 1 Week
 
-3 months (through July 20, 2026)
-- `Conflict settles into managed instability with a persistent oil risk premium` (`45%`): Reasoning: this is the most plausible medium-term path because the source log already showed investors adapting to repeated reversals instead of repricing a permanent catastrophe each time. Oil would stay above pre-crisis norms, the Fed would remain cautious, and equities could still grind higher in a narrow way led by AI beneficiaries, major banks, energy, and select defensives. Signposts: confirm if tanker traffic is uneven but functional, oil stays elevated without retesting the worst highs, and earnings revisions remain positive only for a narrower leadership group; weaken if either a durable peace deal or a fresh supply shock changes the macro regime.
-- `Diplomatic reset restores flows and revives the disinflation trade` (`30%`): Reasoning: a later but credible settlement would let the market unwind the geopolitical premium more fully than a one-week bounce could, reopening room for lower yields, broader breadth, and stronger participation outside the current winners. This would be especially supportive for small caps, housing-sensitive groups, and cyclicals. Signposts: confirm if multiple weeks of uninterrupted shipping follow a formal agreement, oil drifts back toward the $80s, and Fed-cut expectations rebuild without ugly growth data; weaken if talks repeatedly slip or enforcement stays ambiguous.
-- `Supply disruption turns into a stagflation rotation` (`25%`): Reasoning: if shipping stays impaired long enough to tighten physical balances and keep inflation expectations hot, the market would start to treat 2026 as a higher-cost, lower-multiple year instead of a temporary shock. Equities could become more index-flat but internally harsher, with energy and materials outperforming while consumer and transport groups absorb the squeeze. Signposts: confirm if oil inventories tighten, inflation expectations move higher, margin warnings spread beyond fuel-intensive industries, and the Fed stays sidelined; weaken if supply normalizes before those second-order effects accumulate.
+**Scenario 1: Hormuz traffic stays contested but not shut into FOMC week** 45%
+- Why this path is plausible: This is the cleanest continuation of the baseline. The source log already shows a market willing to keep stocks near highs while oil prices absorb most of the geopolitical premium, which argues for elevated but not panic-level stress over the next several sessions.
+- Signals that confirm: Brent holds roughly in the $90 to $100 range, tanker traffic remains uneven rather than frozen, breakevens stay firm, and equities remain mixed with leadership concentrated in energy, banks, and AI-linked names.
+- Signals that weaken: Clear official confirmation that shipping has normalized, or a sharp drop in crude and implied volatility without a corresponding growth scare.
 
-1 year (through April 20, 2027)
-- `Equities adapt to a higher energy floor while AI capex stays the secular winner` (`35%`): Reasoning: the log's combination of durable AI demand and strong earnings argues that the market can absorb a moderately worse energy backdrop if the shock stops short of a full recession. That would mean lower valuation upside than a clean peace outcome, but still a constructive index path with leadership concentrated in semis, infrastructure, quality large caps, and cash-generative financials. Signposts: confirm if AI capex guidance remains strong across multiple quarters, earnings growth stays positive despite a somewhat firmer inflation floor, and oil avoids a fresh structural spike; weaken if energy costs start breaking demand or capex plans.
-- `Durable settlement removes the oil overhang and broadens the bull market` (`30%`): Reasoning: a true normalization of Gulf shipping and regional tensions would remove the biggest macro overhang identified in the source log, giving the market room to rotate from narrow leadership into a broader cyclical advance. Lower oil and easier inflation optics would also restore a friendlier policy backdrop. Signposts: confirm if diplomatic arrangements hold for months, shipping insurance and transit normalize, and lagging sectors outperform without recessionary data; weaken if flare-ups keep reintroducing supply-risk premiums.
-- `Energy-security regime shift keeps inflation sticky and caps equity multiples` (`25%`): Reasoning: the longer-term risk is not a one-off spike but a structural repricing of energy security, shipping friction, and defense or supply-chain spending. In that regime, nominal growth could stay okay while valuations stay constrained, favoring energy, defense, infrastructure, and hard-asset exposure over duration-heavy growth outside the AI leaders. Signposts: confirm if governments and firms lock in higher inventories, reroute supply chains, or commit sustained energy-security capex, and if inflation stays harder to push down; weaken if the crisis fades without institutional follow-through.
-- `Delayed slowdown or policy mistake breaks the rebound` (`10%`): Reasoning: this lower-probability but important downside path requires the current oil and rates mix to erode demand over time or the Fed to stay too tight into a softening economy. That would likely turn today's contained volatility into a more traditional earnings recession setup by early 2027. Signposts: confirm if unemployment rises, earnings revisions turn broadly negative, defaults climb, and rate cuts arrive only after growth has already rolled over; weaken if earnings and credit stay resilient.
+**Scenario 2: Shipping headlines improve and earnings broaden the rally** 35%
+- Why this path is plausible: The source log shows that even a partial all-clear on 2026-04-17 produced a sharp oil retracement and an equity record. If Tesla, Intel, and flash PMI data avoid a macro disappointment, investors can quickly rotate back toward a cleaner risk-on narrative.
+- Signals that confirm: Brent falls back toward the mid-$80s, Tesla and Intel guidance is at least stable, PMIs do not show a severe demand hit, and breadth improves beyond banks and semis.
+- Signals that weaken: Another round of tanker restrictions, weaker PMIs, or earnings guidance that points to margin pressure from energy and freight costs.
 
-Most Likely Path
-The highest-probability path across the next week and month is messy containment rather than either clean peace or full re-escalation. That means the April 21-22, 2026 deadline likely produces more brinkmanship than resolution, keeping Brent elevated enough to harden late-April Fed repricing, while strong bank earnings and still-solid AI capex demand limit the damage unless shipping disruption worsens materially.
+**Scenario 3: Fresh disruption pushes crude through $100 and risk assets reprice** 20%
+- Why this path is plausible: The source log makes clear that the market's top cross-asset driver is event risk around the Strait. A new enforcement change, tanker incident, or rhetoric escalation could quickly overwhelm the earnings cushion and force a stagflation repricing.
+- Signals that confirm: Brent decisively breaks above $100, VIX-linked hedges and gold outperform, long-duration Treasuries fail to rally much despite equity weakness, and cyclical equities roll over.
+- Signals that weaken: Stable shipping flow data, quieter rhetoric, and orderly Treasury auctions.
 
-Markers To Watch
-- April 21, 2026 at 8:00 p.m. Eastern Time: ceasefire expiry and any Pakistan negotiation headlines.
-- Brent and WTI behavior around the $90 and $100 levels, plus any evidence of improving or worsening tanker traffic through the Strait of Hormuz.
-- April 21, 2026 retail sales and late-April PMI releases for the growth-versus-inflation split.
-- April 21-24, 2026 earnings breadth, especially Tesla, UnitedHealth, and any semiconductor or AI-infrastructure guidance that tests the resilience thesis.
-- April 28-29, 2026 FOMC messaging and whether Treasury yields revisit the April 17, 2026 lows or continue to reprice higher.
+### 1 Month
 
-Confidence
-Medium. The baseline evidence is fresh and internally consistent, but the forecast is unusually sensitive to binary geopolitical headlines and same-day market reversals.
+**Scenario 1: Fed holds and frames the oil shock as a risk, not a regime break** 40%
+- Why this path is plausible: By late May, the most likely moderate outcome is still a no-cut, no-hike Fed that acknowledges energy-driven inflation risk while waiting for more data. That fits the source log's picture of sticky inflation pressure offset by resilient earnings and not-yet-broken growth.
+- Signals that confirm: The 2026-04-28 to 2026-04-29 FOMC emphasizes patience, PMIs and payroll-like growth data stay mixed but not recessionary, and crude drifts lower or stabilizes without a new supply shock.
+- Signals that weaken: A sustained move higher in oil and inflation expectations, or a rapid drop in activity data that turns the conversation toward growth damage instead.
+
+**Scenario 2: Persistent oil premium hardens the longer-hold narrative and narrows leadership** 35%
+- Why this path is plausible: If Hormuz risk remains unresolved for several more weeks, the market can move from treating it as headline risk to treating it as a genuine inflation problem. In that setup, equity indexes may hold up poorly underneath the surface while energy, defensives, and short-duration exposures outperform.
+- Signals that confirm: Brent remains near or above the low-$90s, inflation compensation rises, the Fed's language turns more concerned about upside inflation risk, and cyclicals outside energy lag.
+- Signals that weaken: Faster supply normalization, softer inflation measures, or a broader earnings rebound that absorbs the macro shock.
+
+**Scenario 3: Demand scare replaces supply scare after weak data and guidance** 25%
+- Why this path is plausible: The source log explicitly highlights PMIs and earnings breadth as swing factors. If those disappoint, the market may stop worrying mainly about inflation and start worrying about growth, which would pull oil lower and support duration even as equities correct.
+- Signals that confirm: Flash PMIs weaken materially, corporate guidance turns cautious on demand, credit spreads widen, and crude falls because demand expectations deteriorate.
+- Signals that weaken: Resilient activity data, steady consumer and capex commentary, and stable credit conditions.
+
+### 3 Months
+
+**Scenario 1: Summer normalization eases the shock and broadens the equity tape** 35%
+- Why this path is plausible: Three months is enough time for partial shipping normalization, inventory adjustment, and a reset in inflation fears if the geopolitical flare-up does not intensify. That would let the market re-center on earnings, AI capex, and still-resilient financial conditions.
+- Signals that confirm: Brent trends back toward pre-shock ranges, PMIs stabilize, long yields stop rising on inflation fear, and leadership broadens from banks and semis into transports, industrials, and consumer cyclicals.
+- Signals that weaken: Repeated shipping disruptions or second-order inflation pressure showing up in core pricing and margins.
+
+**Scenario 2: Gulf friction becomes a medium-term stagflation overhang** 40%
+- Why this path is plausible: This is the lead medium-term risk because it matches the source log's core tension: strong earnings against a fragile macro backdrop. Oil does not need to spike endlessly; it only needs to stay high enough long enough to keep the Fed sidelined and limit valuation expansion.
+- Signals that confirm: Oil remains structurally elevated, inflation expectations stay sticky, the Fed remains firmly on hold, and equity gains are concentrated in energy, mega-cap quality, and select defensives.
+- Signals that weaken: Visible freight normalization, declining breakevens, and a sustained improvement in market breadth.
+
+**Scenario 3: Growth damage dominates and the market rotates into bonds and defensives** 25%
+- Why this path is plausible: Over a quarter, higher fuel and transport costs can squeeze consumers and margins enough to matter. If the macro drag compounds with weaker follow-through in earnings, investors could favor duration, defensives, and lower-beta exposures over cyclicals and small caps.
+- Signals that confirm: Successive soft activity readings, lower analyst earnings revisions, falling crude tied to weaker demand rather than better supply, and stronger performance from Treasuries and defensive sectors.
+- Signals that weaken: Stable demand indicators, resilient revisions, and improving cyclical leadership.
+
+### 1 Year
+
+**Scenario 1: The 2026 oil shock fades and markets return to a growth-led regime** 40%
+- Why this path is plausible: One year is long enough for temporary shipping and geopolitical disruptions to ease, for supply chains to adjust, and for the market to look through the episode if earnings and capex remain healthy. In that regime, the main legacy of the 2026 spring shock would be a temporary valuation interruption rather than a structural break.
+- Signals that confirm: Energy prices normalize, inflation resumes a clearer downtrend, Fed policy eventually shifts less restrictive, and cyclical plus growth leadership broadens materially.
+- Signals that weaken: Recurrent Middle East supply scares or evidence that inflation and term premiums remain durably elevated.
+
+**Scenario 2: Chronic Gulf insecurity locks in a higher-energy, higher-rate market regime** 35%
+- Why this path is plausible: If recurring Strait disruptions persist, the market could spend the next year in a structurally less comfortable mix of higher energy costs, more cautious central banks, and narrower equity leadership. That would favor real assets, cash-generative quality, and selective commodity-linked exposures.
+- Signals that confirm: Repeated disruptions or sanctions-related friction, inflation settling above the prior trend, real assets outperforming, and the Fed unable to pivot meaningfully.
+- Signals that weaken: Durable geopolitical de-escalation and a sustained decline in inflation expectations.
+
+**Scenario 3: The shock contributes to a broader global slowdown and earnings reset** 25%
+- Why this path is plausible: The source log cites the IMF downgrade and the risk that fuel and fertilizer shortages hurt growth. If that drag compounds with tighter financial conditions or weaker trade, the next year could feature lower earnings expectations and a more defensive market structure.
+- Signals that confirm: Global growth forecasts keep falling, earnings revisions turn broadly negative, credit stress grows, and safe-haven bonds outperform risk assets over time.
+- Signals that weaken: Better global activity data, healthy corporate investment, and steady labor-demand indicators.
+
+## Most Likely Path
+The most likely near-term path is a contested-but-not-closed Strait backdrop that keeps crude elevated into the late-April FOMC while earnings prevent a full equity unwind. That favors a choppy tape rather than a clean breakout or a full risk-off cascade, with sector leadership staying narrow until shipping conditions and inflation expectations improve.
+
+## Markers To Watch
+- Official confirmation of Strait of Hormuz shipping conditions, tanker access rules, and any U.S.-Iran enforcement changes.
+- Brent and WTI behavior relative to the recent mid-$90s Brent spike and whether the move spreads into breakevens and freight-sensitive pricing.
+- The 2026-04-22 20-year Treasury auction and 2026-04-23 5-year TIPS auction for signs that term premium or inflation compensation is repricing.
+- Tesla and Intel guidance as tests of whether the earnings cushion broadens beyond banks and leading semiconductors.
+- April flash PMIs and then the 2026-04-28 to 2026-04-29 FOMC for evidence that the market is migrating from headline risk to a more durable stagflation or slowdown narrative.
+
+## Confidence
+Medium. The baseline is well supported by the same-day source log, but near-term probabilities remain highly sensitive to fast-moving Hormuz headlines that were explicitly identified as the dominant caveat in the source material.
 
 ## Notes
 Source log path: /workspaces/finance/history/daily/04-20-2026/market-focus-log.md
 Source log date: 04-20-2026
-Refresh status: light refresh completed on April 20, 2026 for unstable same-day facts only because the source log said the session was still in progress; refreshed facts used AP market update and Reuters via Yahoo Treasury/oil update.
-Extra: (none)
+Refresh status: No live refresh. Same-day source log used as baseline.
+Notes: Confidence is limited by headline sensitivity around Strait of Hormuz developments.

@@ -2,7 +2,7 @@
 report: "tech-focus-forecast"
 title: "Tech Focus Forecast"
 log_date: "04-20-2026"
-generated_at_utc: "2026-04-20T17:10:46Z"
+generated_at_utc: "2026-04-20T20:43:11Z"
 source_skill: "focus-events-forecast"
 ---
 
@@ -10,115 +10,145 @@ source_skill: "focus-events-forecast"
 
 - Report: `tech-focus-forecast`
 - Date: `04-20-2026`
-- Generated At: `2026-04-20T17:10:46Z`
+- Generated At: `2026-04-20T20:43:11Z`
 - Source Skill: `focus-events-forecast`
 
 ## Summary
-The highest-probability path is that enterprise distribution of frontier AI and silicon-capacity reservation remain the dominant tech narrative through the next quarter, reinforced by Google Cloud Next and the next TSMC demand read. The main uncertainty is whether cyber-risk and policy controls tighten faster than workflow adoption broadens.
+Base case: Google Cloud Next extends the AI-buildout narrative while security fallout remains contained enough not to displace it. Main uncertainty: whether broader Vercel/Context.ai fallout or stronger inference-chip follow-through changes which theme dominates over the next month.
 
 ## Request
-Run focus-events-forecast for today's available focus logs.
+Run the daily research pipeline for the exact UTC date 2026-04-20. This is the focus-events-forecast step only.
+
+Source log:
+- Report key: tech-focus
+- Path: /workspaces/finance/history/daily/04-20-2026/tech-focus-log.md
+- Requested date: 2026-04-20
+
+Forecast requirements:
+1. Read the source log and extract the current situation, major drivers, catalysts, evidence window, and caveats.
+2. Use the source log as the baseline state unless it is stale or the user explicitly wants a live refresh.
+3. Produce four horizon sections: 1 week, 1 month, 3 months, and 1 year.
+4. For each horizon, create 2 to 4 mutually exclusive scenarios with probabilities that sum to 100% for that horizon.
+5. Keep scenario labels event-driven and specific. Explain why each path is plausible and what signals would confirm or weaken it.
+6. Open /workspaces/finance/skills/focus-events-forecast/references/scenario-forecast-framework.md if you want a reusable scenario and probability rubric.
+7. Save the final forecast with $daily-report-logger at /workspaces/finance/skills/daily-report-logger using report key tech-focus-forecast.
 
 ## Output
 ## Current Situation
-The baseline comes from the `tech-focus` log dated `04-20-2026`, so no live refresh was performed. Sourced facts from that log show four linked themes across the evidence window of `2026-04-13` through `2026-04-20` (UTC): frontier AI moved deeper into cybersecurity and national-security scrutiny, hyperscalers and labs locked in custom-silicon and reserved-compute deals, AI expansion ran into foundry/land/power constraints, and vendors pushed AI from generic assistants into coding and life-sciences workflows. The major near-term catalysts named in the source log are Google Cloud Next 2026 beginning on `2026-04-22`, TSMC's April 2026 monthly sales release expected on `2026-05-08`, and any tightening or broadening of access around Mythos-class systems. The main caveat from the source log is that the window was unusually AI-heavy, so consumer-device and non-AI platform stories were underrepresented.
+Baseline facts from the `tech-focus` log dated `2026-04-20`, with no live refresh performed:
+
+- Current situation: Tech attention is concentrated on three linked themes: frontier AI being treated as cyber infrastructure, AI-chip demand staying strong while the narrative shifts toward inference efficiency and custom silicon, and developer-platform trust being repriced after Vercel's April 2026 supply-chain breach.
+- Major drivers: OpenAI's April 14 expansion of Trusted Access for Cyber and GPT-5.4-Cyber, the April 17 White House-Anthropic meeting around Mythos and cyber competitiveness, ASML and TSMC's April 15-16 demand commentary, Reuters' April 20 report that Google is in talks with Marvell on inference chips, and Vercel's April 2026 incident updates.
+- Catalysts: Google Cloud Next on April 22-24, 2026; any additional Vercel or Context.ai disclosure; and further semiconductor or hyperscaler commentary that confirms whether inference/custom silicon is becoming the next spending leg.
+- Evidence window: The source log is pinned to `2026-04-13` through `2026-04-20` UTC inclusive.
+- Caveats: The Vercel incident was still being investigated on `2026-04-20`, and the commercial impact of cyber-specialized frontier models was still more directional than measured.
+
+Inference note: everything below is a scenario forecast built from that dated baseline rather than a refreshed current-state check.
 
 ## Forecast Horizons
 
-### 1 Week (`2026-04-20` to `2026-04-27`)
-- **Label:** Cloud Next extends enterprise AI distribution without a new policy shock  
-  **Probability:** 45%  
-  **Reasoning:** This is the highest-probability near-term path because the clearest scheduled catalyst is Google Cloud Next on `2026-04-22`, and the sourced baseline already shows Anthropic distributing through major cloud channels while OpenAI and Anthropic both emphasized operational workflows. The inference is that the next week is more likely to reinforce commercial distribution and workflow positioning than to overturn the narrative.  
-  **Signposts:** Confidence rises if Google Cloud and Anthropic announce deployment terms, enterprise case studies, or workflow-focused launches; it weakens if the event produces little meaningful AI news.
+### 1 week
 
-- **Label:** Infrastructure and TPU economics dominate the week after fresh partner messaging  
-  **Probability:** 30%  
-  **Reasoning:** The sourced baseline already centers Broadcom-Google, Anthropic TPU access beginning in 2027, Meta-Broadcom custom silicon, TSMC advanced-node demand, and Microsoft's land expansion. The inference is that any additional TPU, rack, datacenter, or capex disclosures could pull attention away from model features and toward the supply chain.  
-  **Signposts:** Confidence rises if Cloud Next or follow-on coverage highlights TPU reservations, rack systems, datacenter expansion, or power procurement; it weakens if announcements stay focused on software features and pricing.
+#### Scenario: Google Cloud Next validates the agent-plus-security stack while Vercel fallout stays contained
+- Probability: 45%
+- Why this path is plausible: The nearest dated catalyst is Google Cloud Next on `2026-04-22` to `2026-04-24`, and the source log already shows market attention on agents, durable workflows, zero-trust security, and inference economics. If Google and partners deliver concrete launches, the existing AI-infrastructure narrative can stay in control without needing a new macro shock.
+- Signals that confirm: Product announcements tying agents to security controls, stronger Vertex AI and Anthropic go-to-market messaging, and incident updates from Vercel that keep the affected-customer set limited.
+- Signals that weaken: Thin product substance at Google Cloud Next, a fast-moving expansion of the Vercel blast radius, or supplier commentary that softens on near-term AI demand.
 
-- **Label:** Cyber-risk scrutiny tightens access to frontier systems before broad rollout  
-  **Probability:** 25%  
-  **Reasoning:** The sourced baseline includes Anthropic's controlled Glasswing release, explicit cyber safeguards in Opus 4.7, and a White House meeting on `2026-04-17`. The inference is that the next week could be dominated by narrower access rules, public-policy pressure, or stronger evaluation requirements rather than broader availability.  
-  **Signposts:** Confidence rises if labs or policymakers announce access restrictions, government partnerships, or critical-infrastructure guardrails; it weakens if vendors broaden customer access without adding controls.
+#### Scenario: Vercel or Context.ai disclosures widen the breach and make AI-tooling supply-chain risk the week's lead story
+- Probability: 30%
+- Why this path is plausible: The source log explicitly says the full extent of exfiltration was still under investigation on `2026-04-20`. That leaves room for new disclosure to push OAuth hygiene, secrets handling, and third-party AI tooling risk ahead of the more optimistic AI-buildout story.
+- Signals that confirm: More affected customers identified, evidence of downstream account or environment compromise, or rapid vendor changes to OAuth scopes, token policies, and default secret handling.
+- Signals that weaken: A tightly bounded final incident report, no meaningful downstream compromise, and customer communications that frame the issue as contained.
 
-### 1 Month (`2026-04-20` to `2026-05-20`)
-- **Label:** TSMC sales and hyperscaler updates confirm the AI buildout is still accelerating  
-  **Probability:** 40%  
-  **Reasoning:** The sourced baseline already shows strong TSMC growth and hyperscaler land acquisition, and it points to `2026-05-08` TSMC monthly sales as the next hard read on demand. The inference is that another strong data point would validate both the silicon and datacenter buildout story and keep investor and operator attention on capacity.  
-  **Signposts:** Confidence rises if TSMC monthly sales stay strong, new land or power deals appear, or hyperscalers expand silicon commitments; it weakens if demand indicators flatten or buildout plans slip.
+#### Scenario: New chip and custom-silicon read-throughs overtake the cyber narrative
+- Probability: 25%
+- Why this path is plausible: ASML and TSMC already reinforced strong AI demand, and the Google-Marvell report suggests inference-specific silicon could become a separate spending wave. A few additional supplier or hyperscaler data points would be enough to shift attention from cyber use cases to the economics of serving models at scale.
+- Signals that confirm: More hyperscaler custom-chip reporting, strong memory or packaging commentary, or explicit discussion that inference efficiency is becoming the next bottleneck.
+- Signals that weaken: No follow-through on the Marvell angle, muted cloud capex commentary, or security headlines displacing hardware discussion.
 
-- **Label:** Security-gated rollout becomes the main brake on frontier AI commercialization  
-  **Probability:** 25%  
-  **Reasoning:** The sourced baseline says frontier AI is now a cyber and national-security issue, with controlled releases and fast policy escalation already visible. The inference is that over a month, this could become the dominant limiting factor, with access restricted to approved enterprise, government, or security cohorts even if model quality keeps improving.  
-  **Signposts:** Confidence rises if labs announce tiered access, more eval gates, or government-facing programs; it weakens if products move into wider enterprise self-serve channels.
+### 1 month
 
-- **Label:** Coding and life-sciences workflows produce the first clear ROI references  
-  **Probability:** 20%  
-  **Reasoning:** The sourced baseline highlights OpenAI's GPT-Rosalind and expanded Codex plus Anthropic's emphasis on long-running coding workflows. The inference is that over several weeks, buyer attention could rotate from headline model launches toward concrete workflow wins in software and research organizations.  
-  **Signposts:** Confidence rises if vendors publish reference customers, measured productivity gains, or deeper tool integrations; it weakens if enterprise buyers stay focused on raw model access and infrastructure.
+#### Scenario: Inference buildout becomes the center of AI capex messaging by mid-May
+- Probability: 40%
+- Why this path is plausible: The baseline already shows demand strength at ASML and TSMC plus an early signal that hyperscalers want more workload-specific inference silicon. One month is enough time for management commentary, partner launches, and customer messaging to validate that the next AI spend leg is shifting from training-only toward inference optimization.
+- Signals that confirm: Additional custom-silicon announcements, cloud pricing or product language centered on cheaper inference, and supplier commentary that advanced packaging or leading-edge demand remains tight.
+- Signals that weaken: Delayed chip programs, lack of design-win follow-through, or clearer evidence that training demand still fully dominates the narrative.
 
-- **Label:** The narrative cools after an AI-heavy week and attention rotates elsewhere in tech  
-  **Probability:** 15%  
-  **Reasoning:** The source log itself warns that the observed window was unusually AI-heavy. The inference is that some of the intensity may reflect clustering of launches and filings rather than a steady state, leaving room for a temporary rotation toward other tech themes once the immediate catalysts pass.  
-  **Signposts:** Confidence rises if follow-on newsflow is thinner than expected or other sectors retake coverage share; it weakens if AI announcements continue to arrive in quick succession.
+#### Scenario: Security controls become the gating factor for enterprise AI-tool adoption
+- Probability: 35%
+- Why this path is plausible: If the Vercel incident broadens or if similar platform incidents appear, the spending conversation can move toward governance and secure deployment rather than raw feature velocity. That fits the source log's point that trust in third-party AI tools is being repriced in real time.
+- Signals that confirm: Mandatory OAuth scope reductions, more secret-isolation defaults, customer audits of AI-tool vendors, and security-platform vendors citing stronger demand tied to AI workflows.
+- Signals that weaken: A clean resolution to the Vercel investigation and no comparable follow-on incidents across developer infrastructure.
 
-### 3 Months (`2026-04-20` to `2026-07-20`)
-- **Label:** Custom-silicon commitments create a clearer two-track AI stack  
-  **Probability:** 35%  
-  **Reasoning:** The sourced baseline shows Google, Anthropic, and Meta already leaning into bespoke infrastructure through Broadcom and TPU commitments. The inference is that by mid-summer, the market may look more clearly split between operators with privileged custom-silicon access and everyone else depending more heavily on merchant supply.  
-  **Signposts:** Confidence rises if more labs or hyperscalers announce proprietary-chip roadmaps, exclusive capacity deals, or long-dated reservations; it weakens if merchant alternatives close the cost or availability gap faster than expected.
+#### Scenario: April's cyber-AI theme stays strategically important but commercially narrow
+- Probability: 25%
+- Why this path is plausible: The source log shows strong policy and strategic interest in cyber-specialized frontier models, but it also notes that commercial impact is still directional. Over a month, that can leave the theme visible in policy circles while chip and platform-security narratives absorb more actual budget attention.
+- Signals that confirm: More discussion of pilots, access programs, or government interest without many disclosed enterprise deployments or revenue-linked case studies.
+- Signals that weaken: New contracts, named customer wins, or broader productization of cyber-specialized model tiers across major vendors.
 
-- **Label:** Power, land, and permitting delays slow the announced AI expansion  
-  **Probability:** 30%  
-  **Reasoning:** The sourced baseline explicitly says the bottleneck is no longer just model quality or chip design, but also fab throughput, siting, and power delivery. The inference is that these physical constraints could become visible enough over three months to delay deployments and stretch timelines.  
-  **Signposts:** Confidence rises if utilities, permitting bodies, or datacenter projects signal delays or added costs; it weakens if operators keep securing land and power on schedule.
+### 3 months
 
-- **Label:** Workflow AI adoption broadens faster than the infrastructure debate  
-  **Probability:** 20%  
-  **Reasoning:** The sourced baseline already shows vendors moving into coding, computer use, automation, and life-sciences tasks. The inference is that software-heavy deployments could scale faster than the infrastructure bottleneck narrative suggests, especially where buyers can realize ROI without frontier-scale training budgets.  
-  **Signposts:** Confidence rises if coding agents, scientific copilots, or enterprise automation tools show durable usage and spend; it weakens if customers delay adoption pending model-access clarity or compliance controls.
+#### Scenario: Custom inference silicon becomes a durable second leg of the AI spending cycle
+- Probability: 40%
+- Why this path is plausible: Three months is enough time for hyperscalers, chip designers, and suppliers to show whether the inference/custom-silicon angle is real rather than speculative. The source log already provides the demand backdrop needed for this path: strong advanced-node utilization, capacity expansion, and fresh interest in serving models more efficiently.
+- Signals that confirm: More design-win disclosures, leading-edge and packaging constraints that remain tight, and cloud vendors emphasizing inference cost per query or workload-specific acceleration.
+- Signals that weaken: Program slippage, weak partner demand signals, or supplier commentary implying that general-purpose GPU capacity solved the problem well enough.
 
-- **Label:** Washington and major buyers normalize a gated frontier-access regime  
-  **Probability:** 15%  
-  **Reasoning:** The sourced baseline ties frontier releases directly to U.S. policy attention and controlled access decisions. The inference is that within three months, a de facto regime could emerge in which the most cyber-capable systems remain available mainly through supervised partnerships and higher-trust channels.  
-  **Signposts:** Confidence rises if procurement standards, evaluation frameworks, or sector-specific access rules appear; it weakens if labs compete by widening distribution instead.
+#### Scenario: Secure-by-default AI tooling becomes the standard, slowing rollout but raising security spend
+- Probability: 35%
+- Why this path is plausible: Supply-chain incidents often produce architectural and procurement changes with a delay. Over a quarter, enterprises have enough time to tighten vendor reviews, identity controls, and secrets management, which would slow broad AI-tool rollout while increasing spending on the control layer.
+- Signals that confirm: New enterprise procurement checklists, stricter platform isolation standards, vendor roadmaps centered on trust controls, and longer deployment cycles for AI-enabled developer tools.
+- Signals that weaken: Few further incidents, rapid normalization in developer-platform trust, and enterprises prioritizing speed of AI adoption over additional control requirements.
 
-### 1 Year (`2026-04-20` to `2027-04-20`)
-- **Label:** AI reorganizes around controlled distribution plus bespoke infrastructure  
-  **Probability:** 40%  
-  **Reasoning:** This is the most likely structural path because the sourced baseline already combines cloud-channel distribution, policy sensitivity, long-dated silicon reservations, and physical-capacity constraints. The inference is that one year out, the winning vendors are most likely to be those that pair strong models with privileged cloud, silicon, and government or enterprise relationships rather than those relying on open, generalized distribution alone.  
-  **Signposts:** Confidence rises if leading labs deepen cloud exclusivity, proprietary-chip alignment, or government-facing partnerships; it weakens if open or commodity offerings catch up in quality and economics.
+#### Scenario: AI infrastructure enthusiasm resets on weaker ROI and slower enterprise follow-through
+- Probability: 25%
+- Why this path is plausible: By three months, investors and operators can begin separating narrative strength from monetization evidence. If custom silicon remains early, cyber-model adoption stays narrow, and enterprise deployment cycles lengthen, the April excitement could cool into a more selective spending environment.
+- Signals that confirm: More cautious quarterly commentary, longer sales cycles for AI products, lower-than-expected utilization of AI features, or softer demand language from the supply chain.
+- Signals that weaken: Repeated capex increases, visible production adoption, and concrete enterprise ROI case studies.
 
-- **Label:** Infrastructure bottlenecks keep compute scarce and slow deployment timelines  
-  **Probability:** 25%  
-  **Reasoning:** The sourced baseline points directly to foundry throughput, land, and power as binding constraints. The inference is that even with strong demand, the industry could still spend much of the next year constrained by buildout physics, creating a seller's market for capacity and delaying broad availability.  
-  **Signposts:** Confidence rises if lead times remain long, utility upgrades lag, or capacity pricing stays elevated; it weakens if new fabs, datacenter regions, or power arrangements come online faster than expected.
+### 1 year
 
-- **Label:** Workflow-native AI becomes the main monetization layer  
-  **Probability:** 20%  
-  **Reasoning:** The sourced baseline shows a shift toward coding and scientific workflows already underway. The inference is that by `2027-04-20`, the durable revenue pool may come less from general assistant usage and more from embedded systems that automate software, research, and enterprise operations.  
-  **Signposts:** Confidence rises if vendors report durable usage, renewals, or vertical product expansion in coding and science; it weakens if customers keep treating these tools as pilots instead of production systems.
+#### Scenario: AI settles into a higher-spend, security-integrated infrastructure regime
+- Probability: 35%
+- Why this path is plausible: This is the structural extension of the baseline. Cyber-specialized frontier models, inference silicon, and secure AI-platform controls could mature together into a standard enterprise and government stack rather than a temporary news cycle.
+- Signals that confirm: Recurring government or critical-infrastructure cyber-AI deployments, broad custom-silicon adoption, and security controls becoming a default part of AI platform architecture rather than a bolt-on feature.
+- Signals that weaken: Repeated trust failures, stalled deployments, or evidence that enterprises view these capabilities as optional rather than core.
 
-- **Label:** Frontier AI splits into a regulated strategic tier and a broader commercial tier  
-  **Probability:** 15%  
-  **Reasoning:** The sourced baseline already links top-end model capability to cyber-risk management and White House attention. The inference is that one year out, the market could be structurally bifurcated, with the most capable systems governed like strategic infrastructure while lower-risk systems remain broadly commercial.  
-  **Signposts:** Confidence rises if formal evaluation and access regimes emerge for top-tier models; it weakens if the policy environment stays informal and competitive pressure pushes broad release.
+#### Scenario: Value concentrates in hyperscalers and chip-supply-chain leaders while software monetization lags
+- Probability: 30%
+- Why this path is plausible: The source log's strongest hard evidence is still in the infrastructure layer: ASML, TSMC, and hyperscaler-linked silicon. One year out, that can translate into durable value capture for capital-rich incumbents even if software and cyber-model monetization take longer to scale.
+- Signals that confirm: Continued leading-edge demand tightness, high hyperscaler capex, strong foundry or equipment pricing power, and weaker-than-expected monetization at smaller software vendors.
+- Signals that weaken: Broad-based AI software revenue acceleration and multiple independent vendors proving durable margins.
+
+#### Scenario: Security and regulatory pressure create a slower, more controlled AI adoption regime
+- Probability: 25%
+- Why this path is plausible: The Vercel incident highlights how identity and tooling exposures can reshape vendor trust. Over a year, repeated incidents or stronger national-security scrutiny around frontier models could create a more regulated, compliance-heavy environment that slows adoption and favors large incumbents.
+- Signals that confirm: Tighter procurement rules, audit requirements, model-access restrictions, or public-sector guidance that materially raises deployment friction.
+- Signals that weaken: A quiet security year, limited regulatory escalation, and enterprises expanding AI use without major governance bottlenecks.
+
+#### Scenario: The 2026 AI buildout partially unwinds into an ROI correction
+- Probability: 10%
+- Why this path is plausible: It is the lowest-probability case because the source log contains fresh evidence of strong demand and ongoing capacity expansion, but it remains possible if spending outruns realized value and too many adjacent narratives depend on still-unproven economics.
+- Signals that confirm: Canceled programs, lower utilization of AI services, falling urgency around leading-edge expansion, or multiple vendors walking back growth expectations.
+- Signals that weaken: Persistent capex growth, durable inference demand, and more enterprises moving AI workloads into production.
 
 ## Most Likely Path
-The most likely path is a continuation of the current `04-20-2026` baseline: near term, Google Cloud Next and follow-on disclosures most likely reinforce enterprise distribution of frontier AI while keeping attention fixed on compute reservation and infrastructure scarcity; over the following quarters, that points to an AI market increasingly organized around privileged cloud channels, custom silicon, and tighter access controls rather than a simple race to the broadest public release.
+The highest-probability near-term path is that Google Cloud Next extends the AI-buildout narrative by tying agents, security, and inference efficiency together, while the Vercel incident remains important but not system-breaking. Beyond that, the most likely medium-term evolution is a split outcome: custom inference silicon becomes a more durable spending theme, but secure-by-default deployment requirements become a larger gate on how fast enterprises can absorb new AI tools.
 
 ## Markers To Watch
-- Google Cloud Next announcements beginning on `2026-04-22`, especially anything involving Anthropic distribution, security positioning, or enterprise workflow packaging.
-- TSMC's April 2026 monthly sales release expected on `2026-05-08` as the next hard demand check for advanced-node AI capacity.
-- Any expansion or tightening of Mythos-class access, especially for government, defense, or critical-infrastructure users.
-- New disclosures on TPU, MTIA, rack-scale, datacenter, land, or power commitments that would confirm infrastructure scarcity as the binding constraint.
-- Evidence that coding agents, computer-use products, or life-sciences models are moving from launch narratives into measurable production adoption.
+- Concrete announcements from Google Cloud Next on agents, security controls, and inference economics.
+- Any new Vercel or Context.ai disclosure that changes the apparent blast radius or downstream customer impact.
+- Additional hyperscaler custom-silicon news, especially anything that moves the Google-Marvell story from reported talks toward committed programs.
+- Supplier commentary from memory, packaging, foundry, or equipment companies that either confirms or weakens the inference-capex narrative.
+- Evidence that cyber-specialized frontier-model programs move from strategic messaging into named deployments, procurement, or measurable commercial adoption.
 
 ## Confidence
-Medium-high. The sourced baseline is strong and recent, but no live refresh was performed, and the next catalyst on `2026-04-22` sits just outside the evidence window and could quickly change which of the near-term scenarios becomes dominant.
+Medium. The baseline is fresh and well dated, but confidence is capped by the still-open Vercel investigation and by how early the cyber-specialized-model and custom-inference-silicon themes still were on `2026-04-20`.
 
 ## Notes
 Source log path: /workspaces/finance/history/daily/04-20-2026/tech-focus-log.md
 Source log date: 04-20-2026
-Refresh status: No live refresh performed; used the 04-20-2026 source log as the baseline state.
-Extra: (none)
+Refresh status: No live refresh performed; used the 2026-04-20 source log as the baseline state.
+Evidence window: 2026-04-13 through 2026-04-20 UTC inclusive.
+Caveat: The Vercel incident was still developing, and the Google-Marvell inference-chip item was still reported as talks rather than a launched product.

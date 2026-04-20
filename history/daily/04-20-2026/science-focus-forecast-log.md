@@ -2,7 +2,7 @@
 report: "science-focus-forecast"
 title: "Science Focus Forecast"
 log_date: "04-20-2026"
-generated_at_utc: "2026-04-20T17:11:18Z"
+generated_at_utc: "2026-04-20T20:42:29Z"
 source_skill: "focus-events-forecast"
 ---
 
@@ -10,101 +10,131 @@ source_skill: "focus-events-forecast"
 
 - Report: `science-focus-forecast`
 - Date: `04-20-2026`
-- Generated At: `2026-04-20T17:11:18Z`
+- Generated At: `2026-04-20T20:42:29Z`
 - Source Skill: `focus-events-forecast`
 
 ## Summary
-The lead path is a split-screen science environment: AACR 2026 produces a few durable oncology winners and climate/fire science gains relevance, but the main swing factor remains whether Congress visibly blunts the April 3, 2026 research-budget shock. The biggest uncertainty is whether budget politics quickly eclipse discovery stories or merely keep institutions cautious while scientific follow-through continues.
+Near term, AACR follow-through is the most likely driver of science attention, but over the next one to three months the larger uncertainty is whether U.S. funding pressure displaces individual research stories as the defining cross-disciplinary theme.
 
 ## Request
-Run focus-events-forecast for today's available focus logs.
+Run the daily research pipeline for the exact UTC date 2026-04-20. This is the focus-events-forecast step only.
+
+Source log:
+- Report key: science-focus
+- Path: /workspaces/finance/history/daily/04-20-2026/science-focus-log.md
+- Requested date: 2026-04-20
+
+Forecast requirements:
+1. Read the source log and extract the current situation, major drivers, catalysts, evidence window, and caveats.
+2. Use the source log as the baseline state unless it is stale or the user explicitly wants a live refresh.
+3. Produce four horizon sections: 1 week, 1 month, 3 months, and 1 year.
+4. For each horizon, create 2 to 4 mutually exclusive scenarios with probabilities that sum to 100% for that horizon.
+5. Keep scenario labels event-driven and specific. Explain why each path is plausible and what signals would confirm or weaken it.
+6. Open /workspaces/finance/skills/focus-events-forecast/references/scenario-forecast-framework.md if you want a reusable scenario and probability rubric.
+7. Save the final forecast with $daily-report-logger using report key science-focus-forecast.
 
 ## Output
-## Current Situation
-Sourced baseline from the April 20, 2026 `science-focus` log: science attention during April 13, 2026 through April 20, 2026 was concentrated on four themes at once: the White House FY2027 research-budget shock, AACR 2026 oncology readouts, a new wildfire-intensification climate result, and the post-Artemis II science and engineering afterglow. The main drivers already evidenced in the source log were official U.S. budget documents released on April 3, 2026, AACR programming and releases from April 17, 2026 through April 22, 2026, climate bulletins and the April 17, 2026 fire-weather paper, and NASA plus press updates following the April 16, 2026 Artemis II debrief. Immediate catalysts are the AACR meeting close on April 22, 2026, any early congressional signaling on the FY2027 proposal, the first real-world tests of the wildfire-risk narrative as the Northern Hemisphere fire season advances, and NASA's post-flight Artemis analysis. Caveats from the source log still apply: much of the oncology evidence is conference-stage rather than practice-changing, the scan is English-language weighted, and two of the loudest narratives were still being driven by catalysts that first broke on April 3, 2026 through April 10, 2026.
+# Science Focus Forecast
 
-Inference: the next year is likely to be driven less by a single breakthrough than by whether funding stress suppresses or merely slows follow-through on the oncology, climate, and lunar-science narratives.
+## Current Situation
+Baseline facts from the 2026-04-20 `science-focus` log show four active science narratives: Artemis II's post-flight science and geopolitics, AACR 2026 oncology readouts, a newly amplified AMOC-weakening estimate, and renewed threats to U.S. federal science funding. The source log is current for the requested date, so this forecast uses it as the baseline state and does not claim a live refresh.
+
+- Major drivers: post-Artemis mission analysis and lunar-science framing; AACR conference-stage cancer data across MRD, AI, and translational therapies; the fresh AMOC paper and rapid institutional amplification; cross-disciplinary funding risk for NASA, NSF, DOE science, and related research programs.
+- Catalysts: NASA post-flight data or Artemis III timing signals; AACR presentations through 2026-04-22 and any immediate paper, trial, or partnership follow-through; replication, critique, or observational linkage for the AMOC estimate; congressional, agency, and scientific-society responses to FY2027 budget-cut proposals.
+- Evidence window: mainly 2026-04-14 through 2026-04-20 UTC, with the funding-policy thread drawing on recurring signals from 2026-04-03 through 2026-04-14.
+- Caveats: AACR evidence is still largely conference-stage; one of the four leading themes is science-policy rather than a new experimental result; medium confidence is appropriate because attention can rotate quickly once the meeting calendar changes.
 
 ## Forecast Horizons
 
-### 1 Week: April 20, 2026 to April 27, 2026
-- Label: `AACR closes with a few durable oncology winners while budget risk stays unresolved`
-- Probability: `50%`
-- Reasoning: The most likely near-term path is a dual-track outcome. AACR is already under way in the source log, so it should still produce a small number of repeat-cited KRAS, MRD, or ADC stories after April 20, 2026. But the FY2027 budget shock is too large and too recent to resolve inside a week, so institutional anxiety likely remains the dominant background condition rather than disappearing.
-- Signposts: Confirmed if AACR closing coverage keeps returning to the same oncology subthemes and there is still no concrete congressional rescue signal by April 27, 2026. Weakened if Washington rapidly shifts from proposal shock to visible restoration efforts or if late AACR data clearly disappoint.
+### 1 Week
+These scenarios are mutually exclusive views of what most likely becomes the dominant incremental science story by 2026-04-27.
 
-- Label: `Budget-cut backlash eclipses conference science`
-- Probability: `30%`
-- Reasoning: The source log frames the NASA and NSF cuts as institutional-survival risk, not routine budget noise. If appropriators, universities, or scientific societies coordinate a forceful response, science attention could tilt decisively toward layoffs, grant pipelines, facility tempo, and mission vulnerability, crowding out most meeting-stage discovery stories.
-- Signposts: Confirmed if coverage rotates toward organized letters, hearings, appropriations statements, or agency-level contingency talk. Weakened if political actors remain quiet and AACR abstracts dominate science coverage through the week.
+1. **AACR closeout elevates a small set of oncology winners** — 45%
+Why plausible: Inference from the baseline conference schedule and institution previews. The meeting is still running through 2026-04-22, so the easiest near-term path is that a few MRD, AI-oncology, immunotherapy, or translational datasets emerge as the standout post-meeting stories while the rest of the field sorts signal from hype.
+Signposts: Confidence rises if specific abstracts are repeatedly cited by AACR, NCI, cancer centers, or mainstream science outlets, or if companies and labs quickly frame them as registrational or partnership-relevant. Confidence falls if coverage stays diffuse and no presentation clearly breaks out from the pack.
 
-- Label: `Late AACR caveats cool oncology enthusiasm and reopen space for climate or Artemis follow-through`
-- Probability: `20%`
-- Reasoning: The source log explicitly warns that the oncology signal is still conference-stage. That leaves room for skepticism about sample size, durability, or translational readiness, which would make the wildfire-risk result or Artemis post-flight analysis relatively more salient by comparison.
-- Signposts: Confirmed if expert commentary stresses small cohorts, immature follow-up, or over-interpretation of surrogate signals. Weakened if one or more AACR readouts quickly gain outside validation or unusually strong clinical enthusiasm.
+2. **NASA extends the Artemis II afterglow with post-flight science or schedule signals** — 25%
+Why plausible: Inference from the source log's emphasis on 2026-04-06 flyby and 2026-04-10 return updates. A fresh batch of mission analysis, imagery, reentry lessons, or Artemis III timing commentary could keep space science at the center for another week.
+Signposts: Confidence rises if NASA releases post-flight products, technical briefings, or explicit Artemis III planning implications. Confidence falls if NASA's updates are light and the attention window closes after the immediate mission glow.
 
-### 1 Month: April 20, 2026 to May 20, 2026
-- Label: `Congressional pushback softens the shock, but science stays in wait-and-see mode`
-- Probability: `45%`
-- Reasoning: Over a month, there is enough time for the first serious political reaction to the April 3, 2026 proposal to emerge, but usually not enough time for the underlying uncertainty to disappear. That points to a middle path in which the deepest cuts start to look less inevitable, yet labs, agencies, and missions still behave cautiously. In this path, the best AACR results continue to circulate, but funding uncertainty remains the organizing variable.
-- Signposts: Confirmed if appropriators publicly signal discomfort with the scale of the NASA and NSF reductions while institutions avoid the harshest contingency measures. Weakened if agencies begin acting as though the proposal is likely to stick.
+3. **Budget-cut responses turn science funding risk into the umbrella narrative** — 20%
+Why plausible: Inference from repeated April policy warnings across Nature, AAU, AAS, and AIP. Because the same funding thread touches space, climate, and biomedical research at once, even one meaningful appropriations or agency-response signal could unify science attention around institutional risk rather than discoveries.
+Signposts: Confidence rises if agencies issue planning guidance, scientific societies escalate advocacy, or appropriators publicly challenge or refine the proposed cuts. Confidence falls if there are no fresh Washington or agency developments.
 
-- Label: `No meaningful reassurance arrives and the science narrative turns defensive`
-- Probability: `35%`
-- Reasoning: The budget threat in the source log is broad enough to keep dominating attention if Congress does not quickly counter-message it. In that case, the science conversation shifts from what is exciting to what is endangered: hiring, facilities, grant timing, mission sequencing, and retention.
-- Signposts: Confirmed if universities or labs announce planning freezes, if scientific societies sustain alarm messaging, or if NASA and NSF program communities begin naming likely losses. Weakened if bipartisan restoration rhetoric appears early and credibly.
+4. **The AMOC paper triggers a fast validation-versus-pushback burst** — 10%
+Why plausible: Inference from the source log's note that the paper immediately drew institutional summaries and press coverage. Fresh expert debate could briefly lift climate science above the other themes if the new estimate is either reinforced or challenged quickly.
+Signposts: Confidence rises if more groups publish commentary, comparisons with observations, or technical criticism. Confidence falls if the paper is absorbed quietly as one important result among many.
 
-- Label: `Wildfire-risk science becomes the next live operational story`
-- Probability: `20%`
-- Reasoning: The April 17, 2026 wildfire-burning-hours paper could expand from a research headline into an active preparedness story within a month if early fire activity or emergency-management planning reinforces its relevance. That would not erase the budget debate, but it would elevate climate science from background context to an operational narrative.
-- Signposts: Confirmed if North American fire activity picks up early, if policymakers or emergency managers cite the night-burning result, or if follow-on attribution coverage broadens. Weakened by a quiet start to fire season and continued dominance by budget politics.
+### 1 Month
+These scenarios are mutually exclusive views of the dominant science trajectory by 2026-05-20.
 
-### 3 Months: April 20, 2026 to July 20, 2026
-- Label: `Partial funding rescue, slower science tempo`
-- Probability: `40%`
-- Reasoning: By mid-July, the likeliest medium-term path is neither full normalization nor full collapse. Congress has time to signal or draft partial restoration, but institutions may still absorb months of uncertainty through slower hiring, delayed grants, and tighter mission planning. In this scenario, oncology follow-through becomes more publication- and trial-driven, climate/fire science gains practical relevance during summer, and Artemis remains important but financially scrutinized.
-- Signposts: Confirmed if appropriations markers improve relative to the original proposal but operating caution remains visible, and if selected AACR themes progress into papers, trial expansions, or partnerships. Weakened by either decisive restoration or concrete austerity implementation.
+1. **AACR buzz narrows into a few durable translational programs** — 35%
+Why plausible: Inference from how major scientific meetings usually resolve. Most abstracts fade, but a smaller subset often persists through stronger media attention, trial-enrollment interest, collaborations, or preprint and paper momentum. That is the cleanest one-month path for the oncology theme.
+Signposts: Confidence rises if the same programs keep appearing in follow-up coverage, investor or pharma partnering chatter, or trial-design discussions. Confidence falls if the highlighted AACR work does not progress beyond conference recap pieces.
 
-- Label: `Austerity turns concrete across labs, grants, and missions`
-- Probability: `35%`
-- Reasoning: The proposed NASA and NSF reductions are large enough that, if they begin anchoring expectations, three months is enough time for real damage signals to surface. This path features project delays, workforce strain, and heavier doubts about the pace of Artemis follow-on work, with scientific attention pulled toward institutional triage.
-- Signposts: Confirmed if agencies or institutions announce pauses, slips, procurement slowdowns, or sharply constrained grant calendars. Weakened if appropriators move clearly and early to reverse the proposal's core cuts.
+2. **Funding uncertainty spreads from rhetoric into operating behavior** — 30%
+Why plausible: Inference from the breadth of the baseline funding story. Within a month, labs, universities, agencies, and mission teams have enough time to start acting defensively if proposed cuts look at all credible, even before final budget outcomes are known.
+Signposts: Confidence rises if institutions announce hiring pauses, grant timing concerns, mission replanning, or coordinated public pushback. Confidence falls if congressional signals quickly imply that the deepest cuts are unlikely to survive.
 
-- Label: `Results reclaim the spotlight through oncology follow-through and fire-season validation`
-- Probability: `25%`
-- Reasoning: Three months is long enough for the strongest AACR ideas to generate more complete data, for commercial or trial momentum to build around a few oncology programs, and for the wildfire paper's practical message to be tested against real seasonal conditions. That would shift the science narrative from conference buzz and budget fear toward evidence-backed follow-through.
-- Signposts: Confirmed if high-profile AACR programs publish fuller datasets, advance in trials, or draw partnership activity, and if summer fire coverage repeatedly cites overnight burning risk. Weakened if oncology readouts fade or if fire-season conditions do not support the current climate emphasis.
+3. **Artemis II shifts from celebration to concrete lunar-roadmap debate** — 20%
+Why plausible: Inference from the mission's scientific and geopolitical framing in the source log. Over a month, the mission can become a springboard for more serious discussion of Artemis III readiness, international roles, and what crewed lunar-science operations should look like next.
+Signposts: Confidence rises if NASA or partner agencies release mission lessons, hardware-readiness updates, or international coordination statements. Confidence falls if the narrative remains mostly retrospective and ceremonial.
 
-### 1 Year: April 20, 2026 to April 20, 2027
-- Label: `The system bends but does not break`
-- Probability: `45%`
-- Reasoning: The lead one-year scenario is that Congress restores enough money to prevent the White House proposal from becoming a full-scale research-capacity reset, but not enough to erase the chilling effect. In that world, core NASA and NSF science survives with scars, the strongest AACR-era oncology themes mature into real development programs, wildfire-risk science becomes more embedded in planning, and Artemis remains alive but contested.
-- Signposts: Confirmed if final appropriations land materially above the April 3, 2026 request, if new oncology programs from the AACR cycle continue advancing, and if climate/fire planning documents adopt the paper's operational framing. Weakened if enacted cuts remain close to the original proposal or if the flagship science themes fail to translate.
+4. **AMOC becomes a serious but still contested climate-risk reference point** — 15%
+Why plausible: Inference from the paper's strong initial amplification. A month is enough time for the result to move from headline novelty into a widely cited, but still debated, benchmark in climate-risk discussions.
+Signposts: Confidence rises if additional climate scientists cite the estimate in adaptation or tipping-point debates, or if observational work is linked to it. Confidence falls if major methodological criticism undercuts confidence in the constrained estimate.
 
-- Label: `A U.S. science austerity regime takes hold`
-- Probability: `30%`
-- Reasoning: The downside path is structurally plausible because the proposed reductions are large enough to compound over a year into lost cohorts, delayed facilities, thinner mission pipelines, and weaker grant competition. If even a meaningful fraction of the proposal is realized, the main story by April 20, 2027 would be contraction rather than scientific follow-through.
-- Signposts: Confirmed if enacted multiagency cuts remain historically deep, if mission or facility delays become persistent, or if grant and hiring pipelines stay visibly constrained. Weakened if Congress repeatedly rejects the deepest cuts and restores program continuity.
+### 3 Months
+These scenarios are mutually exclusive views of what the science landscape most likely looks like by 2026-07-20.
 
-- Label: `Restoration plus one or two flagship wins resets the narrative`
-- Probability: `25%`
-- Reasoning: The upside case is that the political system rejects the sharpest cuts while at least one of the current science themes materially overdelivers, such as notable KRAS or MRD clinical traction, a stronger-than-expected Artemis follow-on trajectory, or climate/fire science translating into visible policy adoption. That combination would turn a defensive year into one remembered for recovery and momentum.
-- Signposts: Confirmed if appropriations recover strongly, if oncology programs from this cycle hit major clinical milestones, or if Artemis and climate-science efforts show durable institutional expansion. Weakened if funding remains unstable or if the current science stories do not generate downstream wins.
+1. **Research-funding pressure forces visible triage across agencies and institutions** — 35%
+Why plausible: Inference from the baseline's cross-disciplinary funding threat. Three months is long enough for budget uncertainty to produce second-order effects such as deferred grants, slower mission planning, altered hiring, and more explicit prioritization across NASA science, NSF, DOE science, and university labs.
+Signposts: Confidence rises if agencies revise program timing, institutions document hiring or project delays, or scientific societies sustain a coordinated defense campaign. Confidence falls if appropriations negotiations stabilize and operational disruption remains limited.
+
+2. **A handful of AACR themes graduate into papers, trials, or partnerships** — 30%
+Why plausible: Inference from the source log's emphasis on translational oncology. By three months, the best conference-stage ideas can start to prove they have real legs through publications, expanded trials, business-development activity, or visible clinical-program prioritization.
+Signposts: Confidence rises if late-breaking AACR themes reappear in peer-reviewed journals, company updates, or trial expansions. Confidence falls if the apparent leaders remain prepublication and fail to produce credible follow-through.
+
+3. **Artemis II momentum consolidates around Artemis III readiness and lunar-science planning** — 20%
+Why plausible: Inference from Artemis II's role as more than a publicity event. By mid-summer, the mission's importance could be measured by whether it materially de-risks the next lunar phase and sharpens international or scientific planning.
+Signposts: Confidence rises if NASA links Artemis II lessons directly to Artemis III schedules, procedures, or science priorities. Confidence falls if schedule uncertainty or budget pressure overwhelms the post-flight momentum.
+
+4. **AMOC concern broadens into observation and adaptation planning, not consensus panic** — 15%
+Why plausible: Inference from the current evidence mix. Three months is enough time for the circulation result to influence research agendas and policy discussion, but probably not enough to create a settled consensus on extreme tipping interpretations.
+Signposts: Confidence rises if observing-system proposals, model-comparison efforts, or adaptation frameworks explicitly cite the new estimate. Confidence falls if replication attempts are mixed or the topic loses policy salience.
+
+### 1 Year
+These scenarios are mutually exclusive views of the dominant structural outcome by 2027-04-20.
+
+1. **FY2027 science cuts partially land, creating a constrained-but-continuing research regime** — 35%
+Why plausible: Inference from the source log's repeated funding alarms. The most likely one-year structural path is not total collapse, but a weaker research system marked by slower program cadence, harder prioritization, and uneven damage across agencies and fields.
+Signposts: Confidence rises if final appropriations preserve only part of the current research base, if agencies visibly narrow portfolios, or if universities keep operating under extended austerity assumptions. Confidence falls if Congress largely restores science budgets and institutions resume normal planning.
+
+2. **AACR 2026 themes yield at least one genuine clinical or regulator-facing breakthrough** — 30%
+Why plausible: Inference from the unusually translational framing of the oncology agenda. Over a year, the strongest MRD, AI-enabled, or therapy-platform ideas have time to mature into clearer clinical validation, pivotal-trial influence, or regulator-relevant evidence.
+Signposts: Confidence rises if one or more highlighted programs produce decisive study results, pivotal-trial positioning, guideline attention, or major licensing activity. Confidence falls if the current AACR themes remain scientifically interesting but operationally incremental.
+
+3. **Artemis II is remembered as the hinge that normalized crewed lunar-science operations** — 20%
+Why plausible: Inference from the mission's scientific and geopolitical importance in the baseline. A year out, Artemis II could matter most as the mission that turned lunar return from aspiration into a durable operating framework for later missions and partner coordination.
+Signposts: Confidence rises if Artemis III and partner planning visibly build on Artemis II lessons, and if lunar-science priorities are institutionalized rather than symbolic. Confidence falls if budget or schedule setbacks reduce Artemis II to a celebrated but weakly consequential milestone.
+
+4. **The AMOC fast-weakening estimate becomes embedded in mainstream climate planning** — 15%
+Why plausible: Inference from the paper's potential policy relevance. Within a year, the result can shape how climate scientists and institutions talk about Atlantic circulation risk even if full consensus remains incomplete.
+Signposts: Confidence rises if assessment documents, adaptation plans, and observing priorities explicitly incorporate the higher-end weakening estimate. Confidence falls if subsequent work meaningfully downgrades the estimate or reframes it as an outlier.
 
 ## Most Likely Path
-From April 20, 2026 through July 20, 2026, the most likely path is a split-screen science environment: AACR yields a few durable oncology winners and climate/fire science gains practical relevance, but the dominant swing factor remains whether Congress visibly blunts the April 3, 2026 budget shock. That points to partial reassurance rather than clean relief, leaving institutions cautious and keeping funding politics tightly coupled to the pace of scientific follow-through.
+The highest-probability near-term path is that AACR generates a few standout oncology stories over the next week because the meeting is still live and its catalysts are the most immediate. The bigger swing factor after that is whether U.S. science-funding risk overtakes individual research results as the dominant cross-disciplinary story over the next one to three months. In other words, the baseline most naturally evolves from conference-driven attention into system-capacity stress unless strong post-meeting oncology follow-through or unusually concrete Artemis updates keep discovery narratives in front.
 
 ## Markers To Watch
-- April 22, 2026 AACR close: which KRAS, MRD, or ADC results keep getting cited after the meeting ends.
-- The first concrete House or Senate appropriations signals on NASA and NSF after the April 3, 2026 proposal.
-- Early North American fire activity and whether emergency-management or policy coverage cites the overnight-burning-hours result.
-- NASA post-flight Artemis II engineering updates and any sign that architecture or schedule choices are tightening around budget risk.
-- Whether conference-stage oncology claims turn into peer-reviewed papers, follow-on trials, or partnership activity by May 20, 2026 through July 20, 2026.
+- AACR closeout on 2026-04-22 and the first post-meeting wave of papers, trial updates, licensing, or partnership signals.
+- NASA post-Artemis II technical releases, lunar-science products, reentry analysis, or clearer Artemis III schedule implications.
+- New expert commentary, replication work, or methodological critique tied to the April 2026 AMOC estimate.
+- Congressional, agency, university, and scientific-society actions that move funding-cut risk from rhetoric into concrete operational change.
 
 ## Confidence
-Medium. The source log is fresh and well-sourced for April 20, 2026, but near-term probabilities are constrained by conference-stage oncology evidence, unresolved budget politics, and the fact that no live refresh was performed after the log was generated.
+Medium. The source log is fresh and well supported, but a meaningful share of the signal comes from conference-stage oncology evidence and from budget politics that can redirect science attention quickly without resolving the underlying research questions.
 
 ## Notes
-source log path: /workspaces/finance/history/daily/04-20-2026/science-focus-log.md
-source log date: 04-20-2026
-refresh status: no live refresh; used source log dated 04-20-2026 as baseline
+Source log path: /workspaces/finance/history/daily/04-20-2026/science-focus-log.md
+Source log date: 2026-04-20
+Refresh status: no live refresh; used the same-day source log as baseline state.
