@@ -13,4 +13,48 @@
 #   asset_class: etf
 #   enabled: true
 
-products: []
+products:
+  - symbol: SPX
+    label: S&P 500 Index
+    asset_class: index
+    enabled: true
+
+  - symbol: SOX
+    label: PHLX Semiconductor Index
+    asset_class: index
+    enabled: true
+
+  - symbol: XLV
+    label: Health Care Select Sector SPDR Fund
+    asset_class: etf
+    enabled: true
+
+  - symbol: TLT
+    label: iShares 20+ Year Treasury Bond ETF
+    asset_class: etf
+    enabled: true
+
+  - symbol: IAU
+    label: iShares Gold Trust
+    asset_class: etf
+    enabled: true
+
+  - symbol: TAIEX
+    label: Taiwan Capitalization Weighted Stock Index
+    asset_class: index
+    enabled: true
+
+  - symbol: TOPIX
+    label: Tokyo Stock Price Index
+    asset_class: index
+    enabled: true
+
+  - symbol: USDTWD
+    label: USD/TWD
+    asset_class: currency
+    enabled: true
+
+  - symbol: USDJPY
+    label: USD/JPY
+    asset_class: currency
+    enabled: true
