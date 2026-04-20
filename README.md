@@ -53,8 +53,11 @@ This repository represents the vision for a finance-focused AI agent.
 
 The emphasis is on defining what the agent should help with and what kind of financial reasoning it should support.
 
-## Included Skill
+## Included Skills
 
-This repo now includes a Codex skill at `skills/market-focus-topics`.
+This repo now includes Codex skills under `skills/`.
 
-It is designed to help an agent identify what the market is currently focused on, rank the dominant themes, connect them to affected assets, and summarize the supporting evidence with current source links.
+- `skills/market-focus-topics`
+  Identifies the market themes getting current attention, ranks them, and ties them to evidence and asset reaction.
+- `skills/daily-report-logger`
+  Saves a final result into `history/daily/mm-dd-yyyy/{report}-log.md` using a uniform markdown format and overwrites the same report for the same date.

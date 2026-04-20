@@ -7,7 +7,7 @@ description: Analyze recent market attention and identify the topics, narratives
 
 ## Overview
 
-Identify the few themes that are genuinely commanding market attention right now. Ground every claim in current evidence, separate broad consensus from speculation, and explain why each theme matters for assets, sectors, or macro expectations.
+Identify the few themes that are genuinely commanding market attention right now. Ground every claim in current evidence, separate broad consensus from speculation, explain why each theme matters for assets, sectors, or macro expectations, and then save the finished brief through `$daily-report-logger`.
 
 ## Workflow
 
@@ -29,6 +29,40 @@ Prioritize recurrence across sources, magnitude of affected assets, spillover ac
 6. Synthesize the answer.
 Explain what the market seems to care about, why now, how that focus is showing up in prices or positioning, what could confirm or weaken the narrative, and where uncertainty remains.
 
+7. Persist the brief with `$daily-report-logger`.
+After the final brief is ready, save it unless the user explicitly says not to persist the result. Use these defaults:
+
+- `report`: `market-focus`
+- `title`: `Market Focus`
+- `source_skill`: `market-focus-topics`
+- `summary`: 1 to 2 sentences capturing the main market takeaway
+- `request`: the user's original request
+- `output`: the final market-focus brief
+- `notes`: scope assumptions, date coverage, or `(none)`
+
+Write to `history/daily/mm-dd-yyyy/market-focus-log.md`. If a log already exists for the same date, overwrite it by calling `$daily-report-logger` again with the updated brief.
+
+When you need a deterministic file write, use:
+
+```bash
+tmp_request="$(mktemp)"
+tmp_output="$(mktemp)"
+tmp_notes="$(mktemp)"
+
+printf '%s' "$USER_REQUEST" > "$tmp_request"
+printf '%s' "$FINAL_BRIEF" > "$tmp_output"
+printf '%s' "$NOTES" > "$tmp_notes"
+
+"/workspaces/finance/skills/daily-report-logger/scripts/write_daily_log.sh" \
+  --report "market-focus" \
+  --title "Market Focus" \
+  --source-skill "market-focus-topics" \
+  --summary "$SUMMARY" \
+  --request-file "$tmp_request" \
+  --output-file "$tmp_output" \
+  --notes-file "$tmp_notes"
+```
+
 ## Source Mix
 
 - Prefer official releases and filings for macro data, central bank communication, Treasury issuance, regulation, earnings details, and guidance.
@@ -47,6 +81,8 @@ Return a compact market-focus brief with these sections:
 - `Evidence`: recent sources and observed market reaction.
 - `What Could Change Next`: upcoming releases, earnings, or policy events that could rotate attention.
 - `Confidence`: high, medium, or low based on breadth and recency of evidence.
+
+After returning the brief, save the same final content with `$daily-report-logger` using the default `market-focus` report key unless the user asks you not to create a log.
 
 ## Guardrails
 

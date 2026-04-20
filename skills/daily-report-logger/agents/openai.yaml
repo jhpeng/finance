@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Report Logger"
+  short_description: "Save standardized daily report logs"
+  default_prompt: "Use $daily-report-logger to save this result into today's standardized report log."
