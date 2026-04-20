@@ -1,0 +1,4 @@
+interface:
+  display_name: "Market Focus Topics"
+  short_description: "Identify the market themes getting current attention"
+  default_prompt: "Use $market-focus-topics to identify the themes driving market attention this week and explain why they matter."

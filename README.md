@@ -52,3 +52,9 @@ It is not intended to replace a licensed financial advisor or guarantee financia
 This repository represents the vision for a finance-focused AI agent.
 
 The emphasis is on defining what the agent should help with and what kind of financial reasoning it should support.
+
+## Included Skill
+
+This repo now includes a Codex skill at `skills/market-focus-topics`.
+
+It is designed to help an agent identify what the market is currently focused on, rank the dominant themes, connect them to affected assets, and summarize the supporting evidence with current source links.
