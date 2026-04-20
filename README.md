@@ -57,6 +57,8 @@ The emphasis is on defining what the agent should help with and what kind of fin
 
 This repo now includes Codex skills under `skills/`.
 
+The repo also includes reusable watchlist inputs under `watchlists/`, including `watchlists/products.yaml` for batch product forecasting workflows.
+
 - `skills/market-focus-topics`
   Identifies the market themes getting current attention, ranks them, and ties them to evidence and asset reaction.
 - `skills/tech-focus-topics`
@@ -71,6 +73,8 @@ This repo now includes Codex skills under `skills/`.
   Reads today's `*-focus-log.md` files, always delegates one sub-agent per selected source log, builds multi-horizon scenario forecasts for each domain, and saves forecast logs through `daily-report-logger`.
 - `skills/price-prediction`
   Reads today's `*-focus-forecast-log.md` files, maps the most relevant domain scenarios to a user-specified product, predicts 1-week, 1-month, 3-month, and 1-year prices, and saves a product-specific log through `daily-report-logger`.
+- `skills/watchlist-price-predictions`
+  Reads `watchlists/products.yaml`, always delegates one sub-agent per selected product, runs `price-prediction` across the watchlist, and saves one combined batch summary through `daily-report-logger`.
 - `skills/daily-report-logger`
   Saves a final result into `history/daily/mm-dd-yyyy/{report}-log.md` using a uniform markdown format and overwrites the same report for the same date.
 
@@ -90,6 +94,7 @@ flowchart LR
   I["investigate-topics"]
   F["focus-events-forecast"]
   PP["price-prediction"]
+  WPP["watchlist-price-predictions"]
 
   subgraph FocusLogs["Daily Focus Logs"]
     ML["market-focus-log.md"]
@@ -105,8 +110,16 @@ flowchart LR
     SFL["science-focus-forecast-log.md"]
   end
 
+  subgraph Watchlists["Watchlists"]
+    WL["watchlists/products.yaml"]
+  end
+
   subgraph ProductLogs["Product Price Logs"]
     PRL["price-prediction-{product}-log.md"]
+  end
+
+  subgraph BatchLogs["Batch Watchlist Logs"]
+    WBL["watchlist-price-predictions-{watchlist}-log.md"]
   end
 
   I --> M
@@ -134,5 +147,8 @@ flowchart LR
   PFL --> PP
   SFL --> PP
 
+  WL --> WPP
+  WPP --> PP
   PP --> PRL
+  WPP --> WBL
 ```

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Watchlist Price Predictions"
+  short_description: "Run price forecasts for a watchlist"
+  default_prompt: "Use $watchlist-price-predictions to run $price-prediction for every enabled product in watchlists/products.yaml, summarize the batch, and save the combined result with $daily-report-logger."
