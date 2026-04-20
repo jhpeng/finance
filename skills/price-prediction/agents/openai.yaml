@@ -1,0 +1,4 @@
+interface:
+  display_name: "Price Prediction"
+  short_description: "Forecast product prices from focus forecasts"
+  default_prompt: "Use $price-prediction to forecast a product such as GLD, read today's `*-focus-forecast-log.md` files, estimate 1-week, 1-month, 3-month, and 1-year prices, and save the report with $daily-report-logger."

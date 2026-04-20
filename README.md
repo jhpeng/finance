@@ -69,6 +69,8 @@ This repo now includes Codex skills under `skills/`.
   Orchestrates multiple installed `*-focus-topics` skills, runs them in parallel by domain, and synthesizes the results into one cross-domain brief.
 - `skills/focus-events-forecast`
   Reads today's `*-focus-log.md` files, builds multi-horizon scenario forecasts for each domain, and saves forecast logs through `daily-report-logger`.
+- `skills/price-prediction`
+  Reads today's `*-focus-forecast-log.md` files, maps the most relevant domain scenarios to a user-specified product, predicts 1-week, 1-month, 3-month, and 1-year prices, and saves a product-specific log through `daily-report-logger`.
 - `skills/daily-report-logger`
   Saves a final result into `history/daily/mm-dd-yyyy/{report}-log.md` using a uniform markdown format and overwrites the same report for the same date.
 
@@ -87,6 +89,7 @@ flowchart LR
 
   I["investigate-topics"]
   F["focus-events-forecast"]
+  PP["price-prediction"]
 
   subgraph FocusLogs["Daily Focus Logs"]
     ML["market-focus-log.md"]
@@ -100,6 +103,10 @@ flowchart LR
     TFL["tech-focus-forecast-log.md"]
     PFL["political-focus-forecast-log.md"]
     SFL["science-focus-forecast-log.md"]
+  end
+
+  subgraph ProductLogs["Product Price Logs"]
+    PRL["price-prediction-{product}-log.md"]
   end
 
   I --> M
@@ -121,4 +128,11 @@ flowchart LR
   F --> TFL
   F --> PFL
   F --> SFL
+
+  MFL --> PP
+  TFL --> PP
+  PFL --> PP
+  SFL --> PP
+
+  PP --> PRL
 ```
