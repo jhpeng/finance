@@ -1,0 +1,4 @@
+interface:
+  display_name: "Science Focus Topics"
+  short_description: "Identify the science themes getting current attention"
+  default_prompt: "Use $science-focus-topics to identify the science themes driving current attention, explain why they matter, and save the brief with $daily-report-logger."
