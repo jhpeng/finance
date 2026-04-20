@@ -59,5 +59,7 @@ This repo now includes Codex skills under `skills/`.
 
 - `skills/market-focus-topics`
   Identifies the market themes getting current attention, ranks them, and ties them to evidence and asset reaction.
+- `skills/tech-focus-topics`
+  Identifies the technology themes getting current attention, ranks them, and ties them to evidence and business impact.
 - `skills/daily-report-logger`
   Saves a final result into `history/daily/mm-dd-yyyy/{report}-log.md` using a uniform markdown format and overwrites the same report for the same date.
