@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tech Focus Topics"
+  short_description: "Identify the tech themes getting current attention"
+  default_prompt: "Use $tech-focus-topics to identify the technology themes driving current attention, explain why they matter, and save the brief with $daily-report-logger."
