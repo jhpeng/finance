@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Research Pipeline"
+  short_description: "Run daily topics, forecasts, predictions, commit"
+  default_prompt: "Use $daily-research-pipeline to run $investigate-topics, then $focus-events-forecast, then $watchlist-price-predictions for one exact date, and commit the resulting daily log changes."
