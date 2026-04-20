@@ -1,4 +1,4 @@
 interface:
   display_name: "Investigate Topics"
-  short_description: "Fan out topic investigations across focus skills"
-  default_prompt: "Use $investigate-topics to investigate what multiple domains are focused on today by delegating to matching `*-focus-topics` skills and synthesizing the results."
+  short_description: "Always fan out topic investigations to sub-agents"
+  default_prompt: "Use $investigate-topics to investigate what multiple domains are focused on today by always delegating one sub-agent per matching `*-focus-topics` skill, then synthesize the results."

@@ -9,10 +9,19 @@ description: Forecast possible future developments from today's `*-focus-log.md`
 
 Turn today's focus logs into multi-horizon forecasts. Treat each `*-focus-log.md` as the baseline description of the current situation, delegate one domain forecast per log to a separate sub-agent, require explicit probabilities for each horizon, and persist each finished forecast with `$daily-report-logger`.
 
+## Delegation Contract
+
+Treat an explicit `/focus-events-forecast` invocation, or an explicit request to use `$focus-events-forecast`, as the user's consent to delegated parallel agent work for this workflow.
+
+- Always use sub-agents for this skill when at least one matching `*-focus-log.md` source exists.
+- Spawn exactly one fresh worker per selected source log for the first pass, even if only one log is selected.
+- Do not silently fall back to running a forecast locally. If sub-agents are unavailable, stop and say that `focus-events-forecast` requires sub-agents for execution.
+- Keep orchestration and final synthesis in the parent agent. Only per-log forecasting is delegated.
+
 ## Workflow
 
 1. Resolve the requested date and scope.
-Use the user-specified date if provided. Otherwise default to the current UTC date. If the user does not name specific logs or domains, process every `*-focus-log.md` available for that date.
+Use the user-specified date if provided. Otherwise default to the current UTC date. If the user does not name specific logs or domains, process every `*-focus-log.md` available for that date. Treat the skill invocation itself as the user's explicit request for delegated execution.
 
 2. Discover source logs.
 Run `scripts/find_focus_logs.sh` from this skill directory. It prints tab-separated `report-key<TAB>absolute-path` rows for the selected date.
@@ -23,9 +32,9 @@ If the user asks for a specific date, pass `--date MM-DD-YYYY` or `--date YYYY-M
 Match explicit user requests first. Otherwise use every discovered source log for the date. Treat each selected log as one independent forecast job.
 
 4. Spawn one worker per log.
-Use one fresh `default` sub-agent for each selected log. Prefer `fork_context: false` and pass only the context each worker needs.
+Use one fresh `default` sub-agent for each selected log. Do not collapse single-log requests into a local execution path. Prefer `fork_context: false` and pass only the context each worker needs.
 
-Do not set `model` or `reasoning_effort` on `spawn_agent`. Omitting both preserves the parent agent's current model and reasoning effort, which is required for this skill.
+Do not set `model` or `reasoning_effort` on `spawn_agent`. Omitting both preserves the parent agent's current model and reasoning effort, which is required for this skill. Worker fan-out is mandatory for this skill whenever matching source logs exist.
 
 5. Give each worker a bounded forecasting task.
 Each worker should handle exactly one source log and should not spawn more agents. Pass:
@@ -138,3 +147,4 @@ The parent agent should return a short orchestration summary that names the gene
 - Do not use false precision when the evidence does not justify it.
 - Do not claim a refreshed current state unless a refresh actually happened.
 - Do not silently skip saving the result. If the logger step fails, say so explicitly.
+- Do not replace the worker fan-out with local execution just because the scope is small; this skill is defined as a delegated workflow.

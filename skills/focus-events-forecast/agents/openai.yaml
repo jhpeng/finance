@@ -1,4 +1,4 @@
 interface:
   display_name: "Focus Events Forecast"
-  short_description: "Forecast scenarios from today's focus logs"
-  default_prompt: "Use $focus-events-forecast to read today's `*-focus-log.md` files, produce 1-week, 1-month, 3-month, and 1-year scenarios with probabilities, and save one forecast log per domain."
+  short_description: "Always fan out forecasts to sub-agents"
+  default_prompt: "Use $focus-events-forecast to read today's `*-focus-log.md` files, always delegate one sub-agent per selected log, produce 1-week, 1-month, 3-month, and 1-year scenarios with probabilities, and save one forecast log per domain."

@@ -66,9 +66,9 @@ This repo now includes Codex skills under `skills/`.
 - `skills/science-focus-topics`
   Identifies the science themes getting current attention, ranks them, and ties them to evidence and scientific or downstream impact.
 - `skills/investigate-topics`
-  Orchestrates multiple installed `*-focus-topics` skills, runs them in parallel by domain, and synthesizes the results into one cross-domain brief.
+  Orchestrates multiple installed `*-focus-topics` skills, always delegates one sub-agent per matched domain, and synthesizes the results into one cross-domain brief.
 - `skills/focus-events-forecast`
-  Reads today's `*-focus-log.md` files, builds multi-horizon scenario forecasts for each domain, and saves forecast logs through `daily-report-logger`.
+  Reads today's `*-focus-log.md` files, always delegates one sub-agent per selected source log, builds multi-horizon scenario forecasts for each domain, and saves forecast logs through `daily-report-logger`.
 - `skills/price-prediction`
   Reads today's `*-focus-forecast-log.md` files, maps the most relevant domain scenarios to a user-specified product, predicts 1-week, 1-month, 3-month, and 1-year prices, and saves a product-specific log through `daily-report-logger`.
 - `skills/daily-report-logger`

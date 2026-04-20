@@ -9,10 +9,19 @@ description: Orchestrate one or more installed `*-focus-topics` skills by discov
 
 Coordinate multiple installed `*-focus-topics` skills. Translate the user's requested domains into domain-specific worker tasks, let each sub-agent run the matching focus skill, and then merge those results into one cross-domain answer.
 
+## Delegation Contract
+
+Treat an explicit `/investigate-topics` invocation, or an explicit request to use `$investigate-topics`, as the user's consent to delegated parallel agent work for this workflow.
+
+- Always use sub-agents for this skill when at least one matching `*-focus-topics` skill is available.
+- Spawn exactly one fresh worker per selected domain skill for the first pass, even if only one domain is selected.
+- Do not silently fall back to running the domain analysis locally. If sub-agents are unavailable, stop and say that `investigate-topics` requires sub-agents for execution.
+- Keep synthesis in the parent agent. Only domain investigation is delegated.
+
 ## Workflow
 
 1. Define the investigation scope.
-Extract the requested domains, timeframe, geography, comparison angle, desired output depth, and whether the user wants logs suppressed. If the user asks to "investigate topics" broadly without naming domains, default to every installed `*-focus-topics` skill you can discover and state that assumption with exact dates.
+Extract the requested domains, timeframe, geography, comparison angle, desired output depth, and whether the user wants logs suppressed. If the user asks to "investigate topics" broadly without naming domains, default to every installed `*-focus-topics` skill you can discover and state that assumption with exact dates. Treat the skill invocation itself as the user's explicit request for delegated execution.
 
 2. Discover the available focus skills.
 Run `scripts/find_focus_skills.sh` from this skill directory. It prints tab-separated `skill-name<TAB>absolute-path` rows for every discovered `*-focus-topics` skill.
@@ -28,7 +37,7 @@ Match explicit skill names first. Otherwise map domain words to the correspondin
 If the user names a domain that has no installed `*-focus-topics` skill, say so plainly and continue with the domains you can cover.
 
 4. Prepare one worker prompt per selected skill.
-Use a fresh `default` sub-agent for each domain. Keep the worker prompt specific and task-local. Include:
+Use a fresh `default` sub-agent for each domain. Do not collapse single-domain requests into a local execution path. Keep the worker prompt specific and task-local. Include:
 
 - the skill invocation: `Use $skill-name at /absolute/path/to/skill`
 - the original user request
@@ -37,7 +46,7 @@ Use a fresh `default` sub-agent for each domain. Keep the worker prompt specific
 - a reminder to return the domain brief with exact dates and direct source links
 
 5. Spawn workers in parallel.
-Call `spawn_agent` once per selected focus skill. Do not set `model` or `reasoning_effort` unless you are intentionally mirroring explicit parent settings. Omitting both fields preserves the parent agent's current model and reasoning effort, which is the default behavior to use here.
+Call `spawn_agent` once per selected focus skill. This is mandatory for this skill whenever matching domain skills exist. Do not set `model` or `reasoning_effort` unless you are intentionally mirroring explicit parent settings. Omitting both fields preserves the parent agent's current model and reasoning effort, which is the default behavior to use here.
 
 Prefer `fork_context: false` and pass only the context the worker needs. Switch to `fork_context: true` only when the thread contains essential scope details that would be risky or cumbersome to restate.
 
@@ -91,3 +100,4 @@ Return only the finished DOMAIN brief plus any short caveats that materially aff
 - Do not let workers synthesize each other; synthesis stays with the parent agent.
 - Do not claim that a domain is covered when no matching focus skill was found or completed.
 - Keep assumptions explicit when the user did not name domains or a timeframe.
+- Do not replace the worker fan-out with local execution just because the scope is small; this skill is defined as a delegated workflow.
