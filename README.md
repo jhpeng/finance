@@ -74,7 +74,7 @@ This repo now includes Codex skills under `skills/`.
 
 ## Skill Correlation Figure
 
-The diagram below shows how the skills connect through orchestration and shared daily logs.
+The diagram below shows how the main analysis and forecasting skills connect, without the logging helper.
 
 ```mermaid
 flowchart LR
@@ -87,7 +87,6 @@ flowchart LR
 
   I["investigate-topics"]
   F["focus-events-forecast"]
-  L["daily-report-logger"]
 
   subgraph FocusLogs["Daily Focus Logs"]
     ML["market-focus-log.md"]
@@ -108,25 +107,18 @@ flowchart LR
   I --> P
   I --> S
 
-  M --> L
-  T --> L
-  P --> L
-  S --> L
-
-  L --> ML
-  L --> TL
-  L --> PL
-  L --> SL
+  M --> ML
+  T --> TL
+  P --> PL
+  S --> SL
 
   ML --> F
   TL --> F
   PL --> F
   SL --> F
 
-  F --> L
-
-  L --> MFL
-  L --> TFL
-  L --> PFL
-  L --> SFL
+  F --> MFL
+  F --> TFL
+  F --> PFL
+  F --> SFL
 ```
