@@ -1,0 +1,4 @@
+interface:
+  display_name: "Investigate Topics"
+  short_description: "Fan out topic investigations across focus skills"
+  default_prompt: "Use $investigate-topics to investigate what multiple domains are focused on today by delegating to matching `*-focus-topics` skills and synthesizing the results."
