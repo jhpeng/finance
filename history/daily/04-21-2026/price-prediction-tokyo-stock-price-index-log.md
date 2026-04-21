@@ -2,7 +2,7 @@
 report: "price-prediction-tokyo-stock-price-index"
 title: "Price Prediction: Tokyo Stock Price Index"
 log_date: "04-21-2026"
-generated_at_utc: "2026-04-21T04:09:22Z"
+generated_at_utc: "2026-04-21T04:49:01Z"
 source_skill: "price-prediction"
 ---
 
@@ -10,68 +10,70 @@ source_skill: "price-prediction"
 
 - Report: `price-prediction-tokyo-stock-price-index`
 - Date: `04-21-2026`
-- Generated At: `2026-04-21T04:09:22Z`
+- Generated At: `2026-04-21T04:49:01Z`
 - Source Skill: `price-prediction`
 
 ## Summary
-Base case is a cautious TOPIX advance from the official JPX reference price of 3,785.09 as Middle East risk stays contained enough for AI and semiconductor leadership to offset imported-energy drag. Confidence is capped by unresolved same-day geopolitics in the 2026-04-21 logs and the lack of direct BOJ/yen scenarios in those inputs.
+Base case is capped but constructive TOPIX price action from the live April 21 JPX level of 3,779.68: oil and geopolitical risk limit near-term upside, but AI and exporter leadership keep the medium-term bias mildly positive. Confidence is capped because the same-day forecast logs predate key Iran-resolution outcomes and do not directly model BOJ or USD/JPY shocks.
 
 ## Request
-Use $price-prediction at /workspaces/finance/skills/price-prediction to forecast only this product. Do not spawn more agents.
+Use the price-prediction skill at /workspaces/finance/skills/price-prediction to forecast only this product. Do not spawn more agents.
 
 Assigned product:
 - Symbol: TOPIX
 - Label: Tokyo Stock Price Index
 - Asset class: index
 - Watchlist file: /workspaces/finance/watchlists/products.yaml
-- Requested date: 2026-04-21
 
 User request:
-Run the repo's daily research pipeline for the exact UTC date 2026-04-21. This watchlist step should generate the normal saved price prediction for this product.
+/daily-research-pipeline
 
 Execution notes:
-- Preserve the exact date 2026-04-21 when reading forecast logs.
-- Verify a live/current reference price before forecasting.
-- Save the result to the normal daily log location.
-- Return the finished product forecast summary, the saved log path if one was written, and any short caveat that materially affects confidence.
+- Use the 2026-04-21 forecast logs already generated under /workspaces/finance/history/daily/04-21-2026.
+- Preserve the exact date 2026-04-21.
+- Verify the current reference price with live tools or authoritative current web sources.
+- Save the final result for 2026-04-21 using the repo's daily logger conventions.
+- Return the finished product forecast summary, the saved log path, and any short caveat that materially affects confidence.
 
 ## Output
 ## Resolved Product
 Tokyo Stock Price Index (`TOPIX`) - asset class: `index`
 
 ## Current Price
-`3,785.09` points at `2026-04-21 13:07 JST` (`2026-04-21 04:07 UTC`), from the official Japan Exchange Group stock-price-index feed (`e_indices_stock_price3.txt` with timestamp file `e_indices_stock_price3.time.txt`). This is a near-live exchange data update rather than a simple prior close. Third-party delayed quotes were consistent with the same level.
+`3,779.68` points at `2026-04-21 13:48 JST` (`2026-04-21 04:48 UTC`), from the official Japan Exchange Group stock-price-index feed and timestamp file. Source type: near-live official exchange data update. Feed fields at capture: open `3,780.06`, high `3,789.13`, low `3,768.31`, day change `+2.66` (`+0.07%`).
 
 ## Forecast Inputs
-Primary input was `/workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md` (`high` relevance), because TOPIX is a broad Japanese equity index and the dominant cross-asset driver on `2026-04-21` was oil, rates, and risk appetite. `/workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md` was `medium` relevance for the Iran ceasefire and executive-power path that can keep the Gulf risk premium alive, while `/workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md` was `medium` relevance because AI and cloud-capex leadership materially affect TOPIX semiconductor and electronics names. `/workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md` was `low` relevance and mainly treated as background sentiment rather than a direct price driver.
+Used every forecast log discovered by `find_forecast_logs.sh --date 2026-04-21`: `/workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md`, `/workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md`, `/workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md`, and `/workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md`.
+
+Relevance for `TOPIX`: `market` `high`, `political` `medium`, `tech` `medium`, `science` `low`. The main base-case driver is the market log's managed-instability path: oil and rates stay restrictive enough to cap multiple expansion, but not enough to force a recession. The political log matters mainly through Iran and Hormuz risk feeding Japan's imported-energy bill. The tech log adds support through semiconductor equipment, factory automation, electronics, and exporter-heavy leadership. The science log is mostly background sentiment and longer-run governance context.
 
 ## Price Targets
 ### 1 week
-- Dominant scenario: Iran talks hold just enough to avoid a fresh energy shock, but the oil premium stays high and breadth stays narrow.
-- Expected effect: modest upside, led more by tech and export-heavy leadership than by a broad domestic cyclical rally.
+- Dominant scenario: Iran talks hold just enough to avoid a fresh energy shock, but the oil premium stays elevated and breadth remains narrow.
+- Expected effect: modest upside, led more by exporters and AI-linked leaders than by a broad domestic cyclical rally.
 - Target price: `3,830`
 - Likely range: `3,730` to `3,890`
 - Confidence: `medium`
-- Main driver: the market log's messy-containment base case, with the tech log adding support for AI-linked Japanese leaders.
+- Main driver: the market log's messy-containment base case, with the tech log supporting Japanese semiconductor and automation names.
 
 ### 1 month
-- Dominant scenario: crude stays elevated enough to keep rates restrictive and valuation expansion limited, but earnings resilience and AI-capex demand keep TOPIX from breaking down.
-- Expected effect: mostly sideways-to-up with continued rotation and uneven sector participation.
+- Dominant scenario: crude stays high enough to keep rates restrictive and valuation expansion limited, but earnings resilience and AI-capex demand keep TOPIX from breaking down.
+- Expected effect: mostly sideways-to-up with uneven sector participation.
 - Target price: `3,860`
 - Likely range: `3,650` to `3,960`
 - Confidence: `medium`
-- Main driver: persistent oil-plus-rates pressure from the market log, partly offset by the tech log's post-Cloud-Next capex and orchestration tailwind.
+- Main driver: persistent oil-plus-rates pressure from the market log, partly offset by the tech log's continued infrastructure and enterprise-AI spending tailwind.
 
 ### 3 months
-- Dominant scenario: managed instability becomes the summer regime; recurring Gulf headlines and supply-chain stress create drawdown risk, but no recession path means AI, automation, and industrial winners keep the index broadly supported.
+- Dominant scenario: managed instability becomes the summer regime; recurring Gulf headlines create drawdown risk, but the no-recession base case leaves AI, automation, and industrial winners broadly supported.
 - Expected effect: choppy trading with only modest net upside from current levels.
 - Target price: `3,900`
 - Likely range: `3,550` to `4,050`
 - Confidence: `medium-low`
-- Main driver: the market log's managed-instability summer regime, with the Reuters-reported risk of a larger summer correction treated as a meaningful downside branch rather than the base case.
+- Main driver: the market log's summer managed-instability path, with downside branches tied to any deeper oil shock or supply-chain stress.
 
 ### 1 year
-- Dominant scenario: higher energy costs remain a drag, but global AI and cloud-investment leadership continues to benefit Japanese semiconductor, automation, and electronics exposure strongly enough for TOPIX to make new highs.
+- Dominant scenario: higher energy costs remain a drag, but global AI and cloud-investment leadership continues to benefit Japanese semiconductor, automation, and electronics exposure enough for TOPIX to make new highs.
 - Expected effect: gradual grind higher above the current range, with upside capped relative to a clean disinflation path because Japan remains sensitive to imported energy.
 - Target price: `4,180`
 - Likely range: `3,650` to `4,500`
@@ -79,34 +81,34 @@ Primary input was `/workspaces/finance/history/daily/04-21-2026/market-focus-for
 - Main driver: the combination of the market log's no-recession base case and the tech log's integrated agentic-enterprise-stack thesis.
 
 ## Most Likely Path
-The base case from `2026-04-21` is a cautious TOPIX advance rather than a breakout or a breakdown. The most likely path is that Middle East risk stays contained enough to prevent a new oil spike, while AI and semiconductor leadership keeps supporting the index; however, imported-energy pressure and narrow breadth likely prevent a smooth rally.
+The base case for exact-date `2026-04-21` inputs is cautious upside rather than breakout. Middle East risk and firm oil keep near-term upside capped, but AI, semiconductor, automation, and exporter leadership are still strong enough to leave the medium-term TOPIX bias positive if Gulf stress does not turn into a larger global growth shock.
 
 ## What Would Change The Call
-- A clear break in Iran talks or renewed Strait of Hormuz disruption that pushes crude decisively higher would lower the `1 week` through `1 year` targets.
-- Evidence that supply shortages are spreading into Japanese industrial and electronics chains would make the `3 months` horizon materially weaker.
-- A durable Gulf de-escalation that removes the oil risk premium would raise the `1 month` and `1 year` targets by allowing broader participation and better valuation support.
-- If AI infrastructure demand broadens further into Japanese chip-tool, factory-automation, and electronics names without a security shock, the upside case improves.
+- Raise the forecast: a durable Gulf de-escalation, Brent moving back into the low-90s or lower, softer U.S. yields, or stronger AI-capex follow-through that broadens leadership across Japanese electronics and machinery.
+- Lower the forecast: renewed Strait of Hormuz disruption, Brent pushing decisively above 100, a more hawkish late-April FOMC response to energy-driven inflation, or a sharper hit to Japanese domestic demand from imported-cost pressure.
+- Invalidate the forecast: a real global recession signal, a sharp break in AI and semiconductor demand, or a Japan-specific BOJ or yen shock large enough to dominate the global scenarios in today's logs.
 
 ## Confidence
 `medium`
 
-The broad-index fit is reasonably good because the market and tech forecast logs map cleanly into TOPIX leadership, but confidence is capped by two things: the `2026-04-21` forecast logs were captured while same-day geopolitics were still moving, and they do not directly model Japan-specific BOJ or yen-path surprises.
+The broad-index fit is reasonably good because the market and tech forecast logs map cleanly into TOPIX leadership, but confidence is capped by two things: the `2026-04-21` forecast logs were captured while same-day geopolitics were still moving, and they do not directly model Japan-specific BOJ or USD/JPY path surprises.
 
 ## Notes
 Product type: index
+Watchlist entry: /workspaces/finance/watchlists/products.yaml -> symbol TOPIX, label Tokyo Stock Price Index, asset_class index
 Requested date preserved when reading forecast logs: 2026-04-21
-Price source used: official JPX data file https://www.jpx.co.jp/market/indices/e_indices_stock_price3.txt
-Price timestamp file: https://www.jpx.co.jp/market/indices/e_indices_stock_price3.time.txt
-Observed TOPIX price: 3,785.09
-Observed timestamp: 2026-04-21 13:07 JST / 2026-04-21 04:07 UTC
-Price status: near-live official exchange data update
-Corroborating quote: https://www.marketscreener.com/quote/index/TOPIX-INDEX-61714390/ showed a consistent delayed quote around 3,784 shortly afterward.
-Additional market context: Reuters distribution via https://economictimes.indiatimes.com/markets/us-stocks/news/japans-nikkei-rises-as-tech-gains-on-middle-east-deal-optimism/articleshow/130405660.cms reported TOPIX at 3,782.43 as of 01:47 GMT on 2026-04-21.
-Forecast logs used:
+Verified price source: https://www.jpx.co.jp/market/indices/e_indices_stock_price3.txt
+Timestamp source: https://www.jpx.co.jp/market/indices/e_indices_stock_price3.time.txt
+Observed TOPIX price: 3,779.68
+Observed feed timestamp: 2026-04-21 13:48 JST / 2026-04-21 04:48 UTC
+Observed quote fields: open 3,780.06, high 3,789.13, low 3,768.31, previous-day comparison +2.66, previous-day ratio +0.07%
+Feed HTTP Last-Modified header: Tue, 21 Apr 2026 04:48:30 GMT
+Realtime graph URL from JPX feed: https://quote.jpx.co.jp/jpxhp/main/index.aspx?F=e_real_index&qcode=151
+Forecast logs discovered with /workspaces/finance/skills/price-prediction/scripts/find_forecast_logs.sh --date 2026-04-21:
 - /workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md
 - /workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md
 - /workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md
 - /workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md
-Missing domains: none
-Relevance ranking: market high; political medium; tech medium; science low
-Major assumptions: no fresh Gulf supply shock beyond the forecast baseline; AI-capex leadership continues to support Japanese semiconductor and automation names; downside summer correction risk remains a branch case, not the base case.
+Missing domains: none among the discovered 2026-04-21 forecast logs.
+Relevance ranking: market high; political medium; tech medium; science low.
+Major assumptions: no fresh Gulf supply shock beyond the forecast baseline; AI-capex leadership continues to support Japanese semiconductor and automation names; the downside summer-correction path remains a branch case, not the base case; BOJ and USD/JPY are important but only indirectly represented in the available forecast logs.

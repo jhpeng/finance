@@ -2,7 +2,7 @@
 report: "science-focus-forecast"
 title: "Science Focus Forecast"
 log_date: "04-21-2026"
-generated_at_utc: "2026-04-21T04:01:31Z"
+generated_at_utc: "2026-04-21T04:40:28Z"
 source_skill: "focus-events-forecast"
 ---
 
@@ -10,166 +10,162 @@ source_skill: "focus-events-forecast"
 
 - Report: `science-focus-forecast`
 - Date: `04-21-2026`
-- Generated At: `2026-04-21T04:01:31Z`
+- Generated At: `2026-04-21T04:40:28Z`
 - Source Skill: `focus-events-forecast`
 
 ## Summary
-Base case: AACR remains the lead science storyline into late April 2026, but funding pressure and research-governance issues are the main risks to displacing discovery-led narratives over the next one to three months.
+Base case: AACR drives the next week, but the likelier one- to three-month outcome is that funding pressure, not any single discovery, becomes the dominant science operating story. Main uncertainty: whether conference-stage oncology follow-through can outrun budget and governance overhangs.
 
 ## Request
-Run the repo's daily research pipeline for the exact UTC date 2026-04-21. This step should forecast the existing focus logs for that exact date and persist the normal daily forecast log.
+/daily-research-pipeline
 
-Source log:
+Forecast task:
 - Report key: science-focus
 - Path: /workspaces/finance/history/daily/04-21-2026/science-focus-log.md
 - Requested date: 2026-04-21
-- Logger skill path: /home/vscode/.codex/skills/daily-report-logger
-- Forecast framework path: /home/vscode/.codex/skills/focus-events-forecast/references/scenario-forecast-framework.md
+- Logger skill path: /workspaces/finance/skills/daily-report-logger
+- Forecast framework path: /workspaces/finance/skills/focus-events-forecast/references/scenario-forecast-framework.md
 
 Forecast requirements:
 1. Read the source log and extract the current situation, major drivers, catalysts, evidence window, and caveats.
-2. Use the source log as the baseline state for 2026-04-21 unless it is clearly stale.
+2. Use the source log as the baseline unless it clearly requires a live refresh under the skill rules.
 3. Produce four horizon sections: 1 week, 1 month, 3 months, and 1 year.
-4. For each horizon, create 2 to 4 mutually exclusive scenarios with probabilities that sum to 100% for that horizon.
+4. For each horizon, create 2 to 4 mutually exclusive scenarios with probabilities summing to 100% for that horizon.
 5. Keep scenario labels event-driven and specific. Explain why each path is plausible and what signals would confirm or weaken it.
-6. Open the framework path if useful.
-7. Save the final forecast to /workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md, preferably via /workspaces/finance/skills/daily-report-logger/scripts/write_daily_log.sh with --root /workspaces/finance.
+6. Save the final forecast for 2026-04-21 using the repo's daily logger conventions with report key science-focus-forecast.
 
 ## Output
 # Science Focus Forecast
 
 ## Current Situation
-Baseline facts from the 2026-04-21 `science-focus` log show science attention concentrated in five overlapping threads: AACR 2026 oncology readouts, NASA's handoff from Artemis II science afterglow to Roman telescope readiness, sharper AMOC weakening risk on top of WMO's alarming climate baseline, proposed FY2027 U.S. science cuts, and emerging governance pressure around AI research agents. The source log matches the requested date, so this forecast uses it as the baseline state rather than a live refresh.
+Baseline facts from the same-day `science-focus` log place science attention on five active threads: AACR 2026 oncology readouts, NASA's April 21 Roman observatory showcase after Artemis II's lunar-flyby science, the April 15 AMOC weakening paper layered onto WMO's hot-climate baseline, proposed FY2027 U.S. science cuts, and AI-for-science governance pressure.
 
-- Major drivers: AACR's April 17-22 meeting cadence and late-session oncology visibility; NASA's April 21 Roman media briefing plus Artemis II imagery and postflight interpretation; the April 15 AMOC paper and its rapid amplification; the April 3 FY2027 budget request and policy-community backlash; the April 13 AI Index and Nature's March-April framing of agentic science as a governance issue.
-- Active catalysts: AACR closeout coverage and follow-up trial or partner commentary; the Roman briefing and any firmer launch-readiness signals; congressional, agency, or scientific-society responses to proposed science cuts; expert validation or pushback on AMOC estimates; journal or funder moves on AI-agent disclosure, benchmarking, or reproducibility.
-- Evidence window: primarily March 23, 2026 through April 21, 2026, with the heaviest concentration from April 3 through April 21, 2026.
-- Caveats: AACR evidence is still largely conference-stage; Roman attention mixes mission readiness with science; budget-cut scenarios depend on political follow-through rather than settled outcomes; AMOC and AI-agent narratives are partly institutional interpretation rather than closed scientific consensus.
+- Major drivers: AACR's April 17-22 agenda; Roman readiness and Artemis science visibility; the new AMOC estimate; the April 3 FY2027 budget request; the April 13 AI Index plus Nature's governance framing.
+- Catalysts: AACR closeout and post-meeting data selection; any concrete Roman schedule or readiness detail; congressional or society responses to the proposed cuts; expert validation or critique of the AMOC result; journal or funder AI-disclosure moves.
+- Evidence window: March 23, 2026 through April 21, 2026, with the densest source activity from April 3 through April 21.
+- Caveats: AACR is still mostly conference-stage; Roman attention mixes science with mission readiness; budget outcomes are political rather than settled; AMOC and AI-governance narratives could reprice quickly with expert or institutional response.
 
-All scenario paths below are inference from that dated baseline.
+Inference note: No live refresh was performed. This forecast treats the 2026-04-21 log as the dated baseline and models unresolved same-day catalysts as forward scenarios.
 
 ## Forecast Horizons
+The scenarios below are mutually exclusive by asking which development most shapes the science narrative or operating consequence by the end of each horizon.
 
 ### 1 week (through April 28, 2026)
-
-**Scenario 1: AACR closeout elevates MRD, ctDNA, and early-onset cancer into the week's standout translational narrative**  
+**Scenario: AACR closeout crystallizes oncology as the week's lead science story**  
 **Probability: 40%**  
-Why plausible: The strongest immediate catalyst is the still-live AACR calendar through April 22. Conference-stage science usually dominates the very next news cycle when a few clinically resonant readouts separate from the pack.  
-Confirming signals: Cancer centers, NCI, biotech companies, or trade press keep converging on the same MRD, ctDNA, AI-oncology, or early-onset themes.  
-Weakening signals: Coverage fragments and no dataset clearly breaks out after the meeting ends.
+Why plausible: AACR was still live on April 21 and had the most concentrated near-term catalyst calendar, so the path of least resistance is that one or two MRD, ctDNA, early-onset cancer, or AI-oncology themes dominate the immediate follow-through.  
+Signals that confirm: Trade press, major centers, or company updates converge on the same readouts after April 22.  
+Signals that weaken: Coverage fragments and no program separates from the pack.
 
-**Scenario 2: Roman briefing shifts attention from Artemis afterglow to NASA flagship-readiness science**  
-**Probability: 20%**  
-Why plausible: NASA scheduled a same-day Roman media event after final major prelaunch tests, giving space science a concrete fresh catalyst that can compete with conference coverage.  
-Confirming signals: The briefing produces clearer launch-readiness language, new instrument detail, or repeated framing of Roman as the next major observatory story.  
-Weakening signals: The event is mostly ceremonial or quickly overshadowed by other science news.
-
-**Scenario 3: Funding-cut backlash turns research-system stress into the umbrella science story**  
+**Scenario: Proposed FY2027 cuts turn research funding into the umbrella science story**  
 **Probability: 25%**  
-Why plausible: The proposed FY2027 cuts hit NASA, NSF, NIH, DOE science, and NOAA research at once. A single appropriator, agency, or society response can quickly reframe the week around capacity risk rather than any one discovery.  
-Confirming signals: Agencies warn about program impact, societies escalate advocacy, or congressional voices challenge the proposal publicly.  
-Weakening signals: There are no fresh Washington or agency developments.
+Why plausible: A single appropriator, agency, or society intervention could quickly shift attention from discoveries to what labs and missions may lose if the White House toplines are treated as credible.  
+Signals that confirm: Public agency impact statements, society campaigns, or congressional pushback with program-level detail.  
+Signals that weaken: Washington stays quiet and researchers treat the proposal as opening-position noise.
 
-**Scenario 4: AMOC risk receives rapid expert reinforcement and becomes the climate anchor**  
+**Scenario: Roman briefing keeps NASA space science at the top of the fresh-news cycle**  
+**Probability: 20%**  
+Why plausible: Roman had a same-day media event after major prelaunch tests, and Artemis II science was still fresh enough to reinforce a broader NASA execution narrative.  
+Signals that confirm: The briefing yields concrete readiness, testing, or schedule detail that gets repeated across science outlets.  
+Signals that weaken: The event is mostly ceremonial and fades within a day or two.
+
+**Scenario: The new AMOC estimate becomes the week's standout climate-risk topic**  
 **Probability: 15%**  
-Why plausible: The AMOC estimate is fresh enough to attract explainers, rebuttals, and institutional commentary, and climate-risk stories can outlast short conference cycles if the expert response is strong.  
-Confirming signals: More research groups, WMO-linked voices, or mainstream outlets publish technical follow-through.  
-Weakening signals: Leading oceanographers narrow the claim or treat the new estimate as interesting but not decision-changing.
+Why plausible: The April 15 paper was new enough to attract rapid expert amplification or rebuttal, and climate-risk stories can briefly outrun conference news when a striking number enters circulation.  
+Signals that confirm: Additional oceanographers, institutions, or major outlets publish technical follow-through.  
+Signals that weaken: Early expert commentary frames the estimate as too uncertain to change the discussion.
 
 ### 1 month (through May 21, 2026)
+**Scenario: Funding uncertainty starts changing behavior across labs, agencies, and missions**  
+**Probability: 35%**  
+Why plausible: One month is enough for hiring pauses, portfolio reviews, mission reprioritization, and public budget-defense messaging to surface even before appropriations are settled.  
+Signals that confirm: Universities or agencies announce planning changes, grant delays, or scenario cuts.  
+Signals that weaken: Congressional signals quickly imply most of the proposed cuts will not survive.
 
-**Scenario 1: AACR buzz narrows into a few durable oncology follow-on programs**  
-**Probability: 30%**  
-Why plausible: Over a month, most meeting stories fade, but a smaller subset can persist through expansion cohorts, peer-reviewed papers, licensing discussions, or clinician commentary. Oncology has the clearest path from conference attention to operational follow-through.  
-Confirming signals: The same programs keep resurfacing in trial updates, collaborations, or journal coverage.  
-Weakening signals: The highlighted AACR work remains confined to recap stories.
+**Scenario: Post-AACR follow-through leaves a small set of oncology programs as the durable discovery storyline**  
+**Probability: 25%**  
+Why plausible: Most conference buzz fades, but oncology has the clearest machinery for converting April attention into papers, expansion data, partnerships, and clinician discussion within a month.  
+Signals that confirm: The same programs keep reappearing in trial, journal, or deal coverage.  
+Signals that weaken: The AACR themes remain trapped in recap stories with no operational follow-on.
 
-**Scenario 2: Funding uncertainty starts changing behavior across labs, agencies, and missions**  
-**Probability: 30%**  
-Why plausible: One month is enough for universities, agencies, and mission teams to start reprioritizing if the proposed cuts look credible, even before final appropriations are known.  
-Confirming signals: Institutions announce hiring pauses, portfolio reviews, mission replanning, or public budget-defense campaigns.  
-Weakening signals: Congressional signals quickly imply the deepest cuts will not survive.
-
-**Scenario 3: AMOC moves from headline paper to durable climate-risk reference point**  
+**Scenario: Journals and funders begin formal AI-agent disclosure and benchmarking rules**  
 **Probability: 20%**  
-Why plausible: A month allows time for rebuttal, replication attempts, and broader climate-policy uptake. If the April 15 result survives early scrutiny, it can become a recurring benchmark in adaptation and tipping-point discussion.  
-Confirming signals: Assessment-style commentary, workshops, or follow-on analyses keep citing the constrained estimate.  
-Weakening signals: Methodological criticism materially narrows confidence in the result.
+Why plausible: The source log already framed AI in science as a governance issue, and a month is a reasonable window for editorials to turn into author guidance, policy pilots, or benchmarking requirements.  
+Signals that confirm: Explicit journal, funder, or university policies on disclosure, authorship, evaluation, or reproducibility.  
+Signals that weaken: AI in science remains a discussion topic with no concrete institutional action.
 
-**Scenario 4: Journals and funders begin formalizing AI-agent disclosure and benchmarking expectations**  
+**Scenario: The AMOC result becomes a recurring climate-risk reference point**  
 **Probability: 20%**  
-Why plausible: The source log frames AI-for-science as a governance issue, and a month is enough time for editorial guidance, funder language, or institutional statements to emerge even if capabilities remain mixed.  
-Confirming signals: Journals, funders, or universities publish explicit rules on disclosure, authorship, evaluation, or reproducibility for agentic workflows.  
-Weakening signals: AI in science stays a general debate with no concrete governance moves.
+Why plausible: A month allows time for rebuttal, replication attempts, and broader assessment-style commentary. If the estimate survives that first round, it can become a standard talking point in climate-risk discussion.  
+Signals that confirm: Follow-on analyses, workshops, or adaptation commentary keep citing the constrained weakening estimate.  
+Signals that weaken: Methodological criticism narrows confidence enough that the result stops being reused.
 
 ### 3 months (through July 21, 2026)
-
-**Scenario 1: Science-budget pressure forces visible portfolio triage across the U.S. research system**  
+**Scenario: U.S. science portfolio triage becomes visible across agencies and institutions**  
 **Probability: 35%**  
-Why plausible: Three months is long enough for uncertainty around FY2027 cuts to produce second-order effects: delayed grants, narrower solicitations, mission prioritization, and more explicit tradeoffs across agencies and institutions.  
-Confirming signals: Appropriations conflict drags on, agencies document program-level impacts, or universities keep operating defensively.  
-Weakening signals: Budget restoration looks likely early enough to avoid operational disruption.
+Why plausible: By midsummer, budget uncertainty can translate into operational evidence: narrower solicitations, delayed starts, mission tradeoffs, and more defensive planning across the research system.  
+Signals that confirm: Agencies and institutions publish or leak concrete program-level adjustments.  
+Signals that weaken: Funding restoration becomes likely early enough to prevent operational spillover.
 
-**Scenario 2: A small set of AACR 2026 themes graduate into papers, trials, or partnerships**  
+**Scenario: A handful of AACR-linked programs prove they have legs beyond conference season**  
 **Probability: 25%**  
-Why plausible: Translational oncology has the most mature machinery for converting conference signals into visible downstream action. By midsummer, the strongest April stories can either prove they have legs or fade.  
-Confirming signals: Expansion trials, peer-reviewed papers, or business-development activity cluster around the same themes.  
-Weakening signals: Efficacy questions, safety concerns, or competing oncology narratives displace them.
+Why plausible: Translational oncology is still the strongest path from April conference attention to visible downstream movement by July, especially through papers, expansion cohorts, or partnering.  
+Signals that confirm: Stronger efficacy packages, peer-reviewed publication, registrational framing, or licensing activity around the same themes.  
+Signals that weaken: Safety, effect-size, or reproducibility questions displace the early enthusiasm.
 
-**Scenario 3: Roman readiness and Artemis lessons refocus NASA science around execution under constraint**  
+**Scenario: NASA science shifts into an execution-under-constraint narrative around Roman and Artemis lessons**  
 **Probability: 20%**  
-Why plausible: By July, Roman and Artemis should matter less as isolated headlines and more as evidence of whether NASA can sustain flagship science and lunar planning under fiscal pressure.  
-Confirming signals: NASA ties Roman milestones or Artemis postflight findings to concrete schedules, procedures, or science priorities.  
-Weakening signals: Budget uncertainty overwhelms these mission narratives.
+Why plausible: Three months is enough for April's Roman and Artemis attention to turn into a more consequential question: can NASA hold schedule credibility and scientific momentum under a hostile budget backdrop?  
+Signals that confirm: Roman milestones, schedule discipline, or Artemis postflight science outputs keep appearing alongside budget-defense arguments.  
+Signals that weaken: Fiscal uncertainty overwhelms mission-specific progress or schedule slips reappear.
 
-**Scenario 4: Climate risk and AI governance institutionalization outrun individual lab headlines**  
+**Scenario: Climate and AI governance themes institutionalize faster than single-dataset news**  
 **Probability: 20%**  
-Why plausible: Both the AMOC story and the AI-agent story can evolve from one-off coverage into standing agenda items for climate planning, journals, and funders. Three months is enough for that institutionalization to become visible.  
-Confirming signals: Climate planning documents cite AMOC more explicitly and journals or funders codify AI-agent rules.  
-Weakening signals: Both themes remain mostly commentary without operational consequences.
+Why plausible: Both the AMOC paper and AI-agent debate can move from coverage spikes to standing agenda items for planners, journals, and funders over a three-month window.  
+Signals that confirm: Adaptation planning documents cite AMOC more directly and research institutions formalize AI-agent rules.  
+Signals that weaken: Both themes remain mostly commentary with little operational consequence.
 
 ### 1 year (through April 21, 2027)
-
-**Scenario 1: Partial FY2027 cuts land, leaving science in a leaner but still functioning operating regime**  
+**Scenario: A leaner U.S. science funding regime is the dominant lasting outcome**  
 **Probability: 35%**  
-Why plausible: The most likely one-year structural outcome is not total collapse, but a constrained research system with slower mission cadence, harder prioritization, and uneven damage across fields if even part of the proposal survives.  
-Confirming signals: Final budgets preserve only part of current agency capacity, or institutions normalize operating under austerity assumptions.  
-Weakening signals: Congress substantially restores science funding.
+Why plausible: The most durable one-year risk in the source log is not a single discovery but a constrained operating environment with slower mission cadence, fewer grants, and harder prioritization if even part of the FY2027 proposal lands.  
+Signals that confirm: Final budgets or institutional behavior normalize austerity, cancellations, or reduced competition cycles.  
+Signals that weaken: Congress restores enough funding to treat 2026 as a scare rather than a regime change.
 
-**Scenario 2: AACR 2026 is remembered as the starting point for at least one meaningful oncology translation wave**  
+**Scenario: AACR 2026 is remembered mainly as the start of a meaningful oncology translation wave**  
 **Probability: 25%**  
-Why plausible: Of the themes in the log, oncology has the clearest path to regulator-facing evidence, durable partnering, or new standard-of-care debates within a year.  
-Confirming signals: One or more AACR-linked programs deliver strong follow-up data, pivotal-trial positioning, or major licensing activity.  
-Weakening signals: The April 2026 themes stay scientifically interesting but operationally modest.
+Why plausible: Of the April 2026 themes, oncology has the clearest path to sustained clinical, commercial, and regulatory follow-through within a year.  
+Signals that confirm: One or more AACR-linked programs deliver clear follow-up data, pivotal-trial positioning, or major partnering activity.  
+Signals that weaken: The April 2026 themes remain scientifically interesting but operationally modest.
 
-**Scenario 3: NASA science momentum survives by turning Roman and Artemis into durable mission-execution proof points**  
+**Scenario: Governance hardening becomes the main legacy, with AMOC risk and AI-agent rules embedded in institutions**  
+**Probability: 25%**  
+Why plausible: A one-year window best fits structural rule-setting. If the current debates persist, the lasting imprint may be new research norms and planning assumptions rather than a single headline result.  
+Signals that confirm: Journal policies, funder guidance, climate-risk assessments, and institutional protocols all absorb these themes.  
+Signals that weaken: Later evidence narrows the AMOC concern or AI-governance efforts stay fragmented and optional.
+
+**Scenario: NASA execution credibility becomes the standout positive counterstory to 2026 science stress**  
 **Probability: 15%**  
-Why plausible: A year out, NASA's science story may be less about any single April 2026 headline and more about whether Roman readiness and Artemis lessons materially advanced future science operations despite budget pressure.  
-Confirming signals: Roman reaches a major prelaunch or launch milestone and Artemis lessons remain visible in later mission planning.  
-Weakening signals: Fiscal or schedule shocks break the continuity.
-
-**Scenario 4: Research governance hardens as AMOC risk enters planning and AI-agent rules become standard practice**  
-**Probability: 25%**  
-Why plausible: The one-year horizon best fits structural institutional change. If the current discussions persist, AMOC can become a standard climate-planning reference and AI-agent disclosure and evaluation can become normal across journals and funders.  
-Confirming signals: Assessments, adaptation plans, journal policies, and funder guidance all absorb these themes.  
-Weakening signals: Later evidence narrows the AMOC concern materially or AI-governance efforts remain fragmented and voluntary.
+Why plausible: If Roman and Artemis-linked science continue to hit milestones despite budget pressure, NASA could emerge as the clearest example of institutional follow-through from this focus set.  
+Signals that confirm: Roman reaches major integration, launch-readiness, or launch milestones and Artemis lessons remain visible in later mission planning.  
+Signals that weaken: Budget or schedule shocks interrupt continuity.
 
 ## Most Likely Path
-The near-term base case is that AACR remains the lead science storyline for another week because its calendar is still live and its follow-up cycle is the fastest. Over the next one to three months, the bigger swing factor is whether funding pressure and institutional governance issues displace individual discoveries as the dominant science narrative. The medium-term forecast therefore widens from conference-driven attention toward research-system stress, with oncology translation still the strongest single discovery pipeline.
+The near-term base case is that AACR remains the clearest science storyline through the conference close, because it has the tightest live catalyst calendar and the fastest follow-through cycle. By one to three months, though, the center of gravity likely shifts from discovery headlines to research-system consequences, with funding pressure becoming the main factor that can outrank any single meeting, paper, or mission update.
 
 ## Markers To Watch
-- AACR closeout on April 22, 2026 and the first post-meeting wave of trial, paper, and partnership signals.
-- NASA's April 21 Roman briefing and any subsequent readiness, schedule, or instrumentation detail.
-- Congressional, agency, and scientific-society responses that translate FY2027 cuts from proposal into operational planning.
-- Follow-on expert commentary or rebuttal around the April 15, 2026 AMOC estimate.
-- Journal or funder guidance that explicitly addresses AI-agent disclosure, benchmarking, or reproducibility.
+- AACR closeout coverage on April 22, 2026 and the first post-meeting paper, trial, and partnering signals.
+- Any Roman readiness, schedule, or instrument detail that survives beyond the April 21 media event.
+- Congressional, agency, university, and society responses that translate the FY2027 proposal into operational planning.
+- Expert validation or pushback on the April 15, 2026 AMOC estimate.
+- Journal or funder guidance on AI-agent disclosure, benchmarking, and reproducibility.
 
 ## Confidence
-Medium. The source log is same-day and well supported, but it mixes conference-stage oncology, mission-readiness updates, climate-risk interpretation, budget politics, and governance debates that can rotate in prominence quickly.
+Medium. The dated baseline is strong, but the evidence mix spans conference-stage oncology, mission-readiness optics, climate-risk interpretation, budget politics, and governance debates that can rotate quickly once same-day catalysts resolve.
 
 ## Notes
 Source log path: /workspaces/finance/history/daily/04-21-2026/science-focus-log.md
 Source log date: 2026-04-21
-Refresh status: none; used the same-day source log as the baseline state.
-Framework consulted: /home/vscode/.codex/skills/focus-events-forecast/references/scenario-forecast-framework.md
-Caveat: conference-stage oncology evidence and unresolved U.S. budget politics are the biggest limits on confidence.
+Refresh status: none; used the same-day source log as the dated baseline.
+Framework consulted: /workspaces/finance/skills/focus-events-forecast/references/scenario-forecast-framework.md
+Extra: same-day catalysts were modeled as forward scenarios rather than refreshed state.

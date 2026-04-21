@@ -2,7 +2,7 @@
 report: "price-prediction-taiex"
 title: "Price Prediction: TAIEX"
 log_date: "04-21-2026"
-generated_at_utc: "2026-04-21T04:05:56Z"
+generated_at_utc: "2026-04-21T04:47:09Z"
 source_skill: "price-prediction"
 ---
 
@@ -10,11 +10,11 @@ source_skill: "price-prediction"
 
 - Report: `price-prediction-taiex`
 - Date: `04-21-2026`
-- Generated At: `2026-04-21T04:05:56Z`
+- Generated At: `2026-04-21T04:47:09Z`
 - Source Skill: `price-prediction`
 
 ## Summary
-Base case is a constructive but concentrated TAIEX path: AI infrastructure and semiconductor leadership keep the index biased higher, while oil, rates, and geopolitical risk cap near-term upside. The main uncertainty is whether a fresh energy or Taiwan-specific geopolitical shock overwhelms that support.
+Base case remains constructive but concentrated for TAIEX: AI infrastructure and semiconductor leadership keep the index biased higher, while oil, yields, and geopolitical spillover cap near-term upside. Main uncertainty is whether energy or Taiwan-specific geopolitical stress overwhelms that support.
 
 ## Request
 Use $price-prediction at /workspaces/finance/skills/price-prediction to forecast only this product. Do not spawn more agents.
@@ -24,23 +24,23 @@ Assigned product:
 - Label: Taiwan Capitalization Weighted Stock Index
 - Asset class: index
 - Watchlist file: /workspaces/finance/watchlists/products.yaml
-- Requested date: 2026-04-21
 
 User request:
-Run the repo's daily research pipeline for the exact UTC date 2026-04-21. This watchlist step should generate the normal saved price prediction for this product.
+/daily-research-pipeline
 
 Execution notes:
-- Preserve the exact date 2026-04-21 when reading forecast logs.
-- Verify a live/current reference price before forecasting.
-- Save the result to the normal daily log location.
-- Return the finished product forecast summary, the saved log path if one was written, and any short caveat that materially affects confidence.
+- Use the 2026-04-21 forecast logs already generated under /workspaces/finance/history/daily/04-21-2026.
+- Preserve the exact date 2026-04-21.
+- Verify the current reference price with live tools or authoritative current web sources.
+- Save the final result for 2026-04-21 using the repo's daily logger conventions.
+- Return the finished product forecast summary, the saved log path, and any short caveat that materially affects confidence.
 
 ## Output
 Resolved Product
 Taiwan Capitalization Weighted Stock Index (`TAIEX`, official Taiwan Index Plus code `t00`), Taiwanese broad equity index.
 
 Current Price
-37,678.37 observed from the official Taiwan Index Plus sources for TAIEX: the overview page at https://taiwanindex.com.tw/en/indexes/t00 and the official API feed at https://backend.taiwanindex.com.tw/api/indexes?lang=en&market=twse . I retrieved the sources at 2026-04-21T04:04:01Z. The API row for code `t00` showed index `37,678.37`, change `+719.57`, and percentage `+1.95%`. The overview page embedded same-day timestamps `2026/04/21 12:03:10` and chart data through `12:04`, while also stating the page updates every minute. I therefore treat 37,678.37 as an official same-day intraday reference rather than a stale prior close, while noting it is still a web-displayed index value rather than a direct exchange tick feed.
+37657.96 observed from the official Taiwan Index Plus API at https://backend.taiwanindex.com.tw/api/indexes?lang=en&market=twse and corroborated on the official overview page at https://taiwanindex.com.tw/en/indexes/t00 . Retrieved at 2026-04-21T04:47:09Z. The price-index row for code `t00` showed index `37657.96`, change `+699.16`, and percentage `+1.89%`. The overview page embedded same-day timing metadata 2026/04/21 12:46:05;2026/04/21 12:46:10;2026/04/21 12:46:00 with chart last-time 12:46 and a listed calculation rate of Every 5 Sec. I therefore treat 37657.96 as an official same-day intraday reference from Taiwan Index Plus web surfaces rather than a stale prior close.
 
 Forecast Inputs
 Used every available `*-focus-forecast-log.md` for the exact requested UTC date `2026-04-21`.
@@ -51,31 +51,31 @@ Used every available `*-focus-forecast-log.md` for the exact requested UTC date 
 Price Targets
 
 1 week
-- Dominant scenario: Iran/Hormuz risk stays in messy containment while Google Cloud Next validates the agentic-cloud and AI-infrastructure spend path without producing a macro shock.
+- Dominant scenario: Iran/Hormuz risk stays in messy containment while Google Cloud Next validates the agentic-cloud and AI-infrastructure spend path without a macro shock.
 - Expected effect: near-term upside stays capped by oil and yields, but TSMC-linked and server/AI-hardware strength keeps TAIEX near highs.
-- Target price: 37,900
-- Likely range: 36,700 to 38,700
+- Target price: 37,800
+- Likely range: 36,600 to 38,600
 - Confidence: medium
 
 1 month
 - Dominant scenario: oil remains elevated enough to keep global rates restrictive, but post-Cloud-Next and related AI-capex follow-through still favors Taiwan's semiconductor and electronics exporters.
 - Expected effect: constructive but concentrated advance rather than a broad melt-up.
-- Target price: 39,200
-- Likely range: 36,800 to 40,400
+- Target price: 39,100
+- Likely range: 36,800 to 40,300
 - Confidence: medium
 
 3 months
 - Dominant scenario: managed geopolitical instability persists through the summer, yet AI infrastructure demand and packaging/server/export momentum remain strong enough to keep TAIEX trending higher.
 - Expected effect: earnings-led grind higher with continued concentration in a handful of technology leaders.
-- Target price: 41,300
-- Likely range: 37,800 to 42,900
+- Target price: 41,200
+- Likely range: 37,700 to 42,800
 - Confidence: medium
 
 1 year
 - Dominant scenario: higher energy and rate floors do not trigger recession, and Taiwan's AI supply-chain leaders keep capturing disproportionate earnings growth, though gains come with wider volatility and narrower breadth.
 - Expected effect: constructive structural uptrend, driven more by earnings than by broad multiple expansion.
-- Target price: 45,000
-- Likely range: 35,500 to 49,500
+- Target price: 44,800
+- Likely range: 35,500 to 49,000
 - Confidence: low
 
 Most Likely Path
@@ -91,12 +91,12 @@ Medium. Directionally the signal is decent because the same-day market and tech 
 
 ## Notes
 Product type: Taiwan equity index.
-Price source 1: official Taiwan Index Plus TAIEX overview page at https://taiwanindex.com.tw/en/indexes/t00
+Price source 1: official Taiwan Index Plus overview page at https://taiwanindex.com.tw/en/indexes/t00
 Price source 2: official Taiwan Index Plus API at https://backend.taiwanindex.com.tw/api/indexes?lang=en&market=twse
-Observed price: 37,678.37
-Observed change: +719.57 (+1.95%)
-Retrieved at: 2026-04-21T04:04:01Z
-Source page timing details: overview page embedded `2026/04/21 12:03:10` and chart data through `12:04` local Taiwan time during retrieval.
+Observed price: 37657.96
+Observed change: +699.16 (+1.89%)
+Retrieved at: 2026-04-21T04:47:09Z
+Source page timing details: 2026/04/21 12:46:05;2026/04/21 12:46:10;2026/04/21 12:46:00; chart last-time 12:46; calculated rate Every 5 Sec
 Quote status: official same-day intraday reference from the Taiwan Index Plus web/API surfaces; not treated as a prior close.
 Forecast logs used:
 - /workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md

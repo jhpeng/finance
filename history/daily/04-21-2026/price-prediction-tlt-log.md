@@ -1,20 +1,20 @@
 ---
 report: "price-prediction-tlt"
-title: "Price Prediction: TLT"
+title: "Price Prediction: iShares 20+ Year Treasury Bond ETF"
 log_date: "04-21-2026"
-generated_at_utc: "2026-04-21T04:07:03Z"
+generated_at_utc: "2026-04-21T04:46:07Z"
 source_skill: "price-prediction"
 ---
 
-# Price Prediction: TLT Log
+# Price Prediction: iShares 20+ Year Treasury Bond ETF Log
 
 - Report: `price-prediction-tlt`
 - Date: `04-21-2026`
-- Generated At: `2026-04-21T04:07:03Z`
+- Generated At: `2026-04-21T04:46:07Z`
 - Source Skill: `price-prediction`
 
 ## Summary
-Base case is mild near-term pressure on TLT from still-elevated oil and sticky term premium, followed by stabilization and only a modest 12-month recovery if Gulf tensions fade without a structural inflation reset. The biggest uncertainty is whether the 2026-04-21 Iran and retail-sales catalysts resolve into de-escalation and softer growth, which would rally duration sooner, or into a higher-for-longer long-end yield regime.
+Base case is mild near-term pressure on TLT as the updated 2026-04-21 market and political forecasts still imply an elevated oil, inflation, and term-premium backdrop, followed by stabilization and only a modest 12-month rebound if Gulf risk fades. Main uncertainty is whether the April 22 ceasefire deadline or same-day macro data breaks that managed-instability path into either a faster duration rally or a higher-for-longer long-end yield regime.
 
 ## Request
 Use $price-prediction at /workspaces/finance/skills/price-prediction to forecast only this product. Do not spawn more agents.
@@ -24,82 +24,90 @@ Assigned product:
 - Label: iShares 20+ Year Treasury Bond ETF
 - Asset class: etf
 - Watchlist file: /workspaces/finance/watchlists/products.yaml
-- Requested date: 2026-04-21
 
 User request:
-Run the repo's daily research pipeline for the exact UTC date 2026-04-21. This watchlist step should generate the normal saved price prediction for this product.
+/daily-research-pipeline
 
 Execution notes:
-- Preserve the exact date 2026-04-21 when reading forecast logs.
-- Verify a live/current reference price before forecasting.
-- Save the result to the normal daily log location.
-- Return the finished product forecast summary, the saved log path if one was written, and any short caveat that materially affects confidence.
+- Use the 2026-04-21 forecast logs already generated under /workspaces/finance/history/daily/04-21-2026.
+- Preserve the exact date 2026-04-21.
+- Verify the current reference price with live tools or authoritative current web sources.
+- Save the final result for 2026-04-21 using the repo's daily logger conventions.
+- Return the finished product forecast summary, the saved log path, and any short caveat that materially affects confidence.
 
 ## Output
 Resolved Product
+
 iShares 20+ Year Treasury Bond ETF (`TLT`), a U.S. long-duration Treasury ETF.
 
 Current Price
-87.05 at 2026-04-20 04:00:00 PM EDT (2026-04-20 20:00:00 UTC), from the Yahoo Finance `TLT` chart endpoint as the latest regular-session close available at current UTC time 2026-04-21T04:04:44Z. Cross-check: the Stooq `TLT.US` snapshot at 2026-04-20 22:00:18 UTC also showed 87.05. I also verified a current TLT reference via the finance tool, but Yahoo and Stooq supplied the exact timestamped fields used here.
+
+87.03 at 2026-04-20 07:59:32 PM EDT (2026-04-20 23:59:32 UTC), from the Yahoo Finance `TLT` chart endpoint as the latest observed after-hours trade available at current UTC time 2026-04-21T04:43:49Z. Cross-check: the same Yahoo payload reported a regular-session close of 87.05 at 2026-04-20 04:00:00 PM EDT, which matched the Stooq `TLT.US` snapshot at 2026-04-20 22:00:18 UTC.
 
 Forecast Inputs
-High relevance: [market-focus-forecast-log.md](/workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md) and [political-focus-forecast-log.md](/workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md), because long-duration Treasury pricing is dominated by oil, inflation expectations, the Fed path, term premium, and Iran/Hormuz headline risk.
-Low relevance: [tech-focus-forecast-log.md](/workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md), mainly as secondary context for growth resilience and AI-capex pressure that can keep the long end firmer.
+
+High relevance: [market-focus-forecast-log.md](/workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md) and [political-focus-forecast-log.md](/workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md), because long-duration Treasury pricing is dominated by oil, inflation expectations, the Fed path, term premium, and Iran/Hormuz risk.
+Low relevance: [tech-focus-forecast-log.md](/workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md), mainly as secondary growth and AI-capex context that can keep long-end yields firmer.
 Low relevance: [science-focus-forecast-log.md](/workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md), mostly background because its themes are not direct TLT drivers.
 
 Price Targets
 
 1 week
-Dominant scenario: oil premium persists but the ceasefire mostly holds, leaving yields firm rather than exploding higher. `Market` is the primary driver and `political` is the key secondary input.
-Expected effect: slight downside as long-duration Treasuries remain pressured by sticky inflation expectations more than helped by safe-haven demand.
+Dominant scenario: the ceasefire limps forward and Washington pivots back to domestic deadlines, leaving oil risk elevated but not exploding higher. `Market` is the primary driver and `political` is the key secondary input.
+Expected effect: slight downside to flat as inflation and term-premium pressure still outweigh a haven bid.
 Target price: 86.6
-Likely range: 85.7 to 87.8
+Likely range: 85.8 to 87.9
 Confidence: medium
 
 1 month
-Dominant scenario: persistent $90-plus oil and a patient Fed keep the long end from rerating higher, but the absence of a fresh crisis prevents a full bond washout. `Market` remains primary and `political` matters through whether Gulf tensions reignite.
-Expected effect: choppy stabilization slightly below current levels.
-Target price: 86.9
-Likely range: 84.9 to 88.8
+Dominant scenario: Brent stays above roughly $95 and Fed-cut hopes remain pushed out, but Iran does not relapse into a much larger conflict. `Market` remains primary and `political` matters through whether the April 22 deadline fails cleanly or extends into fragile de-escalation.
+Expected effect: choppy stabilization a bit below current levels.
+Target price: 86.8
+Likely range: 84.8 to 88.8
 Confidence: medium
 
 3 months
-Dominant scenario: managed instability becomes the summer regime, with occasional risk-off bursts and softer growth data partly offsetting a still-elevated term premium. This horizon relies more on inference than direct Treasury-specific scenario support from the logs. `Market` is primary, with `political` secondary and `tech` low-relevance context.
+Dominant scenario: managed instability becomes the summer regime, with intermittent growth-scare rallies in Treasuries partly offset by still-elevated oil, fiscal supply, and term premium. This horizon relies more on inference than direct Treasury-specific scenario support from the logs.
 Expected effect: modest recovery from the near-term dip, but not a clean duration breakout.
-Target price: 87.4
-Likely range: 84.0 to 90.6
+Target price: 87.6
+Likely range: 84.1 to 90.9
 Confidence: low
 
 1 year
-Dominant scenario: Gulf risk fades enough for inflation to cool and policy to become less restrictive, but fiscal supply, AI-capex resilience, and structural term-premium pressure cap the upside. `Market` is primary, with `political` and `tech` as secondary modifiers.
-Expected effect: moderate recovery above the current price, though still well short of a full secular bond bull case.
-Target price: 90.4
-Likely range: 82.5 to 97.0
+Dominant scenario: Gulf risk fades enough for inflation pressure to cool, but a higher energy floor, persistent issuance, and structurally firmer term premium cap the upside. `Market` is primary, with `political` acting mostly through whether Iran aftershocks persist.
+Expected effect: moderate recovery above current price, though still short of a full bond-bull regime.
+Target price: 90.6
+Likely range: 82.7 to 97.8
 Confidence: low
 
 Most Likely Path
-Base case is a small near-term drawdown followed by stabilization and then a modest recovery as the April 21 macro and geopolitical shock cycle cools without fully disappearing. TLT can rally more convincingly only if the market shifts from oil-led inflation fear toward slower growth and lower long-end yields; the dated `04-21-2026` forecasts do not yet support that as the dominant near-term path.
+
+Base case is a small near-term drawdown followed by stabilization and then a modest recovery as the 2026-04-21 oil-and-geopolitics shock cycle cools without fully disappearing. TLT rallies more decisively only if the same-day macro catalysts shift the market from inflation fear toward slower growth and lower long-end yields.
 
 What Would Change The Call
-Raise the call: verified Hormuz normalization, Brent decisively back below the low-$90s, softer labor or spending data, stronger Treasury auction demand, or a market shift from inflation fear to growth fear.
-Lower the call: renewed shipping disruption, Brent back through $100, a hawkish Fed repricing, weak long-end Treasury demand, or a rise in breakevens or term premium that outweighs safe-haven buying.
-Invalidate the call: a rapid disinflation and rate-cut repricing that sparks a stronger bond rally, or a structural fiscal-plus-inflation scare that pushes long yields much higher even as growth weakens.
+
+Raise the call: verified Strait of Hormuz normalization, Brent back into the low $90s or lower, softer growth or labor data, stronger Treasury auction demand, or a visible market shift from inflation fear to growth fear.
+Lower the call: ceasefire failure that pushes oil back toward or above $100, hawkish Fed repricing, weak long-end Treasury demand, or a rise in breakevens or term premium that overwhelms safe-haven demand.
+Invalidate the call: either a fast disinflation-and-rate-cut repricing that produces a stronger bond rally, or a structural fiscal-plus-inflation scare that drives long yields materially higher even as growth softens.
 
 Confidence
+
 Medium.
 
 ## Notes
 Product type: U.S. fixed-income ETF.
-Primary price verification: `web.finance` confirmed current TLT quote availability; exact timestamped reference taken from Yahoo Finance chart endpoint at https://query2.finance.yahoo.com/v8/finance/chart/TLT?interval=1m&range=1d&includePrePost=true
-Observed Yahoo quote fields: regularMarketPrice 87.05, regularMarketTime 2026-04-20T20:00:00Z / 2026-04-20 04:00:00 PM EDT, previousClose 87.07, day range 86.71 to 87.125, regularMarketVolume 14617331, exchange NasdaqGM.
-Secondary price source: Stooq quote endpoint at https://stooq.com/q/l/?s=tlt.us&i=1
+Official product reference for fund classification and duration: https://www.ishares.com/us/products/239454/ishares-20-plus-year-treasury-bond-etf
+Observed iShares fund fields used for product context: asset class Fixed Income, exchange NASDAQ, effective duration 15.35 yrs as of 2026-04-17.
+Primary price verification: Yahoo Finance chart endpoint https://query1.finance.yahoo.com/v8/finance/chart/TLT?interval=1m&range=1d&includePrePost=true
+Observed Yahoo fields as of retrieval at 2026-04-21T04:43:49Z: regularMarketPrice 87.05, regularMarketTime 2026-04-20T20:00:00Z / 2026-04-20 04:00:00 PM EDT, previousClose 87.07, day range 86.71 to 87.125, regularMarketVolume 14617331, exchange NasdaqGM, latest post-market timestamp 2026-04-20T23:59:32Z / 2026-04-20 07:59:32 PM EDT with quote close 87.03.
+Secondary price source: Stooq quote endpoint https://stooq.com/q/l/?s=tlt.us&i=1
 Observed Stooq snapshot: TLT.US,20260420,220018,87.11,87.125,86.71,87.05,14623480
-Quote type caveat: at current UTC time 2026-04-21T04:04:44Z the U.S. cash session had not yet opened, so the actionable reference is the latest regular-session close rather than a 2026-04-21 intraday print.
+Quote type caveat: current UTC time 2026-04-21T04:43:49Z was before U.S. premarket, so the forecast anchor is the latest available after-hours print rather than a 2026-04-21 regular-session trade.
 Forecast logs used:
 - /workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md
 - /workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md
 - /workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md
 - /workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md
 Missing domains: none.
-Major assumptions: `market` and `political` are high relevance for TLT; `tech` and `science` are low relevance; long-duration Treasuries remain more sensitive to inflation expectations and term premium than to a generic risk-off bid when oil is the shock source.
-Overwrite note: replaced the existing 2026-04-21 TLT log so the saved version uses repo-local paths and a cleaner timestamped price reference.
+Major assumptions: `market` and `political` are high relevance for TLT; `tech` and `science` are low relevance; long-duration Treasuries stay more sensitive to oil, inflation expectations, fiscal supply, and term premium than to a generic risk-off bid when oil is the shock source.
+Overwrite note: replaced the earlier 2026-04-21 TLT log because the current market and political forecast logs were refreshed later (2026-04-21T04:39:40Z and 2026-04-21T04:40:54Z) than the prior saved TLT product log (2026-04-21T04:07:03Z).
