@@ -1,73 +1,89 @@
 ---
 report: "price-prediction-sox"
-title: "Price Prediction: SOX"
+title: "Price Prediction: PHLX Semiconductor Index"
 log_date: "04-21-2026"
-generated_at_utc: "2026-04-20T19:41:18Z"
+generated_at_utc: "2026-04-21T04:03:47Z"
 source_skill: "price-prediction"
 ---
 
-# Price Prediction: SOX Log
+# Price Prediction: PHLX Semiconductor Index Log
 
 - Report: `price-prediction-sox`
 - Date: `04-21-2026`
-- Generated At: `2026-04-20T19:41:18Z`
+- Generated At: `2026-04-21T04:03:47Z`
 - Source Skill: `price-prediction`
 
 ## Summary
-Base case is continued SOX leadership from AI infrastructure demand, but oil and Fed pressure keep upside narrower than a clean risk-on tape. The biggest uncertainty is whether April 22, 2026 Iran and shipping headlines or late-April macro repricing interrupt semiconductor multiple expansion.
+Base case is continued SOX leadership from AI infrastructure demand, but oil and rate pressure keep upside narrower than a clean risk-on tape. The biggest uncertainty is whether post-log Cloud Next news or renewed Iran/Hormuz stress changes the near-term valuation backdrop.
 
 ## Request
-/watchlist-price-predictions
+Use $price-prediction at /workspaces/finance/skills/price-prediction to forecast only this product. Do not spawn more agents.
+
+Assigned product:
+- Symbol: SOX
+- Label: PHLX Semiconductor Index
+- Asset class: index
+- Watchlist file: /workspaces/finance/watchlists/products.yaml
+- Requested date: 2026-04-21
+
+User request:
+Run the repo's daily research pipeline for the exact UTC date 2026-04-21. This watchlist step should generate the normal saved price prediction for this product.
+
+Execution notes:
+- Preserve the exact date 2026-04-21 when reading forecast logs.
+- Verify a live/current reference price before forecasting.
+- Save the result to the normal daily log location.
+- Return the finished product forecast summary, the saved log path if one was written, and any short caveat that materially affects confidence.
 
 ## Output
 Resolved Product
 PHLX Semiconductor Index (`SOX`), resolved to Nasdaq's PHLX Semiconductor Sector index; asset class `index`.
 
 Current Price
-9,586.85 as of Apr 20, 2026 3:38 PM ET from Nasdaq's SOX quote API; market status `Open`; quote marked delayed intraday (`isRealTime: false`). This U.S. timestamp is expected because April 21, 2026 in Asia/Taipei overlaps the Apr 20, 2026 U.S. trading session. Source: [Nasdaq SOX quote API](https://api.nasdaq.com/api/quote/SOX/info?assetclass=index)
+9,599.21 as of the latest available official close on Apr 20, 2026 from Nasdaq's SOX quote API; checked at 2026-04-21T04:03:47Z, with market status `Closed` and quote marked delayed end-of-day rather than live intraday. Source: https://api.nasdaq.com/api/quote/SOX/info?assetclass=index
 
 Forecast Inputs
-High relevance: [tech-focus-forecast-log.md](/Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/tech-focus-forecast-log.md) and [market-focus-forecast-log.md](/Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/market-focus-forecast-log.md).
-Medium relevance: [political-focus-forecast-log.md](/Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/political-focus-forecast-log.md), mainly through Iran/Hormuz, oil, yields, and Fed-path spillovers.
-Low relevance: [science-focus-forecast-log.md](/Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/science-focus-forecast-log.md), mostly background on innovation tempo rather than a direct SOX driver.
+High relevance: `tech-focus-forecast-log.md` and `market-focus-forecast-log.md`, because SOX is primarily an AI infrastructure and semiconductor-capex expression with valuation sensitivity to rates and oil.
+Medium relevance: `political-focus-forecast-log.md`, mainly through Iran/Hormuz effects on crude, yields, and risk appetite.
+Low relevance: `science-focus-forecast-log.md`, mostly as background on AI and research-governance themes rather than a direct index driver.
 
 Price Targets
 
 1 week
-Dominant scenario: Google Cloud Next reinforces AI deployment and infrastructure demand while Iran/Hormuz remains in messy containment rather than a fresh supply shock. `Tech` is the main driver, with `market` and `political` capping upside through oil and yields.
+Dominant scenario: Google Cloud Next validates the agentic-cloud and compute-demand story while the market stays in messy containment rather than a fresh oil shock. `Tech` is the lead driver, with `market` and `political` limiting multiple expansion.
 Expected effect: modest upside, but still headline-sensitive.
-Target price: 9,700
-Range: 9,350 to 9,900
+Target price: 9,725
+Range: 9,400 to 9,900
 Confidence: medium
 
 1 month
-Dominant scenario: Samsung and follow-on earnings confirm that AI capex strength is broadening, but elevated oil and a patient Fed keep leadership narrow and prevent a full multiple expansion. `Tech` and `market` jointly drive this horizon.
-Expected effect: choppy upward grind.
-Target price: 9,950
-Range: 9,200 to 10,300
+Dominant scenario: post-Cloud-Next follow-through keeps AI infrastructure spending and semiconductor leadership intact, but elevated oil and a patient Fed keep market breadth narrow. `Tech` and `market` jointly drive this horizon.
+Expected effect: choppy upward grind into new highs.
+Target price: 10,000
+Range: 9,300 to 10,350
 Confidence: medium
 
 3 months
-Dominant scenario: summer earnings keep semiconductor infrastructure names in leadership and SOX continues to outperform the broader market, but managed geopolitical instability and higher real rates cap the upside. This horizon relies more on inference than direct log support.
-Expected effect: continued leadership with capped upside.
-Target price: 10,500
-Range: 9,100 to 11,100
+Dominant scenario: summer earnings keep the AI trade capex-led, with semicap, foundry, memory, and platform-silicon demand still firm, while managed geopolitical instability and higher real rates cap the upside. This horizon relies more on inference than on direct dated catalysts.
+Expected effect: continued outperformance versus broad equities, with wider swings.
+Target price: 10,650
+Range: 9,250 to 11,300
 Confidence: medium
 
 1 year
-Dominant scenario: AI infrastructure demand remains the structural winner across semicap, foundry, memory, and platform silicon, but a higher energy and rates floor limits how much valuation can expand. `Tech` dominates this horizon, with `market` and `political` as secondary valuation constraints.
-Expected effect: higher index level, but with a wider distribution than the shorter horizons.
-Target price: 11,500
-Range: 8,800 to 13,000
+Dominant scenario: cloud, model, and chip leaders lock in an integrated agentic-enterprise stack and preserve strong semiconductor demand, but a structurally higher energy and rates floor prevents a euphoric valuation regime. `Tech` dominates, with `market` and `political` acting as secondary constraints.
+Expected effect: higher index level, but with a broad distribution because concentration risk stays high.
+Target price: 11,900
+Range: 9,100 to 13,600
 Confidence: medium
 
 Most Likely Path
-Base case is continued semiconductor leadership inside a narrow AI-led market rather than a clean broad-market melt-up. SOX can keep grinding higher if Cloud Next, Samsung, and follow-on earnings keep validating infrastructure demand, but short-horizon moves remain vulnerable to Hormuz and oil headlines because those feed directly into yields and valuation pressure.
+The base case is that SOX stays one of the cleanest upside expressions of the AI-capex cycle, but not in a clean risk-on market. The most likely path is continued semiconductor leadership with periodic drawdowns whenever oil, yields, or geopolitical headlines tighten financial conditions faster than earnings and cloud-spending news can offset them.
 
 What Would Change The Call
-Raise the call: a credible ceasefire extension or shipping normalization that pushes Brent back below $90, softer Treasury yields, and strong Cloud Next or Samsung commentary that broadens AI demand confidence.
-Lower the call: renewed shipping disruption, oil above $100, harder Fed repricing, or weaker hyperscaler, foundry, or memory demand commentary.
-Invalidate the call: evidence of a genuine AI capex slowdown or a broader earnings downturn that overwhelms semiconductor leadership.
+Raise the call: a credible Iran/shipping de-escalation that pushes oil lower, softer Treasury yields, and strong hyperscaler or foundry commentary that broadens AI demand confidence.
+Lower the call: renewed Strait of Hormuz disruption, Brent moving back toward or through $100, higher-for-longer rate repricing, or weaker cloud and semiconductor demand commentary after Google Cloud Next.
+Invalidate the call: evidence of a real AI capex slowdown, major adverse export-control action that materially constrains chip demand or supply, or a broad earnings downturn that overwhelms semiconductor leadership.
 
 Confidence
 Medium.
@@ -76,14 +92,15 @@ Medium.
 Product type: U.S. semiconductor equity index.
 Resolved instrument assumption: interpreted watchlist product `SOX` / `PHLX Semiconductor Index` as Nasdaq's PHLX Semiconductor Sector index.
 Price source: https://api.nasdaq.com/api/quote/SOX/info?assetclass=index
-Observed price: 9,586.85
-Timestamp: Apr 20, 2026 3:38 PM ET
-Quote type: delayed intraday (`isRealTime: false`), market status `Open`.
-Date clarification: April 21, 2026 in Asia/Taipei overlaps the Apr 20, 2026 U.S. trading session, so the live reference quote is timestamped Apr 20 ET.
+Observed price: 9,599.21
+Observed quote date: Apr 20, 2026
+Checked at UTC: 2026-04-21T04:03:47Z
+Quote type: latest official close; API marks `isRealTime: false`, market status `Closed`.
+Date clarification: at 2026-04-21T04:03:47Z the U.S. cash session had not reopened, so the latest available current reference was the Apr 20, 2026 close.
 Forecast logs used:
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/market-focus-forecast-log.md
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/political-focus-forecast-log.md
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/science-focus-forecast-log.md
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/tech-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md
 Missing domains: none.
-Major assumptions: `tech` and `market` are high-relevance drivers for SOX; `political` is medium via Hormuz/oil/rates; `science` is low. The biggest near-term unresolved catalyst is the April 22, 2026 Iran deadline, and the biggest near-term missing tech input is Google Cloud Next on April 22-24, 2026.
+Major assumptions: `tech` and `market` are high-relevance drivers for SOX; `political` matters mainly through oil, yields, and risk appetite; `science` is low relevance. The biggest short-horizon uncertainty is that the dated logs were generated before Google Cloud Next on Apr 22-24, 2026 and before later same-day geopolitical and macro developments fully played out.

@@ -2,7 +2,7 @@
 report: "price-prediction-spx"
 title: "Price Prediction: S&P 500 Index"
 log_date: "04-21-2026"
-generated_at_utc: "2026-04-20T19:43:19Z"
+generated_at_utc: "2026-04-21T04:06:36Z"
 source_skill: "price-prediction"
 ---
 
@@ -10,76 +10,92 @@ source_skill: "price-prediction"
 
 - Report: `price-prediction-spx`
 - Date: `04-21-2026`
-- Generated At: `2026-04-20T19:43:19Z`
+- Generated At: `2026-04-21T04:06:36Z`
 - Source Skill: `price-prediction`
 
 ## Summary
-Base case is a narrow-market climb: oil and Fed pressure cap near-term multiple expansion, but AI-heavy leadership keeps SPX constructive over 3 to 12 months. The main uncertainty is whether the April 22, 2026 Iran deadline and late-April Fed/macro window turn messy containment into a renewed oil shock or growth scare.
+Base case is a narrow but constructive SPX path: oil and rates cap short-horizon upside, but AI-heavy leadership keeps the index biased modestly higher over 1 to 12 months. Main uncertainty is whether Iran and Hormuz tension re-accelerate into a fresh energy shock or instead fade enough to widen market breadth.
 
 ## Request
-/watchlist-price-predictions
+Use $price-prediction at /workspaces/finance/skills/price-prediction to forecast only this product. Do not spawn more agents.
 
 Assigned product:
 - Symbol: SPX
 - Label: S&P 500 Index
 - Asset class: index
+- Watchlist file: /workspaces/finance/watchlists/products.yaml
+- Requested date: 2026-04-21
+
+User request:
+Run the repo's daily research pipeline for the exact UTC date 2026-04-21. This watchlist step should generate the normal saved price prediction for this product.
+
+Execution notes:
+- Preserve the exact date 2026-04-21 when reading forecast logs.
+- Verify a live/current reference price before forecasting.
+- Save the result to the normal daily log location.
+- Return the finished product forecast summary, the saved log path if one was written, and any short caveat that materially affects confidence.
 
 ## Output
-Resolved Product: S&P 500 Index (`SPX`; public quote symbol `^GSPC`), U.S. large-cap equity index.
+Resolved Product: S&P 500 Index (`SPX`), U.S. large-cap equity index.
 
-Current Price: 7,102.20 at 2026-04-20 03:41:54 PM EDT (2026-04-20T19:41:54Z), from the Yahoo Finance `^GSPC` chart endpoint as an intraday quote during the U.S. regular session. Because this session was retrieved from Asia/Taipei on April 21, 2026, note that the live market timestamp is still April 20, 2026 in New York.
+Current Price: 7,109.14. Verified against two current quote sources while generating this forecast on 2026-04-21 UTC: Yahoo Finance `^GSPC` reported `regularMarketPrice` 7,109.14 with `regularMarketTime` 2026-04-20T20:39:29Z, and Stooq `^SPX` reported a 2026-04-20 23:00:00 UTC snapshot with close 7,109.14. Because the forecast was generated at 2026-04-21 UTC before the next U.S. regular session opened, this is best treated as the latest close/current reference rather than a live intraday print.
 
-Forecast Inputs: Used every available April 21, 2026 focus forecast log. Relevance for `SPX`: `market` high, `tech` medium-high, `political` medium, `science` low. The dominant drivers are the market log's oil/Fed regime and the tech log's AI-capex leadership; the political log matters mainly through Iran/Hormuz and Fed-independence risk.
+Forecast Inputs: Used every available `04-21-2026` focus forecast log. Relevance for `SPX`: `market` high, `tech` medium-high, `political` medium, `science` low. The dominant drivers are the market log's oil-and-rates regime and the tech log's AI-capex leadership; the political log matters mostly through Iran/Hormuz headline risk, while science is only a low-relevance background input.
 
-Price Targets
+## Price Targets
 
-1 week
-- Dominant scenario: the April 22, 2026 Iran deadline slips into contained standoff rather than clean de-escalation or a full supply shock; oil stays elevated, but mega-cap earnings and AI leadership keep index-level damage limited.
-- Expected effect: choppy trading around current levels with only modest upside unless tanker-flow headlines improve quickly.
-- Target price: 7,140
-- Likely range: 7,000 to 7,235
+### 1 week
+- Dominant scenario: oil premium persists but does not become a fresh supply shock; Iran tension stays in messy containment while earnings and AI-heavy leadership keep index damage limited.
+- Expected effect: sideways to slightly higher trade with narrow leadership and headline volatility.
+- Target price: 7,150
+- Likely range: 7,000 to 7,240
 - Confidence: medium
 
-1 month
-- Dominant scenario: oil remains somewhat elevated into May and Fed repricing stays firm, but Google Cloud Next, Samsung, and earnings follow-through keep AI infrastructure and quality large caps supporting the index.
-- Expected effect: index resilience without broad participation; upside comes from leadership concentration rather than easier multiples.
-- Target price: 7,225
-- Likely range: 6,930 to 7,425
+### 1 month
+- Dominant scenario: crude stays elevated enough to keep yields restrictive, but AI infrastructure spending and earnings resilience prevent a broad derating.
+- Expected effect: modest upward drift led by a few large-cap winners rather than broad multiple expansion.
+- Target price: 7,240
+- Likely range: 6,950 to 7,430
 - Confidence: medium
 
-3 months
-- Dominant scenario: managed instability persists, the oil risk premium only partly fades, and summer earnings validate continued AI capex and infrastructure leadership.
-- Expected effect: moderate grind higher, still led by a relatively small group of mega-cap and AI-linked names.
-- Target price: 7,400
-- Likely range: 7,050 to 7,750
+### 3 months
+- Dominant scenario: managed instability becomes the summer regime; the oil risk premium only partly fades while AI capex and quality earnings continue to support the benchmark.
+- Expected effect: moderate grind higher, still concentrated in mega-cap and AI-linked leadership.
+- Target price: 7,425
+- Likely range: 7,050 to 7,780
 - Confidence: medium
 
-1 year
-- Dominant scenario: a higher energy and rate floor persists, but no recession arrives; AI and quality large caps keep carrying earnings while the rest of the market lags.
-- Expected effect: constructive 12-month advance driven more by earnings than by broad multiple expansion.
-- Target price: 7,800
-- Likely range: 7,050 to 8,500
+### 1 year
+- Dominant scenario: a higher energy and rate floor persists without recession; earnings growth stays positive and concentration remains a feature rather than a bug of the index.
+- Expected effect: constructive advance driven more by earnings carry than by broad valuation expansion.
+- Target price: 7,850
+- Likely range: 7,100 to 8,550
 - Confidence: low
 
-Most Likely Path: Base case is a narrow-market climb. The market log's messy-containment oil regime still caps short-horizon valuation upside, but the tech log's AI-capex and infrastructure thesis keeps the index constructive over 3 to 12 months because SPX concentration lets a few large winners carry the benchmark.
+Most Likely Path: SPX most likely remains a narrow but constructive market. The `04-21-2026` market forecast points to continued oil and rates pressure plus uneven breadth, while the tech forecast still supports AI-led capex and mega-cap earnings. Together that favors limited near-term upside but a still-positive 3- to 12-month path unless energy shock or growth damage becomes materially worse.
 
 What Would Change The Call:
-- Raise the forecast: durable Strait of Hormuz normalization, Brent moving back below roughly $90, a less-hawkish April 28-29, 2026 FOMC than feared, and earnings participation broadening beyond megacap AI.
-- Lower the forecast: ceasefire failure with fresh shipping disruption, Brent holding above $100, GDP or payroll data rolling into a growth scare, or Samsung and hyperscaler commentary implying AI demand is narrowing sharply.
-- Invalidate the forecast: recession evidence, a broad earnings-revision downcycle, credit stress, or a clear break in AI-capex support from hyperscalers and semiconductor suppliers.
+- Raise the forecast: durable Strait of Hormuz normalization, Brent moving convincingly lower, softer inflation and rates pressure, and rally breadth broadening beyond megacap AI.
+- Lower the forecast: ceasefire failure, Brent holding above $100, a late-April or May growth scare, or evidence that hyperscaler and semiconductor AI demand is stalling.
+- Invalidate the forecast: recession evidence, broad earnings revisions lower, material credit stress, or a clear break in AI-capex support from hyperscalers and key suppliers.
 
 Confidence: Medium.
 
 ## Notes
 Product type: U.S. equity index.
-Price source 1: Yahoo Finance chart endpoint for `^GSPC` at https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?interval=1m&range=1d&includePrePost=false
-Observed quote fields: regularMarketPrice 7102.2, regularMarketTime 2026-04-20T19:41:54Z / 2026-04-20 03:41:54 PM EDT, previousClose 7126.06, day range 7084.41 to 7122.65, exchange SNP.
-Price source 2: Stooq quote endpoint at https://stooq.com/q/l/?s=%5Espx&i=1
-Observed snapshot: ^SPX,20260420,214045,7117.1,7122.7,7084.5,7103.8,1256767788
+Requested forecast-log date preserved: 2026-04-21 (written to 04-21-2026).
+Forecast generation time UTC: 2026-04-21T04:06:36Z
+Price source 1: Yahoo Finance chart endpoint for ^GSPC
+URL: https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?interval=1m&range=1d&includePrePost=false
+Observed fields: regularMarketPrice 7109.14, regularMarketTime 2026-04-20T20:39:29Z, previousClose 7126.06, day range 7084.41 to 7122.65, exchange SNP.
+Price source 2: Stooq quote endpoint for ^SPX
+URL: https://stooq.com/q/l/?s=%5Espx&i=1
+Observed snapshot: ^SPX,20260420,230000,7117.05,7122.65,7084.41,7109.14,2628827402
+Market status note: at forecast generation time the U.S. regular session was closed, so the verified current reference is the latest close rather than a live intraday print.
 Forecast logs used:
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/market-focus-forecast-log.md
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/political-focus-forecast-log.md
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/tech-focus-forecast-log.md
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/science-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md
 Missing domains: none.
-Major assumptions: no sustained Brent move well above $100, no recession signal in the April 30, 2026 GDP release or the May 8, 2026 payroll report, and AI-capex plus mega-cap earnings remain firm enough to offset narrow breadth. Science is a low-relevance input for SPX.
+Major assumptions: no sustained Brent move well above $100, no recession signal emerging from the late-April and May macro window, and AI-capex plus mega-cap earnings remain firm enough to offset narrow breadth. Science is a low-relevance input for SPX.

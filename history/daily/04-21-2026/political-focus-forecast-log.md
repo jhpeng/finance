@@ -2,7 +2,7 @@
 report: "political-focus-forecast"
 title: "Political Focus Forecast"
 log_date: "04-21-2026"
-generated_at_utc: "2026-04-20T19:10:17Z"
+generated_at_utc: "2026-04-21T04:01:49Z"
 source_skill: "focus-events-forecast"
 ---
 
@@ -10,167 +10,87 @@ source_skill: "focus-events-forecast"
 
 - Report: `political-focus-forecast`
 - Date: `04-21-2026`
-- Generated At: `2026-04-20T19:10:17Z`
+- Generated At: `2026-04-21T04:01:49Z`
 - Source Skill: `focus-events-forecast`
 
 ## Summary
-Lead path: the April 22, 2026 Iran ceasefire deadline or failed talks keep war powers and the blockade as the top U.S. political focus over the next week. Main uncertainty: whether even a partial Iran de-escalation quickly hands the lead to TPS and Section 702 institutional fights by late April.
+Lead path: a narrow Iran de-escalation buys enough time for immigration and FISA to become the next domestic constitutional pileup. Main uncertainty: whether the 2026-04-22 ceasefire instead breaks into renewed strikes and keeps war powers above everything else.
 
 ## Request
-/focus-events-forecast
-
-Source log:
-- Report key: political-focus
-- Path: /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/political-focus-log.md
-- Requested date: 04-21-2026
+Run the repo's daily research pipeline for the exact UTC date 2026-04-21. This step should forecast the existing focus logs for that exact date and persist the normal daily forecast log.
 
 Forecast requirements:
 1. Read the source log and extract the current situation, major drivers, catalysts, evidence window, and caveats.
-2. Use the source log as the baseline state unless it is stale or the user explicitly wants a live refresh.
+2. Use the source log as the baseline state for 2026-04-21 unless it is clearly stale.
 3. Produce four horizon sections: 1 week, 1 month, 3 months, and 1 year.
 4. For each horizon, create 2 to 4 mutually exclusive scenarios with probabilities that sum to 100% for that horizon.
 5. Keep scenario labels event-driven and specific. Explain why each path is plausible and what signals would confirm or weaken it.
-6. Open /Users/jhpeng/projects/ai/finance/skills/focus-events-forecast/references/scenario-forecast-framework.md if you want a reusable scenario and probability rubric.
-7. Save the final forecast with $daily-report-logger at /Users/jhpeng/projects/ai/finance/skills/daily-report-logger using report key political-focus-forecast.
-8. Use 04-21-2026 as the resolved date for saving; this is intentional because the session date is April 21, 2026 and April 20 forecasts already exist.
+6. Open the framework path if useful.
+7. Save the final forecast to /workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md, preferably via /workspaces/finance/skills/daily-report-logger/scripts/write_daily_log.sh with --root /workspaces/finance.
 
 ## Output
 ## Current Situation
 
-Sourced baseline from `/Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/political-focus-log.md`: Iran is the dominant U.S. political focus because military operations, a maritime blockade, failed congressional war-powers votes on April 15, 2026 and April 16, 2026, and a ceasefire deadline at `0000 GMT` on April 22, 2026 are all colliding at once. The next tier is domestic institutional conflict: the House's April 16 Haiti TPS vote, the Supreme Court's April 29 TPS argument, Kevin Warsh's April 21 Fed hearing, and the April 30 Section 702 expiry.
-
-- Major drivers: immediate national-security escalation risk; repeated tests of executive power versus Congress, courts, and independent institutions; Republican coalition strain on immigration and surveillance; and the possibility that one catalyst reorders the whole agenda.
-- Catalysts: the April 22 Iran ceasefire deadline and any Islamabad talks; Warsh hearing fallout beginning April 21; Supreme Court TPS argument on April 29; Section 702 deadline on April 30; and any Senate or White House action on the Haiti TPS bill.
-- Evidence window: the source log ranks events from April 14, 2026 through April 21, 2026 inclusive, with cited evidence stretching from April 2, 2026 through April 21, 2026.
-- Caveats: the source log is same-day and not stale, so I did not do a live refresh; the ranking below Iran was already flagged as sensitive to what happens on April 21-22; and partisan rhetoric is unusually noisy, so the baseline is strongest on votes, hearings, court dates, and operational deadlines.
-
-Everything below is inference from that sourced baseline rather than refreshed reporting.
+Facts from the source log are the baseline for `2026-04-21` UTC; everything forward-looking below is inference from that baseline. On `2026-04-21` UTC, U.S. political attention centered on four linked executive-power fights: Iran ceasefire diplomacy versus congressional war-powers pressure, immigration conflict across Congress and the Supreme Court, a short Section 702/FISA patch expiring on `2026-04-30`, and Virginia's same-day redistricting referendum as a proxy fight over House control. Major drivers were the `2026-04-22` ceasefire deadline, the lack of congressional war authorization despite failed withdrawal resolutions on `2026-04-15` and `2026-04-16`, the House's Haiti TPS vote on `2026-04-16`, the Supreme Court's immigration docket with a TPS argument set for `2026-04-29`, and the surveillance stopgap signed on `2026-04-18`. Evidence window: `2026-04-15` through `2026-04-21` UTC. Caveats: I did not do a live refresh because the source log already matches the requested date, but Iran diplomacy and Virginia returns were still moving during `2026-04-21` UTC, so the baseline is strongest on dated votes, court calendars, and statutory deadlines.
 
 ## Forecast Horizons
 
 ### 1 week
 
-**Scenario: Ceasefire lapses or talks stall, keeping Iran at the top**  
-**Probability:** 45%  
-**Why this is plausible:** The sourced baseline already has Iran clearly ranked first, and the April 22 ceasefire deadline is the most immediate hard catalyst in the whole log. If no credible talks materialize or hostilities resume, Congress's failed war-powers push becomes a continuing domestic story rather than a finished vote.  
-**Signals that confirm:** no visible delegation or framework for renewed talks; resumed strikes or maritime incidents; emergency Hill statements on executive authority; energy or shipping stress tied to the blockade.  
-**Signals that weaken:** a verified ceasefire extension, prisoner or humanitarian arrangements, or a quick shift in White House and congressional messaging toward domestic deadlines.
+1. `Ceasefire survives the 2026-04-22 deadline and attention rotates to the 2026-04-29 TPS argument and the 2026-04-30 FISA deadline` (`40%`): This is the lead near-term path because the White House was already trying to turn wartime pressure into diplomacy, and congressional Republicans had shown reluctance to break with Trump even while signaling discomfort. Confirming signals would be a verified ceasefire extension, credible follow-on talks, leaders pivoting quickly back to immigration and surveillance deadlines, and Virginia's result staying important but not agenda-dominating. Weakening signals would be renewed strikes, maritime disruption, or a visible bipartisan war-powers push.
 
-**Scenario: Short Iran de-escalation opens room for a Section 702 and Fed pileup**  
-**Probability:** 25%  
-**Why this is plausible:** If the Iran front cools even temporarily, the next two dated fights are already queued: Section 702 expires again on April 30 and Warsh's April 21 hearing can widen the Fed-independence fight. That would shift attention from battlefield risk to institutional control at home.  
-**Signals that confirm:** negotiators publicly extend the ceasefire; House and Senate leaders immediately move back onto 702 whip counts; Warsh hearing exchanges center on White House pressure rather than routine confirmation issues.  
-**Signals that weaken:** renewed attacks, maritime disruption, or broad bipartisan pressure on the White House over Iran that drowns out domestic process fights.
+2. `Renewed Iran strikes force a fresh war-powers confrontation` (`35%`): This path stays highly plausible because the ceasefire deadline is the sharpest immediate catalyst in the log and Congress never resolved the authorization question. Confirming signals would be collapsed talks, resumed attacks, emergency Hill statements, or more Republican defections from the White House line. Weakening signals would be humanitarian arrangements, an announced diplomatic channel, or fast issue rotation back to the courts and FISA.
 
-**Scenario: Immigration/TPS jumps toward the front before the April 29 argument**  
-**Probability:** 20%  
-**Why this is plausible:** The House's Haiti TPS vote was already a bipartisan rebuke to the administration, and the Supreme Court argument is close enough that litigants, governors, and advocacy groups can force the issue back into the top tier quickly.  
-**Signals that confirm:** Senate maneuvering or veto threats around Haiti TPS; aggressive administration deportation messaging; visible amicus and state activity ahead of April 29; Republican divisions on humanitarian protections.  
-**Signals that weaken:** little Senate follow-through, muted court buildup, or an Iran/security story that monopolizes elite attention.
-
-**Scenario: Warsh hearing sparks a broader Fed-independence rupture**  
-**Probability:** 10%  
-**Why this is plausible:** The hearing gives senators a live venue to turn a personnel matter into a broader fight over whether the White House is trying to subordinate the Fed. That can break out fast if testimony or member exchanges are unusually confrontational.  
-**Signals that confirm:** bipartisan concern about Powell or Cook investigations; market-sensitive reactions to hearing rhetoric; additional calls to delay or condition the nomination.  
-**Signals that weaken:** a routine hearing, rapid Republican message discipline, or Iran and surveillance deadlines pushing the issue back down the queue.
+3. `Virginia's referendum result nationalizes House-control map warfare while foreign policy stays contained` (`25%`): This is the lower-probability but real domestic upside risk because the vote could turn a state referendum into an immediate national seat-math fight if the result is decisive and implementation appears real. Confirming signals would be a clear outcome, rapid party legal mobilization, and national messaging about the 2026 House battlefield. Weakening signals would be a close or legally muddled result, low elite follow-through, or an Iran flare-up that swamps the map story.
 
 ### 1 month
 
-**Scenario: Iran remains an active military and war-powers confrontation into May**  
-**Probability:** 35%  
-**Why this is plausible:** The log's top-ranked issue does not require a dramatic escalation to stay central; a failed or fragile ceasefire, continued blockade enforcement, and repeated congressional complaints about executive authority are enough to keep it live through several news cycles.  
-**Signals that confirm:** repeated short-term ceasefire extensions without settlement; continued naval posture changes; additional legislative attempts or hearings on war powers; allied or oil-market pressure.  
-**Signals that weaken:** a durable ceasefire with visible implementation, diplomatic channel stabilization, or clear agenda migration toward domestic court and surveillance fights.
+1. `The 2026-04-29 TPS argument and the 2026-04-30 FISA deadline create a domestic constitutional pileup` (`40%`): This is the most likely one-month path because both fights require near-term institutional decisions, and the House's Haiti TPS vote already showed that immigration is not just an executive-versus-courts issue. Confirming signals would be sharp or surprising questioning at the TPS argument, another short FISA patch or a failed longer deal, and Senate or White House escalation around Haiti TPS. Weakening signals would be a clean surveillance settlement, muted court proceedings, or a renewed foreign-policy emergency that reorders everything.
 
-**Scenario: TPS and Section 702 create a domestic constitutional pileup**  
-**Probability:** 30%  
-**Why this is plausible:** By late April both issues force hard institutional choices: the Supreme Court hears TPS on April 29 and Section 702 expires again on April 30. If Iran cools at all, those two deadlines can combine into a broader argument over civil liberties, immigration authority, and congressional competence.  
-**Signals that confirm:** sharp questioning or surprise alignments at the TPS argument; another last-minute 702 extension or failed vote; cross-pressured Republicans refusing clean party-line outcomes.  
-**Signals that weaken:** quiet TPS proceedings, an easy 702 deal, or a renewed foreign-policy emergency.
+2. `Iran stays unstable enough to keep security and executive authority at the top of the agenda` (`30%`): This path does not require full-scale escalation, only a fragile ceasefire or repeated near-misses that keep war powers and deterrence politics active. Confirming signals would be rolling short-term ceasefire extensions, maritime or air incidents, and new oversight hearings or war-powers resolutions. Weakening signals would be a durable diplomatic channel and a clear handoff of attention to domestic rulings.
 
-**Scenario: Immigration becomes the main political fight after Haiti TPS fallout**  
-**Probability:** 20%  
-**Why this is plausible:** The House vote already showed some Republican defections. If the Senate takes it up, the White House issues a veto threat, or enforcement actions create sympathetic cases, immigration can outrun the other issues because it links elite conflict to a broader voter coalition.  
-**Signals that confirm:** Senate floor movement on Haiti TPS; presidential escalation against humanitarian protections; polling deterioration among suburban or immigrant-heavy constituencies; state-level resistance.  
-**Signals that weaken:** Senate inaction, a court posture that delays practical consequences, or a different institutional fight drawing more oxygen.
-
-**Scenario: Warsh's nomination turns the Fed into the highest-salience institutional clash**  
-**Probability:** 15%  
-**Why this is plausible:** This needs more than one hearing, but if the White House keeps pressing the issue while Powell and Cook investigations stay in the story, senators and markets could start treating Fed independence as a first-order political battle rather than a niche confirmation fight.  
-**Signals that confirm:** follow-on hearings, high-profile defections or warnings from financial actors, and explicit White House pressure campaigns tied to rates or personnel.  
-**Signals that weaken:** a smooth nomination path, disciplined Senate Republicans, or a stronger public focus on Iran and immigration.
+3. `Congress defaults to patches and litigation, leaving all four April fights unresolved` (`30%`): This is plausible because the source log already shows stopgaps, pending court dates, and same-day electoral uncertainty rather than durable settlement. Confirming signals would be another FISA extension, no clear Senate endpoint on Haiti TPS, Virginia tied up in certification or litigation, and Iran diplomacy that neither fully fails nor fully settles. Weakening signals would be a decisive court ruling, a durable Iran settlement, or a rapid Virginia implementation that clarifies the map fight.
 
 ### 3 months
 
-**Scenario: Iran and surveillance harden into a durable executive-power agenda**  
-**Probability:** 30%  
-**Why this is plausible:** The source log's two security issues both test how much discretionary power the White House can keep in wartime and intelligence policy. If the ceasefire never fully settles and Section 702 is renewed on executive-friendly terms, the medium-term story becomes presidential latitude, not just a sequence of isolated deadlines.  
-**Signals that confirm:** continuing maritime enforcement, weak congressional constraint after new war-powers attempts, a 702 renewal that sidelines major privacy changes, and sustained administration confidence on national-security authorities.  
-**Signals that weaken:** a real Iran settlement, substantive surveillance reforms, or court interventions that narrow executive room.
+1. `Late-June immigration rulings trigger a compliance-and-messaging showdown` (`35%`): Immigration is the most likely issue to move from live docket to concrete governing consequences, especially because the Court's birthright and TPS cases are politically salient and Congress has already shown division. Confirming signals would be broad or operationally meaningful rulings, state resistance or compliance fights, and immigration becoming the clearest voter-facing message war by early summer. Weakening signals would be narrow procedural opinions or delayed practical effects.
 
-**Scenario: TPS litigation and Haiti fallout fracture GOP unity on immigration**  
-**Probability:** 30%  
-**Why this is plausible:** Immigration is the issue most likely to combine court action, humanitarian optics, and visible legislative defections. Over a three-month window, even a narrow TPS ruling or a sustained Senate fight could expose a durable split between restrictionist messaging and members wary of the political costs.  
-**Signals that confirm:** a TPS outcome that constrains enforcement or remands key questions; more bipartisan immigration votes; governors, mayors, and business groups breaking with the administration's preferred line.  
-**Signals that weaken:** a clean administration-favorable court path, firm party unity in Congress, or voter attention staying fixed on foreign policy.
+2. `Another Iran/FISA cycle fractures coalition discipline without resolving executive-power questions` (`25%`): This remains plausible because both security fights are deadline-driven and have already exposed tension between leadership, hawks, and civil-liberties skeptics. Confirming signals would be repeated extensions, more GOP defections, and oversight fights that produce heat but not settlement. Weakening signals would be a durable Section 702 deal or a stable foreign-policy de-escalation.
 
-**Scenario: Fed independence becomes a recurring credibility fight rather than a one-day hearing story**  
-**Probability:** 15%  
-**Why this is plausible:** This remains lower probability because the source log treats it as third-tier today, but over three months it could broaden if the White House keeps trying to influence Fed leadership or if market volatility raises the cost of political pressure on the central bank.  
-**Signals that confirm:** more evidence of White House involvement in investigations, nomination delays or surprise opposition, and repeated market commentary linking politics to central-bank credibility.  
-**Signals that weaken:** Warsh confirmation proceeds without major controversy, inflation and rates become less politically salient, or other crises crowd it out.
+3. `Virginia's redraw becomes a template and warning shot for House map warfare` (`25%`): If the referendum passes or its litigation crystallizes into a concrete fight, both parties are likely to treat Virginia as a precedent rather than a one-off state story. Confirming signals would be rapid court action, national fundraising and messaging around the map, and copycat redistricting talk elsewhere. Weakening signals would be referendum failure, implementation stalling, or little national follow-through.
 
-**Scenario: None of the four fronts resolves cleanly, producing rotating but lower-intensity conflict**  
-**Probability:** 25%  
-**Why this is plausible:** The log's common thread is institutional friction with no obvious settlement mechanism. A plausible medium-term path is not one decisive winner but a sequence of partial extensions, procedural fights, and intermittent flare-ups that keep all four issues alive without letting any single one fully dominate.  
-**Signals that confirm:** repeated stopgaps, remands, delayed votes, and messaging battles without definitive settlement; agenda rotation among Iran, immigration, 702, and the Fed.  
-**Signals that weaken:** any clean break such as a durable Iran settlement, a decisive court ruling, or a major legislative package that collapses uncertainty.
+4. `A fresh Gulf security shock restores hawkish cohesion and sidelines domestic checks` (`15%`): This is the lower-probability but high-impact path in which a new external shock compresses space for internal dissent over war powers and surveillance. Confirming signals would be renewed regional strikes, shipping disruption, and tighter party alignment behind executive action. Weakening signals would be durable diplomacy and calmer energy and transport conditions.
 
 ### 1 year
 
-**Scenario: Executive discretion expands as the durable regime outcome**  
-**Probability:** 30%  
-**Why this is plausible:** The current baseline already centers on failed congressional checks, compressed surveillance deadlines, and pressure on an independent institution. If courts do not impose strong limits and Congress keeps defaulting to stopgaps or symbolic objections, the lasting effect is broader presidential room across security and administrative domains.  
-**Signals that confirm:** weak or failed war-powers enforcement, a durable 702 renewal favorable to the executive, limited judicial constraint in TPS, and normalized political pressure on independent agencies.  
-**Signals that weaken:** courts issue binding limits, congressional coalitions repeatedly defeat executive preferences, or the political costs of overreach become too visible to sustain.
+1. `Courts become the main brake on executive power after the immigration cases` (`30%`): This path is plausible because Congress has so far shown more symbolism than control, while the Supreme Court docket is where the most concrete constraints may emerge. Confirming signals would be notable court limits, compliance litigation, and executive adaptation to judicial boundaries rather than legislative settlement. Weakening signals would be broad administration wins or Congress rediscovering bipartisan constraints.
 
-**Scenario: Courts and bipartisan defectors reimpose partial guardrails**  
-**Probability:** 25%  
-**Why this is plausible:** The source log already shows defections on Haiti TPS and institutional discomfort around the Fed. Over a year, that can translate into a more durable pattern in which judges, moderates, and cross-pressured members stop some but not all executive ambitions.  
-**Signals that confirm:** meaningful TPS constraints, stronger privacy or reporting conditions on surveillance, future bipartisan votes against unilateral security actions, and Senate resistance to overt Fed politicization.  
-**Signals that weaken:** unified party-line behavior and court rulings that largely ratify the administration's position.
+2. `Congress keeps blinking and executive-first governing hardens` (`30%`): This outcome fits a world where failed war-powers checks, FISA stopgaps, and contested immigration actions normalize incremental executive expansion. Confirming signals would be an executive-friendly surveillance renewal, few successful war-powers limits, and continued unilateral immigration messaging. Weakening signals would be durable bipartisan defections or clear judicial setbacks.
 
-**Scenario: Immigration becomes the lasting electoral and governing fault line while Iran cools**  
-**Probability:** 20%  
-**Why this is plausible:** Of the four issues, immigration has the best chance to stay politically salient after immediate deadline effects fade because it mixes court doctrine, congressional coalition management, and durable voter identity conflict. A calmer Iran track would make that shift more likely.  
-**Signals that confirm:** recurring congressional fights over TPS or removals, visible state-federal clashes, polling that keeps immigration atop voter concerns, and reduced attention to Iran or surveillance.  
-**Signals that weaken:** a decisive court loss for TPS claimants combined with successful message discipline from the administration, or a renewed foreign-policy crisis reclaiming the top slot.
+3. `2026 midterm politics turn April's fights into a backlash argument about competence and overreach` (`25%`): This is plausible because Virginia redistricting, immigration salience, and repeated stopgaps can all be absorbed into a broader House-control narrative by the time the campaign is fully formed. Confirming signals would be sustained campaign messaging on overreach and chaos, Virginia-style map fights staying salient, and polling erosion among cross-pressured voters. Weakening signals would be stronger macro or security conditions or sharply lower salience for these issues.
 
-**Scenario: Serial unresolved clashes erode trust without a clear institutional winner**  
-**Probability:** 25%  
-**Why this is plausible:** A full year is long enough for each issue to recur without resolution. That would not produce a clean regime change, but it would leave the political system looking less capable of settling disputes over war powers, migration, surveillance, and central-bank autonomy.  
-**Signals that confirm:** repeated short-term fixes, recurring emergency rhetoric, low-confidence public reaction to institutions, and no durable settlement on the major April catalysts.  
-**Signals that weaken:** any sustained settlement that removes one or more of the current fights from the active agenda.
+4. `Security-crisis politics normalize broader surveillance and force posture` (`15%`): This is the structural downside path in which a renewed external threat keeps civil-liberties and war-powers objections secondary for much of the year. Confirming signals would be emergency legislation, bipartisan hawkish alignment, and surveillance authorities renewed with fewer new constraints. Weakening signals would be prolonged calm abroad and a stronger privacy coalition on Capitol Hill.
 
 ## Most Likely Path
 
-The lead near-term path is still Iran-first: the April 22, 2026 ceasefire deadline is the sharpest catalyst in the source log, and a lapse or failed talks would keep war powers and blockade politics above the other fights for at least the next week. The more important branching question after that is whether Iran partially cools; if it does, the highest-probability next phase is a domestic constitutional pileup around TPS and Section 702 rather than a clean shift to the Fed fight alone.
+The highest-probability path from `2026-04-21` is a narrow Iran de-escalation rather than a clean settlement, which buys enough time for the center of gravity to shift toward the `2026-04-29` TPS argument and the `2026-04-30` FISA deadline. Over the next one to three months, the likeliest durable pattern is that courts become the main arena for checking immigration policy while Congress keeps relying on patches, symbolic fights, and delayed settlements on security authorities. Virginia is most likely to matter as a House-control intensifier rather than the single issue that defines the whole national agenda.
 
 ## Markers To Watch
 
-- Whether a real ceasefire extension or negotiating channel exists by April 22, 2026.
-- Any renewed strikes, maritime incidents, or shipping disruptions tied to the blockade.
-- Kevin Warsh hearing fallout, especially whether Republicans defend Fed independence or align tightly with White House pressure.
-- The tone and legal stakes of the April 29, 2026 TPS argument.
-- Whether Congress reaches a substantive Section 702 deal before April 30, 2026 or falls back to another stopgap.
-- Senate action, veto threats, or further defections around Haiti TPS.
+- Whether the Iran ceasefire is visibly extended or collapses on or just after `2026-04-22`.
+- Virginia referendum returns, certification timing, and any immediate litigation over map activation.
+- The tone and legal stakes of the Supreme Court's TPS argument on `2026-04-29` and any late-June immigration opinions.
+- Whether Congress reaches a real Section 702/FISA settlement before `2026-04-30` or falls back to another stopgap.
+- Any new war-powers hearings, resolutions, or visible Republican defections on Iran.
+- Senate movement, veto threats, or additional cross-party pressure around Haiti TPS.
 
 ## Confidence
 
-Medium. The source log is fresh and well anchored to dated institutional events, but the whole forecast is unusually sensitive to a single unresolved catalyst on April 22, 2026 that could reorder issue salience almost immediately.
+Medium. The source log is fresh and anchored to dated institutional events, but confidence is capped because `2026-04-21` sat directly between an unresolved Iran ceasefire deadline, same-day Virginia voting, and the next week's Court and FISA deadlines.
 
 ## Notes
-Source log path: /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/political-focus-log.md
+Source log path: /workspaces/finance/history/daily/04-21-2026/political-focus-log.md
 Source log date: 04-21-2026
-Refresh status: no live refresh; used same-day source log as baseline
-Additional notes: (none)
+Refresh status: no live refresh; used the same-day source log as the baseline
+Evidence window: 2026-04-15 through 2026-04-21 UTC
+Material caveat: Iran diplomacy and Virginia returns were still evolving during 2026-04-21 UTC

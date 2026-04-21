@@ -2,7 +2,7 @@
 report: "price-prediction-taiex"
 title: "Price Prediction: TAIEX"
 log_date: "04-21-2026"
-generated_at_utc: "2026-04-20T19:42:10Z"
+generated_at_utc: "2026-04-21T04:05:56Z"
 source_skill: "price-prediction"
 ---
 
@@ -10,85 +10,99 @@ source_skill: "price-prediction"
 
 - Report: `price-prediction-taiex`
 - Date: `04-21-2026`
-- Generated At: `2026-04-20T19:42:10Z`
+- Generated At: `2026-04-21T04:05:56Z`
 - Source Skill: `price-prediction`
 
 ## Summary
-Base case is a constructive but concentrated TAIEX path: oil and Fed pressure cap near-term upside, but AI infrastructure and semiconductor leadership keep the medium-term bias positive. The main uncertainty is whether Taiwan-specific or broader shipping and oil stress overwhelms that support.
+Base case is a constructive but concentrated TAIEX path: AI infrastructure and semiconductor leadership keep the index biased higher, while oil, rates, and geopolitical risk cap near-term upside. The main uncertainty is whether a fresh energy or Taiwan-specific geopolitical shock overwhelms that support.
 
 ## Request
-/watchlist-price-predictions
+Use $price-prediction at /workspaces/finance/skills/price-prediction to forecast only this product. Do not spawn more agents.
 
 Assigned product:
 - Symbol: TAIEX
 - Label: Taiwan Capitalization Weighted Stock Index
 - Asset class: index
+- Watchlist file: /workspaces/finance/watchlists/products.yaml
+- Requested date: 2026-04-21
+
+User request:
+Run the repo's daily research pipeline for the exact UTC date 2026-04-21. This watchlist step should generate the normal saved price prediction for this product.
+
+Execution notes:
+- Preserve the exact date 2026-04-21 when reading forecast logs.
+- Verify a live/current reference price before forecasting.
+- Save the result to the normal daily log location.
+- Return the finished product forecast summary, the saved log path if one was written, and any short caveat that materially affects confidence.
 
 ## Output
 Resolved Product
 Taiwan Capitalization Weighted Stock Index (`TAIEX`, official Taiwan Index Plus code `t00`), Taiwanese broad equity index.
 
 Current Price
-36,958.80 observed from the official Taiwan Index Plus TAIEX overview page (`https://taiwanindex.com.tw/en/indexes/t00`) and corroborated by the official TWSE board API (`https://backend.taiwanindex.com.tw/api/indexes?lang=en&market=twse`). I retrieved the official sources at 2026-04-21 03:39:46 CST (+0800). The overview page embedded `last_updated_at` `2026/04/20 13:33:00` for TAIEX and the same TAIEX level of 36,958.80 with change +154.46 (+0.42%). Because the check was before the April 21, 2026 Taiwan cash session opened, I treat 36,958.80 as the latest available close and pre-open reference rather than a live April 21 intraday print.
+37,678.37 observed from the official Taiwan Index Plus sources for TAIEX: the overview page at https://taiwanindex.com.tw/en/indexes/t00 and the official API feed at https://backend.taiwanindex.com.tw/api/indexes?lang=en&market=twse . I retrieved the sources at 2026-04-21T04:04:01Z. The API row for code `t00` showed index `37,678.37`, change `+719.57`, and percentage `+1.95%`. The overview page embedded same-day timestamps `2026/04/21 12:03:10` and chart data through `12:04`, while also stating the page updates every minute. I therefore treat 37,678.37 as an official same-day intraday reference rather than a stale prior close, while noting it is still a web-displayed index value rather than a direct exchange tick feed.
 
 Forecast Inputs
-High relevance: `market-focus-forecast-log.md` and `tech-focus-forecast-log.md`, because TAIEX is heavily exposed to semiconductors, AI hardware, global rates, oil, and broad risk appetite.
-Medium-high relevance: `political-focus-forecast-log.md`, because Hormuz and oil shipping stress directly affect imported-energy inflation, global multiples, and export-sensitive Asia benchmarks.
-Low relevance: `science-focus-forecast-log.md`, which matters mainly through background risk appetite rather than direct TAIEX sector exposure.
+Used every available `*-focus-forecast-log.md` for the exact requested UTC date `2026-04-21`.
+- High relevance: `/workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md` and `/workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md`, because TAIEX is dominated by semiconductors, AI hardware, global rates, and broad risk appetite.
+- Medium-high relevance: `/workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md`, mainly through Iran/Hormuz, oil, shipping, and yield spillovers.
+- Low relevance: `/workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md`, mostly background risk-appetite context.
 
 Price Targets
 
 1 week
-- Dominant scenario: the April 22, 2026 Iran deadline passes into messy containment while Google Cloud Next mostly reinforces the existing AI infrastructure demand path.
-- Expected effect: oil and Fed caution cap broad upside, but semiconductor leaders keep TAIEX near highs.
-- Target price: 37,200
-- Likely range: 36,200 to 38,100
+- Dominant scenario: Iran/Hormuz risk stays in messy containment while Google Cloud Next validates the agentic-cloud and AI-infrastructure spend path without producing a macro shock.
+- Expected effect: near-term upside stays capped by oil and yields, but TSMC-linked and server/AI-hardware strength keeps TAIEX near highs.
+- Target price: 37,900
+- Likely range: 36,700 to 38,700
 - Confidence: medium
 
 1 month
-- Dominant scenario: oil stays somewhat elevated into May and Fed repricing remains firm, but Samsung and related earnings keep confirming AI capex breadth and semiconductor demand.
-- Expected effect: TAIEX retests and modestly clears recent highs, with leadership still concentrated in TSMC-linked and AI hardware names.
-- Target price: 38,400
-- Likely range: 35,800 to 39,600
+- Dominant scenario: oil remains elevated enough to keep global rates restrictive, but post-Cloud-Next and related AI-capex follow-through still favors Taiwan's semiconductor and electronics exporters.
+- Expected effect: constructive but concentrated advance rather than a broad melt-up.
+- Target price: 39,200
+- Likely range: 36,800 to 40,400
 - Confidence: medium
 
 3 months
-- Dominant scenario: managed geopolitical instability persists, but AI infrastructure demand remains strong enough to keep semiconductors, servers, packaging, and electronics exporters leading the benchmark.
-- Expected effect: earnings and capex support a continued grind higher rather than a full-market melt-up.
-- Target price: 40,800
-- Likely range: 37,000 to 42,800
+- Dominant scenario: managed geopolitical instability persists through the summer, yet AI infrastructure demand and packaging/server/export momentum remain strong enough to keep TAIEX trending higher.
+- Expected effect: earnings-led grind higher with continued concentration in a handful of technology leaders.
+- Target price: 41,300
+- Likely range: 37,800 to 42,900
 - Confidence: medium
 
 1 year
-- Dominant scenario: higher energy and rate floors do not trigger a recession, and Taiwan AI supply-chain leaders keep capturing outsized earnings growth, but the advance slows versus the last year because the starting level is already elevated.
-- Expected effect: constructive structural uptrend, but more earnings-led and more volatile than the last leg higher.
-- Target price: 43,500
-- Likely range: 34,000 to 48,500
+- Dominant scenario: higher energy and rate floors do not trigger recession, and Taiwan's AI supply-chain leaders keep capturing disproportionate earnings growth, though gains come with wider volatility and narrower breadth.
+- Expected effect: constructive structural uptrend, driven more by earnings than by broad multiple expansion.
+- Target price: 45,000
+- Likely range: 35,500 to 49,500
 - Confidence: low
 
 Most Likely Path
-Base case is a constructive but concentrated TAIEX path. The market and political logs keep near-term oil and rate pressure high enough to limit broad participation, while the tech log remains supportive for the semiconductor and AI hardware complex that dominates the index. That argues for choppy upside over the next month, a stronger three-month bid if AI capex keeps confirming, and a positive but less explosive one-year path.
+Base case is a constructive but concentrated TAIEX path. The market and political logs keep near-term oil and rate pressure high enough to limit broad participation, while the tech log remains materially supportive for the semiconductor and AI-hardware complex that dominates the index. That points to choppy upside over the next month, a stronger three-month bid if AI capex keeps confirming, and a positive but more volatile one-year path from an already elevated starting level.
 
 What Would Change The Call
-- Raise the forecast: a credible Strait of Hormuz normalization, Brent moving decisively lower, softer U.S. yields, or stronger evidence after Google Cloud Next and Samsung that AI infrastructure demand is broadening beyond a few leaders.
-- Lower the forecast: Brent sustaining another leg higher, renewed shipping disruption, a more hawkish April 28-29, 2026 FOMC response to energy-driven inflation, or signs that tighter global financial conditions are compressing semiconductor multiples.
-- Invalidate the forecast: a material break in AI capex or TSMC order strength, a Taiwan-specific political or regulatory shock, or cross-Strait escalation large enough to dominate the global scenarios in todays logs.
+- Raise the forecast: a durable Strait of Hormuz de-escalation, Brent moving materially lower, softer U.S. yields, or stronger post-Cloud-Next and supplier commentary that broadens AI demand confidence.
+- Lower the forecast: renewed shipping disruption, Brent sustaining another leg higher, a more hawkish late-April Fed repricing, or weaker foundry, packaging, server, or memory demand signals.
+- Invalidate the forecast: a material AI-capex break, Taiwan-specific political or regulatory shock, or cross-Strait escalation large enough to dominate the global scenarios in today's logs.
 
 Confidence
-Medium. Directional support is decent because TAIEX is a broad index and todays market and tech logs map directly to its composition, but confidence is capped because the index is unusually concentrated in a handful of semiconductor leaders and todays logs do not directly cover Taiwan-specific policy, FX, or cross-Strait risk.
+Medium. Directionally the signal is decent because the same-day market and tech forecast logs map directly to TAIEX's composition, but confidence is capped because the index is highly concentrated in a small number of semiconductor leaders and the available focus logs do not directly cover Taiwan-specific policy, FX, or cross-Strait developments.
 
 ## Notes
 Product type: Taiwan equity index.
 Price source 1: official Taiwan Index Plus TAIEX overview page at https://taiwanindex.com.tw/en/indexes/t00
-Price source 2: official Taiwan Index Plus or TWSE board API payload at https://backend.taiwanindex.com.tw/api/indexes?lang=en&market=twse
-Observed price: 36,958.80
-Observed change: +154.46 (+0.42%)
-Retrieved at: 2026-04-21 03:39:46 CST (+0800)
-Source page timestamp: `2026/04/20 13:33:00` embedded as `last_updated_at` for TAIEX on the overview page. Inference: this is the latest available Taiwan-market close or pre-open reference because the retrieval occurred before the April 21 cash session opened.
+Price source 2: official Taiwan Index Plus API at https://backend.taiwanindex.com.tw/api/indexes?lang=en&market=twse
+Observed price: 37,678.37
+Observed change: +719.57 (+1.95%)
+Retrieved at: 2026-04-21T04:04:01Z
+Source page timing details: overview page embedded `2026/04/21 12:03:10` and chart data through `12:04` local Taiwan time during retrieval.
+Quote status: official same-day intraday reference from the Taiwan Index Plus web/API surfaces; not treated as a prior close.
 Forecast logs used:
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/market-focus-forecast-log.md
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/political-focus-forecast-log.md
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/tech-focus-forecast-log.md
-- /Users/jhpeng/projects/ai/finance/history/daily/04-21-2026/science-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/market-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/political-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/science-focus-forecast-log.md
+- /workspaces/finance/history/daily/04-21-2026/tech-focus-forecast-log.md
 Missing domains: none.
-Major assumptions: `market` and `tech` are both primary for TAIEX because of semiconductor concentration; `political` is secondary but important through oil, shipping, and rate transmission; `science` is low relevance; Taiwan-specific FX, regulatory, and cross-Strait risks are inference rather than directly sourced from todays focus logs.
+Major assumptions: `market` and `tech` are primary for TAIEX because of semiconductor and AI-hardware concentration; `political` is secondary but important through oil, shipping, and rate transmission; `science` is low relevance. Taiwan-specific FX, regulatory, and cross-Strait risks are inference rather than directly sourced from the dated focus logs.
+Date handling: forecast-log discovery and log write were both pinned to the exact requested UTC date `2026-04-21`.
