@@ -1,6 +1,12 @@
 {
   "name": "finance",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "containerEnv": {
+    "TZ": "Asia/Taipei"
+  },
+  "remoteEnv": {
+    "TZ": "Asia/Taipei"
+  },
   "remoteUser": "vscode",
   "updateRemoteUserUID": true,
   "customizations": {
