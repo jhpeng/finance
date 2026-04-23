@@ -125,6 +125,14 @@ status_lines() {
   git -C "$root" status --short --untracked-files=all -- "$daily_dir"
 }
 
+clean_paths_to_file() {
+  local output_file="$1"
+  while IFS= read -r line; do
+    [[ -n "$line" ]] || continue
+    status_path_from_line "$line"
+  done | sort -u > "$output_file"
+}
+
 case "$command_name" in
   snapshot)
     status_lines
@@ -151,22 +159,25 @@ case "$command_name" in
       exit 2
     fi
 
-    declare -A baseline_paths=()
-    declare -A current_paths=()
+    baseline_paths_file="$(mktemp)"
+    current_paths_file="$(mktemp)"
+    blocking_paths_file="$(mktemp)"
+    candidate_paths_file="$(mktemp)"
+    cleanup_files=(
+      "$baseline_paths_file"
+      "$current_paths_file"
+      "$blocking_paths_file"
+      "$candidate_paths_file"
+    )
+    cleanup_commit_files() {
+      rm -f "${cleanup_files[@]}"
+    }
+    trap cleanup_commit_files EXIT
 
-    while IFS= read -r line; do
-      [[ -n "$line" ]] || continue
-      path="$(status_path_from_line "$line")"
-      baseline_paths["$path"]=1
-    done < "$baseline_file"
+    clean_paths_to_file "$baseline_paths_file" < "$baseline_file"
+    status_lines | clean_paths_to_file "$current_paths_file"
 
-    while IFS= read -r line; do
-      [[ -n "$line" ]] || continue
-      path="$(status_path_from_line "$line")"
-      current_paths["$path"]=1
-    done < <(status_lines)
-
-    if [[ "${#current_paths[@]}" -eq 0 ]]; then
+    if [[ ! -s "$current_paths_file" ]]; then
       print_key_value "COMMIT_CREATED" "0"
       print_key_value "REASON" "no-daily-changes"
       exit 0
@@ -177,12 +188,14 @@ case "$command_name" in
 
     while IFS= read -r path; do
       [[ -n "$path" ]] || continue
-      if [[ -n "${baseline_paths[$path]:-}" ]]; then
+      if grep -Fqx -- "$path" "$baseline_paths_file"; then
         blocking_paths+=("$path")
+        printf '%s\n' "$path" >> "$blocking_paths_file"
       else
         candidate_paths+=("$path")
+        printf '%s\n' "$path" >> "$candidate_paths_file"
       fi
-    done < <(printf '%s\n' "${!current_paths[@]}" | sort)
+    done < "$current_paths_file"
 
     if [[ "${#blocking_paths[@]}" -gt 0 ]]; then
       print_key_value "COMMIT_CREATED" "0"
@@ -190,7 +203,7 @@ case "$command_name" in
       while IFS= read -r path; do
         [[ -n "$path" ]] || continue
         print_key_value "DIRTY_PATH" "$path"
-      done < <(printf '%s\n' "${blocking_paths[@]}" | sort -u)
+      done < <(sort -u "$blocking_paths_file")
       exit 2
     fi
 
@@ -248,7 +261,7 @@ case "$command_name" in
     while IFS= read -r path; do
       [[ -n "$path" ]] || continue
       print_key_value "COMMITTED_PATH" "$path"
-    done < <(printf '%s\n' "${candidate_paths[@]}" | sort -u)
+    done < <(sort -u "$candidate_paths_file")
     ;;
   *)
     printf 'Unknown command: %s\n' "$command_name" >&2

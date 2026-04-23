@@ -71,10 +71,7 @@ logs_dir="${repo_root}/history/daily/${resolved_date}"
 [[ -d "$logs_dir" ]] || exit 0
 
 shopt -s nullglob
-matches=("${logs_dir}"/*-focus-forecast-log.md)
-shopt -u nullglob
-
-for match in "${matches[@]}"; do
+for match in "${logs_dir}"/*-focus-forecast-log.md; do
   [[ -f "$match" ]] || continue
 
   filename="$(basename -- "$match")"
@@ -88,3 +85,4 @@ for match in "${matches[@]}"; do
     printf '%s\t%s\n' "$report_key" "$log_path"
   fi
 done | sort
+shopt -u nullglob

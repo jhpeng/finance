@@ -45,33 +45,58 @@ declare -a roots=(
   "$HOME/.codex/skills"
   "$PWD/skills"
 )
-declare -A seen_roots=()
-declare -A seen_names=()
+seen_roots=""
+seen_names=""
+
+list_contains() {
+  local list="$1"
+  local needle="$2"
+  local item=""
+
+  while IFS= read -r item; do
+    [ -n "$item" ] || continue
+    if [ "$item" = "$needle" ]; then
+      return 0
+    fi
+  done <<EOF
+$list
+EOF
+
+  return 1
+}
+
+list_append() {
+  local list="$1"
+  local value="$2"
+
+  if [ -z "$list" ]; then
+    printf '%s' "$value"
+  else
+    printf '%s\n%s' "$list" "$value"
+  fi
+}
 
 for root in "${roots[@]}"; do
   [ -d "$root" ] || continue
 
-  if [ -n "${seen_roots[$root]:-}" ]; then
+  if list_contains "$seen_roots" "$root"; then
     continue
   fi
-  seen_roots["$root"]=1
+  seen_roots="$(list_append "$seen_roots" "$root")"
 
   shopt -s nullglob
-  matches=("$root"/*-focus-topics)
-  shopt -u nullglob
-
-  for match in "${matches[@]}"; do
+  for match in "$root"/*-focus-topics; do
     [ -d "$match" ] || continue
 
     skill_name="$(basename -- "$match")"
-    if [ -n "${seen_names[$skill_name]:-}" ]; then
+    if list_contains "$seen_names" "$skill_name"; then
       continue
     fi
 
     skill_path="$(readlink -f -- "$match" 2>/dev/null || printf '%s' "$match")"
     [ -f "$skill_path/SKILL.md" ] || continue
 
-    seen_names["$skill_name"]=1
+    seen_names="$(list_append "$seen_names" "$skill_name")"
 
     if [ "$names_only" -eq 1 ]; then
       printf '%s\n' "$skill_name"
@@ -79,4 +104,5 @@ for root in "${roots[@]}"; do
       printf '%s\t%s\n' "$skill_name" "$skill_path"
     fi
   done
+  shopt -u nullglob
 done | sort
